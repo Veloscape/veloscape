@@ -11,5 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@showWelcome');
+Route::get('/', 'MapController@index');
 
+Route::get('/blah', function() {
+    return '<p>blah<p>';
+});
