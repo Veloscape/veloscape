@@ -1,7 +1,19 @@
-//add a listener for click events
-google.maps.event.addListener(map, 'click', function(event) {
-    mapClick(event.latLng);
-});
+
+//init poly settings
+var poly;
+
+function polyInitalize() {
+    var polyOptions = {
+        strokeColor: strokeColor,
+        strokeOpacity: strokeOpacity,
+        strokeWeight: strokeWeight,
+    };
+    poly = new google.maps.Polyline(polyOptions);
+    poly.setMap(map);
+}
+
+polyInitialize();
+
 
 function mapClick(location) {
     var path = poly.getPath();
@@ -19,3 +31,10 @@ function mapClick(location) {
         }
     });
 }
+
+//add a listener for click events
+$(document).ready(function() {
+    google.maps.event.addListener(map, 'click', function(event) {
+        mapClick(event.latLng);
+    });
+});
