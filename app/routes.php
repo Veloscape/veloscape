@@ -22,3 +22,7 @@ Route::get('/blah', array('as' => 'partialMarkerFeedback',
 Route::get('/a', function() {
     return View::make('map.accordian');
 });
+
+Route::get('/test', function() {
+    return View::make('test');
+});

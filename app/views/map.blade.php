@@ -5,19 +5,37 @@
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     {{ HTML::script('js/map.js') }}
     @include('js.map-events')
-@stop
+    <script>
+    $(document).ready(function() {
+        $('#feedback-container').height($('#map').height());
+    });
+    
+    $(window).resize(function() {
+        $('#feedback-container').height($('#map').height());
+        $('#accordion').accordion("refresh");
+    });
+
+  $(function() {
+      $( "#accordion" ).accordion({
+          heightStyle: "fill",
+            collapsible: "true"
+      });
+  });
+    
+    </script>
+    @stop
 
 @section('body')
 
 
     <div class="row" style="padding:4%;">
 
-        <div class="col-md-6" style="background-color: #999999; padding-bottom: 45%">
+        <div class="col-md-6" id="map-container" style="background-color: #999999; padding-bottom: 45%">
             @include('map.map')
         </div>
         
-        <div class="col-md-6" style="background-color: #eeeeee">
-            @include('map.accordian')
+        <div class="col-md-6" id="feedback-container" style="background-color: #eeeeee;">
+            @include('test-accordion')
         </div>
     </div>
 
