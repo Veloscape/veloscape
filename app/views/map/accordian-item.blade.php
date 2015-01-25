@@ -8,7 +8,7 @@
     </div>
     <div id="collapse{{ $id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $id }}">
         <div class="panel-body">
-            @include('velo.form')
+            @include('map.form')
         </div>
     </div>
 </div>

@@ -17,9 +17,7 @@
         </div>
         
         <div class="col-md-6" style="background-color: #eeeeee">
-            <div class="container">
-    
-            </div>
+            @include('map.accordian')
         </div>
     </div>
 

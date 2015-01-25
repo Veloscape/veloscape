@@ -16,4 +16,9 @@ Route::get('/', 'MapController@index');
 Route::get('/blah', array('as' => 'partialMarkerFeedback', 
     function() {
         return '<p>blah<p>';
-    }));
+    })
+);
+
+Route::get('/a', function() {
+    return View::make('map.accordian');
+});

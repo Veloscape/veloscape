@@ -1,10 +1,10 @@
 <form class="form-horizontal">
-    @include('velo.form.location') 
-    @include('velo.form.rate1')
-    @include('velo.form.rate2')
-    @include('velo.form.rate3')
-    @include('velo.form.rate4')
-    @include('velo.form.rate5')
-    @include('velo.form.options')
-    @include('velo.form.comments')
+    @include('map.form.location') 
+    @include('map.form.rate1')
+    @include('map.form.rate2')
+    @include('map.form.rate3')
+    @include('map.form.rate4')
+    @include('map.form.rate5')
+    @include('map.form.options')
+    @include('map.form.comments')
 </form>
