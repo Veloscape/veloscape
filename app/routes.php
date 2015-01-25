@@ -13,6 +13,7 @@
 
 Route::get('/', 'MapController@index');
 
-Route::get('/blah', function() {
-    return '<p>blah<p>';
-});
+Route::get('/blah', array('as' => 'partialMarkerFeedback', 
+    function() {
+        return '<p>blah<p>';
+    }));

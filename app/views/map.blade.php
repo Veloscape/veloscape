@@ -4,7 +4,7 @@
     @parent
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     {{ HTML::script('js/map.js') }}
-    {{ HTML::script('js/map-events.js') }}
+    @include('js.map-events')
 @stop
 
 @section('body')
