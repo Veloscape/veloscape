@@ -35,7 +35,7 @@
         </div>
         
         <div class="col-md-6" id="feedback-container" style="background-color: #eeeeee;">
-            @include('test-accordion')
+            @include('map.accordion')
         </div>
     </div>
 

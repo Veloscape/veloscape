@@ -26,7 +26,6 @@ function polyInitialize() {
 }
 
 function initialize() {
-    polyInitialize(); 
     var mapOptions = {
         center: center,
         zoom: zoom,
@@ -34,6 +33,7 @@ function initialize() {
     };
 
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    polyInitialize(); 
 
     google.maps.event.addListener(map, 'click', function(event) {
         mapClick(event.latLng);

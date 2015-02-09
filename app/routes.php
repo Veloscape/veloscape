@@ -15,12 +15,12 @@ Route::get('/', 'MapController@index');
 
 Route::get('/blah', array('as' => 'partialMarkerFeedback', 
     function() {
-        return '<p>blah<p>';
+        return View::make('map.accordion-item');
     })
 );
 
 Route::get('/a', function() {
-    return View::make('map.accordian');
+    return View::make('map.accordion');
 });
 
 Route::get('/test', function() {

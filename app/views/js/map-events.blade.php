@@ -1,7 +1,6 @@
 <script type="text/javascript">
     function mapClick(location) {
         var path = poly.getPath();
-
         path.push(location);
 
         var marker = new google.maps.Marker({
@@ -10,8 +9,9 @@
         });
         $.ajax({
             url: '{{URL::route('partialMarkerFeedback')}}',
-            success: function(data) {
-                $('.container').append(data);
+                success: function(data) {
+                $('#accordion').append(data);
+                $('#accordion').accordion("refresh");
             }
         });
     }
