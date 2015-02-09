@@ -32,7 +32,7 @@
 
     <div class="row" style="padding-left:4%; padding-right:4%;">
         <form>
-            <div class="col-md-3 col-md-offset-4 form-group">
+            <div class="col-md-5 col-md-offset-3 form-group">
                 <input type="text" class="form-control" id="locationSearch" placeholder="Enter a location to begin">
             </div>
             <div class="col-md-1 form-group">
