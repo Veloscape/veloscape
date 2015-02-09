@@ -32,10 +32,10 @@
 
     <div class="row" style="padding-left:4%; padding-right:4%;">
         <form>
-            <div class="col-md-5 col-md-offset-3 form-group">
+            <div class="col-sm-5 col-md-offset-3 form-group">
                 <input type="text" class="form-control" id="locationSearch" placeholder="Enter a location to begin">
             </div>
-            <div class="col-md-1 form-group">
+            <div class="col-sm-1 form-group">
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
         </form>
