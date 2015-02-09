@@ -26,7 +26,21 @@
     @stop
 
 @section('body')
+    
+    <div class="row" style="padding:4%;">
+    </div>
 
+    <div class="row" style="padding-left:4%; padding-right:4%;">
+        <form>
+            <div class="col-md-3 col-md-offset-4 form-group">
+                <input type="text" class="form-control" id="locationSearch" placeholder="Enter a location to begin">
+            </div>
+            <div class="col-md-1 form-group">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+        
+    </div>
 
     <div class="row" style="padding:4%;">
 
