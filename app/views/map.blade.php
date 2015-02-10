@@ -3,32 +3,31 @@
 @section('head')
     @parent
     <script src="http://maps.googleapis.com/maps/api/js"></script>
-    {{ HTML::script('js/map.js') }}
+    @include('js.map')
     @include('js.map-events')
     <script>
-    $(document).ready(function() {
-        $('#feedback-container').height($('#map').height());
-    });
-    
-    $(window).resize(function() {
-        $('#feedback-container').height($('#map').height());
-        $('#accordion').accordion("refresh");
-    });
+        $(document).ready(function() {
+            $('#feedback-container').height($('#map').height());
+        });
+        
+        $(window).resize(function() {
+            $('#feedback-container').height($('#map').height());
+            $('#accordion').accordion("refresh");
+        });
 
-  $(function() {
-      $( "#accordion" ).accordion({
-          heightStyle: "fill",
-            collapsible: "true"
-      });
-  });
+        $(function() {
+            $( "#accordion" ).accordion({
+                heightStyle: "fill",
+                collapsible: "true"
+            });
+        });
     
     </script>
     @stop
 
 @section('body')
     
-    <div class="row" style="padding:4%;">
-    </div>
+    @include('layouts.header')
 
     <div class="row" style="padding-left:4%; padding-right:4%;">
         <form>
