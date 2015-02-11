@@ -4,6 +4,7 @@
     @parent
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     @include('js.map')
+    @include('js.map-style')
     @include('js.map-events')
     <script>
         $(document).ready(function() {

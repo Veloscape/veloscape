@@ -29,7 +29,8 @@ function initialize() {
     var mapOptions = {
         center: center,
         zoom: zoom,
-        mapTypeId: mapTypeId 
+        mapTypeId: mapTypeId,
+        styles: style 
     };
 
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
