@@ -20,3 +20,11 @@
     background:transparent url('../img/logo-white.png') center no-repeat;
     background-size:contain
 }
+
+.navbar-inverse .navbar-collapse {
+    font-size: 18px;
+}
+
+.navbar-inverse .navbar-left {
+    margin-top: 40px;
+}

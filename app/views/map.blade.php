@@ -28,28 +28,28 @@
 @section('body')
     
     @include('layouts.navbar')
-
-    <div class="row" style="padding-left:4%; padding-right:4%;">
-        <form>
-            <div class="col-sm-5 col-md-offset-3 form-group">
-                <input type="text" class="form-control" id="locationSearch" placeholder="Enter a location to begin">
-            </div>
-            <div class="col-sm-1 form-group">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-        </form>
-        
-    </div>
-
-    <div class="row" style="padding:4%;">
-
-        <div class="col-md-6" id="map-container" style="background-color: #999999; padding-bottom: 45%">
-            @include('map.map')
+    <div class="container-fluid">
+        <div class="row">
+            <form>
+                <div class="col-sm-5 col-md-offset-3 form-group">
+                    <input type="text" class="form-control" id="locationSearch" placeholder="Enter a location to begin">
+                </div>
+                <div class="col-sm-1 form-group">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+            
         </div>
-        
-        <div class="col-md-6" id="feedback-container" style="background-color: #eeeeee;">
-            @include('map.accordion')
+
+        <div class="row" style="max-height: 685px">
+
+            <div class="col-md-6" id="map-container" style="background-color: #999999; padding-bottom: 45%; max-height: 685px">
+                @include('map.map')
+            </div>
+            
+            <div class="col-md-6" id="feedback-container" style="background-color: #eeeeee;">
+                @include('map.accordion')
+            </div>
         </div>
     </div>
-
 @stop
