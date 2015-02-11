@@ -27,7 +27,7 @@
 
 @section('body')
     
-    @include('layouts.header')
+    @include('layouts.navbar')
 
     <div class="row" style="padding-left:4%; padding-right:4%;">
         <form>

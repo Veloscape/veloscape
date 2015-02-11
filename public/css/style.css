@@ -1,0 +1,22 @@
+.navbar-inverse{
+    margin-bottom:0;
+    background-color:#363636;
+    border:none
+}
+
+.navbar-inverse .navbar-brand{
+    height:100px;
+    line-height:100px;
+}
+
+.navbar>.container-fluid .navbar-brand{
+    display:table;
+}
+
+.navbar>.container-fluid .navbar-brand .logo{
+    display:table-cell;
+    width:200px;
+    height:auto;
+    background:transparent url('../img/logo-white.png') center no-repeat;
+    background-size:contain
+}
