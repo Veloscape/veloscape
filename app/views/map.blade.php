@@ -41,9 +41,9 @@
             
         </div>
 
-        <div class="row" style="max-height: 685px">
+        <div class="row">
 
-            <div class="col-md-6" id="map-container" style="background-color: #999999; padding-bottom: 45%; max-height: 685px">
+            <div class="col-md-6" id="map-container" style="background-color: #999999; padding-bottom: 45%;">
                 @include('map.map')
             </div>
             
