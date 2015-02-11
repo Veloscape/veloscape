@@ -6,6 +6,7 @@
         var marker = new google.maps.Marker({
             position: location,
             map: map,
+            draggable: true
         });
         $.ajax({
             url: '{{URL::route('partialMarkerFeedback')}}',
