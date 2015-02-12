@@ -21,7 +21,9 @@ container and container-max-width-settings
     }
 }
 
-
+/*
+ * Navbar Settings
+ */
 .navbar-inverse{
     margin-bottom:0;
     background-color:#363636;
@@ -54,3 +56,23 @@ container and container-max-width-settings
 .navbar-inverse .navbar-left {
     margin-top: 40px;
 }
+
+/* Footer padding */
+.footer-divider{
+    padding-bottom:2px;
+    background-color: #363636;
+    margin-top:10px;
+}
+.footer {
+    background-color: #868686;
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+.footer img{
+    padding: 5px;
+    border: 2px solid #363636;
+    background-color: #ffffff; 
+}
+
+
