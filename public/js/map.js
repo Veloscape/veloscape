@@ -29,6 +29,8 @@ function initialize() {
     var mapOptions = {
         center: center,
         zoom: zoom,
+        streetViewControl: false,
+        mapTypeControl: false,
         mapTypeId: mapTypeId,
         styles: style 
     };
