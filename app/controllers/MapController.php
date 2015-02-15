@@ -8,4 +8,9 @@ class MapController extends BaseController {
         return View::make('map');
     }
 
+    public function save()
+    {
+        return Input::all();
+    }
+
 }

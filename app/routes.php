@@ -13,9 +13,19 @@
 
 Route::get('/', 'MapController@index');
 
+Route::post('/', 'MapController@save');
+
 Route::get('/blah', array('as' => 'partialMarkerFeedback', 
     function() {
-        return View::make('map.accordion-item');
+        $poi = 'poi['.Input::get('id').']';
+        $lat = $poi.'[lat]';
+        $lng = $poi.'[lng]';
+
+
+        $data = array(
+                'lat' => $lat,
+                'lng' => $lng);
+        return View::make('map.form-test', $data);
     })
 );
 

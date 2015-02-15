@@ -30,15 +30,8 @@
     
     @include('layouts.navbar')
     <div class="container">
+        {{ Form::open() }}
         <div class="row">
-            <form>
-                <div class="col-sm-5 col-md-offset-3 form-group">
-                    <input type="text" class="form-control" id="locationSearch" placeholder="Enter a location to begin">
-                </div>
-                <div class="col-sm-1 form-group">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </div>
-            </form>
             
         </div>
 
@@ -52,6 +45,8 @@
                 @include('map.accordion')
             </div>
         </div>
+        {{ Form::submit() }}
+        {{ Form::close() }}
     </div>
     @include('layouts.footer')
 @stop
