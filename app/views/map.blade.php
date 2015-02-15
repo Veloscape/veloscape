@@ -45,7 +45,7 @@
         <div class="row">
 
             <div class="col-md-6" id="map-container" style="background-color: #999999; padding-bottom: 45%;">
-                @include('map.map')
+                @include('map.map-container')
             </div>
             
             <div class="col-md-6" id="feedback-container" style="background-color: #eeeeee;">

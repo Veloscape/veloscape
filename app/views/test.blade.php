@@ -6,7 +6,18 @@
     @include('js.map')
     @include('js.map-style')
     @include('js.map-events')
-    <script>
+    <script type="text/javascript">
+            
+        function addAccordion() {
+            $.ajax({
+                url: '{{URL::route('partialMarkerFeedback')}}',
+                    success: function(data) {
+                    $('#accordion').append(data);
+                    $('#accordion').accordion("refresh");
+                    }
+            });
+        }
+
         $(document).ready(function() {
             $('#feedback-container').height($('#map').height());
         });
@@ -32,7 +43,8 @@
         <div class="row">
 
             <div class="col-md-6" id="map-container" style="background-color: #999999; padding-bottom: 45%;">
-                <button class="btn btn-default" type="button">Create new marker</button>
+                <button class="btn btn-default" type="button" onclick="addAccordion()">Create new marker</button>
+                <button class="btn btn-primary" type="submit">Submit</button>
             </div>
             <div class="col-md-6" id="feedback-container" style="background-color: #eeeeee;">
                 @include('map.accordion')
