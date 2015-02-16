@@ -37,11 +37,11 @@
 
         <div class="row">
 
-            <div class="col-md-6" id="map-container" style="background-color: #999999; padding-bottom: 45%;">
+            <div class="col-md-8" id="map-container" style="background-color: #999999; padding-bottom: 45%;">
                 @include('map.map-container')
             </div>
             
-            <div class="col-md-6" id="feedback-container" style="background-color: #eeeeee;">
+            <div class="col-md-4" id="feedback-container" style="background-color: #eeeeee;">
                 @include('map.accordion')
             </div>
         </div>
