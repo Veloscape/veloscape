@@ -10,7 +10,12 @@
     {{ Form::label($lng, 'lng') }}
     {{ Form::text($lng) }}
     </div>
-    
+
+    <div>
+    {{ Form::label($revgeo, 'reverse geocode') }}
+    {{ Form::text($revgeo) }}
+    </div>
+
     <div>
     {{ Form::label($type, 'type') }}
     {{ Form::text($type) }}
