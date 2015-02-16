@@ -44,6 +44,10 @@ Route::get('/blah', array('as' => 'partialMarkerFeedback',
     })
 );
 
+Route::get('/comingsoon', function() {
+    return View::make('landing');
+});
+
 Route::get('/a', function() {
     return View::make('map.accordion');
 });

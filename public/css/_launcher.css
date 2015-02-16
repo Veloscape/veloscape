@@ -1,0 +1,70 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("/img/landing-bg.jpg");
+    background-size: cover;
+}
+
+.bg {
+    height:100%;
+    width: 100%;
+    background: white;
+    opacity: 0.5;
+
+}
+
+.landing img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+
+}
+
+
+.landing {
+    margin: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.landing-text {
+    margin-bottom: 50px;
+}
+
+h1, h2 {
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 38px;
+    letter-spacing: 10px;
+}
+
+.h2-small {
+    margin-top:0px;
+}
+
+.h2-small small {
+    color: black;
+}
+
+.media-icons a {
+    background: black;
+    border-color: grey;
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+.media-icons i {
+    color: white;
+}
