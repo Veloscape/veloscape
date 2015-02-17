@@ -13,7 +13,7 @@
 <div class="bg"></div>
 
 <div class="landing">
-    {{ HTML::image('img/veloscape-gear.png', 'veloscape logo', array('class' => 'img-responsive logo')) }}
+    {{ HTML::image('img/veloscape-gear-black.png', 'veloscape logo', array('class' => 'img-responsive logo')) }}
     <div class="landing-text" style="text-align:center;">
         <h1><strong>VELOSCAPE</strong></h1>
         <h2><em><strong>a Curating Cities project</strong></em></h2>
@@ -21,9 +21,9 @@
     </div>
     <div style="text-align: center">
         <div class="media-icons">
-            <a class="btn btn-warning" href="mailto:veloscape@unsw.edu.au"><i class="fa fa-envelope-o fa-2x"></i></a>
+            <a class="btn btn-danger" href="mailto:veloscape@unsw.edu.au"><i class="fa fa-envelope fa-2x fa-fw"></i></a>
             
-            <a class="btn btn-warning" href="https://www.facebook.com/veloscape" role="button"><i class="fa fa-facebook fa-2x"></i></a>
+            <a class="btn btn-primary" href="https://www.facebook.com/veloscape" role="button"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
         </div>
     </div>
     

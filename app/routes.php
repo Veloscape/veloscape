@@ -48,6 +48,10 @@ Route::get('/comingsoon', function() {
     return View::make('landing');
 });
 
+Route::get('/comingsoon2', function() {
+    return View::make('landing_white');
+});
+
 Route::get('/a', function() {
     return View::make('map.accordion');
 });
