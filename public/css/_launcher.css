@@ -6,8 +6,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: url("/img/landing-bg.jpg");
-    background-size: cover;
+    background: white:
 }
 
 .bg {
@@ -65,4 +64,10 @@ h1 {
 }
 .media-icons i {
     color: white;
+}
+
+.btn {
+    padding: 6px 3px;
+    background-color: black;
+    border-color: black;
 }
