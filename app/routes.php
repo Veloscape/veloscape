@@ -11,51 +11,13 @@
 |
 */
 
-Route::get('/', 'MapController@index');
+Route::get('/', array('as' => 'home', function() 
+{
+    return Redirect::to('comingsoon');
+}));
 
-Route::post('/', 'MapController@save');
 
-Route::get('/blah', array('as' => 'partialMarkerFeedback', 
-    function() {
-        $poi = 'poi['.Input::get('id').']';
-        $lat = $poi.'[lat]';
-        $lng = $poi.'[lng]';
-        $revgeo = $poi.'[revgeocode]';
-        $type = $poi.'[type]';
-        $rate1 = $poi.'[rate1]';
-        $rate2 = $poi.'[rate2]';
-        $rate3 = $poi.'[rate3]';
-        $rate4 = $poi.'[rate4]';
-        $rate5 = $poi.'[rate5]';
-        $comments = $poi.'[comments]';
-
-        $data = array(
-                'lat' => $lat,
-                'lng' => $lng,
-                'revgeo' => $revgeo,
-                'type' => $type,
-                'rate1' => $rate1,
-                'rate2' => $rate2,
-                'rate3' => $rate3,
-                'rate4' => $rate4,
-                'rate5' => $rate5,
-                'comments' => $comments);
-        return View::make('map.form-test', $data);
-    })
-);
-
-Route::get('/comingsoon', function() {
+Route::get('/comingsoon', array('as' => 'comingsoon', function() {
     return View::make('landing');
-});
+}));
 
-Route::get('/comingsoon2', function() {
-    return View::make('landing_white');
-});
-
-Route::get('/a', function() {
-    return View::make('map.accordion');
-});
-
-Route::get('/test', function() {
-    return View::make('test');
-});

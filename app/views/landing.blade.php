@@ -21,9 +21,9 @@
     </div>
     <div style="text-align: center">
         <div class="media-icons">
-            <a class="btn btn-danger" href="mailto:veloscape@unsw.edu.au"><i class="fa fa-envelope fa-2x fa-fw"></i></a>
+            <a class="btn" href="mailto:veloscape@unsw.edu.au"><i class="fa fa-envelope fa-2x fa-fw"></i></a>
             
-            <a class="btn btn-primary" href="https://www.facebook.com/veloscape" role="button"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+            <a class="btn" href="https://www.facebook.com/veloscape" role="button"><i class="fa fa-facebook fa-2x fa-fw"></i></a>
         </div>
     </div>
     
