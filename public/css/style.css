@@ -12,13 +12,18 @@ container and container-max-width-settings
 }
 @media(min-width:1200px){
     .container{
-        max-width:1200px;
+        width:100%;
         position:relative;
-        padding-left:0px;
-        padding-right:0px;
-        margin-left:auto;
-        margin-right:auto;
+        padding-left:20px;
+        padding-right:20px;
+        margin-left:0px;
+        margin-right:0px;
     }
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 /*
@@ -27,7 +32,7 @@ container and container-max-width-settings
 .navbar-inverse{
     margin-bottom:0;
     background-color:#363636;
-    border:none
+    border:none;
 }
 
 .navbar-inverse .navbar-brand{
@@ -44,7 +49,7 @@ container and container-max-width-settings
     width:200px;
     height:auto;
     background:transparent url('../img/logo-white.png') center no-repeat;
-    background-size:contain
+    background-size:contain;
 }
 
 .navbar-inverse .navbar-collapse {
@@ -53,26 +58,111 @@ container and container-max-width-settings
     font-size: 18px;
 }
 
-.navbar-inverse .navbar-left {
+.navbar-inverse .navbar-left, .navbar-inverse .navbar-right {
+    margin-right: 0px;
     margin-top: 38px;
 }
 
-/* Footer padding */
-.footer-divider{
-    padding-bottom:2px;
-    background-color: #363636;
-    margin-top:10px;
-}
-.footer {
-    background-color: #868686;
-    padding-top: 30px;
-    padding-bottom: 15px;
+.social-header > p {
+    margin-right: 10px;
 }
 
-.footer img{
-    padding: 5px;
-    border: 2px solid #363636;
-    background-color: #ffffff; 
+.social-links {
+    margin-top: -5px;
+}
+
+.social-links > p{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.navbar a, .navbar-inverse .navbar-nav > li > a {
+    color: #5764C7;
+}
+
+.navbar a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .active > a {
+    color: #616ECA;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover {
+    background-color: inherit;
+}
+
+/* map container */
+
+.map-container, .side-menu, .map-controls {
+    top: 100px;
+}
+
+.map-container {
+    position: absolute !important;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+    margin-right: 40px;
+    overflow: hidden;
+}
+
+.side-menu {
+    position: absolute;
+    width: 45%;
+    bottom: 0px;
+    right: 0px;
+    z-index: 11;
+    background: grey;
+    overflow: hidden;
+    transition: right 1s cubic-bezier(0.345, 0, 0.25, 1) 0s;
+}
+
+.menu-collapsed .map-container {
+    right: 0px;
+}
+
+.menu-collapsed .side-menu {
+    right: -45%;
+
+}
+
+.menu-collapsed .map-controls {
+   right: 0px;
+}
+
+/* map controls css */
+.map-controls {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: auto;
+    right: 45%;
+    width: 40px;
+    z-index: 99;
+    height: auto !important;
+    background: #a9b0e2;
+    transition: right 1s cubic-bezier(0.345, 0, 0.25, 1) 0s;
+}
+
+.map-controls .control {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    color: #5764c7;
+
+}
+
+.map-controls .control:hover {
+    color: #FFFFFF;
 }
 
 
+/* light purple background elements */
+.map-controls, .map-controls .control {
+    background: #A9B0E2;
+}
+
+/* dark purple background */
+.map-controls .control:hover {
+    background: #5764C7;
+}

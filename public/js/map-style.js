@@ -41,6 +41,15 @@ var style = [
         ]
     },
     {
+        "featureType": "poi.park",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
         "featureType": "road",
         "elementType": "geometry.fill",
         "stylers": [

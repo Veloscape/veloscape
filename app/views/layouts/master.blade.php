@@ -9,7 +9,8 @@
 	</title>
     @section('head')
     <link rel="shortcut icon" href=" {{ URL::asset('img/favicon.ico') }}">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"></link>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -21,7 +22,9 @@
 	@show
 </head>
 <body>
-    @yield('header')
+    @section('header')
+        @include('layouts.navbar')
+    @show
     @yield('body')
     @yield('footer')
 </body>
