@@ -59,3 +59,5 @@ Route::get('/a', function() {
 Route::get('/test', function() {
     return View::make('test');
 });
+
+Route::post('/test/', 'MapController@save');

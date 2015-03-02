@@ -2,53 +2,32 @@
 
 @section('head')
     @parent
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAA4Yq0AZ9MYvZz5gz_9WUZPzYOguRYWaM"></script>
     @include('js.map')
+    @include('js.map-blade')
     @include('js.map-style')
     @include('js.map-events')
-    <script type="text/javascript">
-            
-        function addAccordion() {
-            $.ajax({
-                url: '{{URL::route('partialMarkerFeedback')}}',
-                    success: function(data) {
-                    $('#accordion').append(data);
-                    $('#accordion').accordion("refresh");
-                    }
-            });
-        }
-
-        $(document).ready(function() {
-            $('#feedback-container').height($('#map').height());
-        });
-        
-        $(window).resize(function() {
-            $('#feedback-container').height($('#map').height());
-            $('#accordion').accordion("refresh");
-        });
-
-        $(function() {
-            $( "#accordion" ).accordion({
-                heightStyle: "fill",
-                collapsible: "true"
-            });
-        });
-    
-    </script>
     @stop
 
 @section('body')
-    
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-6" id="map-container" style="background-color: #999999; padding-bottom: 45%;">
-                <button class="btn btn-default" type="button" onclick="addAccordion()">Create new marker</button>
-                <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
-            <div class="col-md-6" id="feedback-container" style="background-color: #eeeeee;">
-                @include('map.accordion')
-            </div>
+    <div class="body-container">
+        {{ Form::open() }}
+        <div class="map-container">
+            @include('test.buttons')
         </div>
+
+        <div class="side-menu">
+           @include('map.side-menu') 
+        </div>
+
+        <div class="map-controls">
+            <button class="control toggler" type="button">
+                <i class="fa fa-angle-right fa-2x"></i>
+            </button> 
+        </div>
+        {{ Form::close() }}
     </div>
+
+    
 @stop
+

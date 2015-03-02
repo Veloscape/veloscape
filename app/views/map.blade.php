@@ -17,7 +17,7 @@
         </div>
 
         <div class="side-menu">
-            
+           @include('map.side-menu') 
         </div>
 
         <div class="map-controls">
