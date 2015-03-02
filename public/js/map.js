@@ -1,5 +1,6 @@
 var map;
 var poly;
+var geocoder;
 
 //map center geocode
 var lat = -33.8681;
@@ -32,11 +33,13 @@ function initialize() {
         streetViewControl: false,
         mapTypeControl: false,
         mapTypeId: mapTypeId,
-        styles: style 
+        styles: style, 
     };
 
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    geocoder = new google.maps.Geocoder();
     polyInitialize(); 
+
 
     google.maps.event.addListener(map, 'click', function(event) {
         mapClick(event.latLng);
