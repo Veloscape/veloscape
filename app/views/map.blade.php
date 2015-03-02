@@ -2,8 +2,8 @@
 
 @section('head')
     @parent
-    @include('js.map')
     @include('js.map-blade')
+    @include('js.map')
     @include('js.map-style')
     @include('js.map-events')
     @stop

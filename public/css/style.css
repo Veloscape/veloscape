@@ -26,6 +26,7 @@ container and container-max-width-settings
 @media screen and (min-width:1200px){
     .container{
         width:100%;
+
         position:relative;
         padding-left:20px;
         padding-right:20px;
@@ -75,6 +76,7 @@ body {
     margin-right: 0px;
     margin-top: 38px;
 }
+
 
 .social-header > p {
     margin-right: 10px;
@@ -155,6 +157,7 @@ body {
     border: none;
     color: #5764c7;
 
+
 }
 
 .map-controls .control:hover {
@@ -191,7 +194,6 @@ body {
     background: inherit;
     height: 100%;
     width: 100%;
-    margin: 8px 18px 8px 18px;
 }
 
 .side-menu .submit {
@@ -229,4 +231,54 @@ body {
 
 abbr.no-border {
     border-bottom: none;
+}
+
+/** testing code ***/
+.side-info {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+}
+.side-main .top {
+    position: absolute;
+    top: 0px;
+    bottom: 100px;
+    width: 100%;
+    height: auto;
+}
+
+/* top / content alignment */
+.side-main .top .header {
+    height: 46px;
+}
+.side-main .top .content {
+    top: 46px;
+}
+/* -- */
+
+.side-main .top .header {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    background: #EF5ED6;
+}
+
+.side-main .top .header .marker-address {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+.side-main .top .content {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    height: auto;
+    background: grey;
+    overflow-x: hidden;
+    overflow-y: auto;
 }

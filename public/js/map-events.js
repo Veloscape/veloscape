@@ -1,4 +1,5 @@
 var index = 0;
+var activeMarkerId = 0;
 var menuVisible = true;
 
 function updateQueryStringParameter(uri, key, value) {
@@ -14,34 +15,93 @@ function updateQueryStringParameter(uri, key, value) {
 
 function mapClick(location) {
     var path = poly.getPath();
-    path.push(location);
 
+    this.addMarker(location);
+    /*this.getFormattedAddress(location);*/
+    this.modifyAddress(location.lat() + ", " + location.lng());
+
+    /* if path is empty then remove info page */
+    if (path.getLength() == 0) {
+        $(".side-info").fadeOut("fast");
+    }
+
+    path.push(location);
+    var preUrl = partialUrl;
+    preUrl = updateQueryStringParameter(preUrl, 'id', activeMarkerId.toString());
+    preUrl = updateQueryStringParameter(preUrl, 'lat', location.lat());
+    preUrl = updateQueryStringParameter(preUrl, 'lng', location.lng());
+    $.ajax({
+        url: preUrl,
+            success: function(data) {
+                addFormData(data);
+            }
+    });
+}
+
+function addMarker(location) {
     var marker = new google.maps.Marker({
         position: location,
         map: map,
         draggable: true,
-        lineId: index++,
+        markerId: index,
     });
+    activeMarkerId = marker.markerId;
+    index++;
 
+    google.maps.event.addListener(marker, 'click', function(event) {
+        changeFocus(this.markerId);
+    });
+    google.maps.event.addListener(marker, 'dragstart', function(event) {
+
+    });
     google.maps.event.addListener(marker, 'drag', function(event) {
-        poly.getPath().setAt(this.lineId, event.latLng);
+        poly.getPath().setAt(this.markerId, event.latLng);
     });
     google.maps.event.addListener(marker, 'dragend', function(event) {
-        poly.getPath().setAt(this.lineId, event.latLng);
+        poly.getPath().setAt(this.markerId, event.latLng);
     });
-    /*
-    var preUrl = partialUrl;
-    preUrl = updateQueryStringParameter(preUrl, 'id', index.toString());
-    index++;
-    $.ajax({
-        url: preUrl,
-            success: function(data) {
-                alert('success');
-            }
-    });
-    */
+
 }
 
+function changeFocus(id) {
+    activeMarkerId = id;
+    $(".map-form-entity").hide();
+    $("#"+id.toString()).show();
+    modifyAddress($("#"+id.toString()).find(".revgeo").val());
+
+}
+
+function addFormData(data) {
+    $(".content").prepend(data);
+    changeFocus(activeMarkerId);
+    var lat = $("#"+ this.activeMarkerId.toString()).find(".lat").val();
+    var lng = $("#"+ this.activeMarkerId.toString()).find(".lng").val();
+    var latlng = new google.maps.LatLng(lat, lng);
+    this.getFormattedAddress(latlng);
+}
+
+function modifyAddress(address) {
+    $(".marker-address").attr("title", address);
+    $(".marker-address").text(address);
+    $("#"+ this.activeMarkerId.toString()).find(".revgeo").val(address);
+}
+
+function getFormattedAddress(location) {
+    var address;
+    geocoder.geocode({'latLng': location}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+                address = results[0].formatted_address;
+            } else {
+            address = 'No results found';
+            } 
+        } else {
+            address = 'Geocoder failed due to: ' + status;
+        }
+        this.modifyAddress(address);
+    });
+
+}
 
 /* menu toggle */
 $(document).ready(function() {

@@ -33,7 +33,7 @@ function initialize() {
         streetViewControl: false,
         mapTypeControl: false,
         mapTypeId: mapTypeId,
-        styles: style, 
+        styles: style
     };
 
     map = new google.maps.Map(document.getElementById("map"), mapOptions);

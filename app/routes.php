@@ -15,11 +15,14 @@ Route::get('/', 'MapController@index');
 
 Route::post('/', 'MapController@save');
 
-Route::get('/blah', array('as' => 'partialMarkerFeedback', 
+Route::get('/map/form', array('as' => 'partialMarkerFeedback', 
     function() {
-        $poi = 'poi['.Input::get('id').']';
+        $id = Input::get('id');
+        $poi = 'poi['.$id.']';
         $lat = $poi.'[lat]';
         $lng = $poi.'[lng]';
+        $latData = Input::get('lat');
+        $lngData = Input::get('lng');
         $revgeo = $poi.'[revgeocode]';
         $type = $poi.'[type]';
         $rate1 = $poi.'[rate1]';
@@ -30,8 +33,11 @@ Route::get('/blah', array('as' => 'partialMarkerFeedback',
         $comments = $poi.'[comments]';
 
         $data = array(
+                'id' => $id,
                 'lat' => $lat,
+                'latData' => $latData,
                 'lng' => $lng,
+                'lngData' => $lngData,
                 'revgeo' => $revgeo,
                 'type' => $type,
                 'rate1' => $rate1,
