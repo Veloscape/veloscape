@@ -1,0 +1,76 @@
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 450;
+
+}
+
+.map-hint {
+    position: absolute;
+    bottom: 12%;
+    height: auto;
+    width: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 99;
+    opacity: 0.8;
+}
+
+.map-hint>.content {
+    font-size: 18px;
+    background: white;
+    visibility: visible;
+}
+
+.mobile-navbar {
+    position: absolute;
+    top: 0px;
+    height: 8%;
+    width: 100%;
+    overflow: hidden;
+    color: white;
+}
+.nav-left {
+    float: left !important;
+    font-size: 32px;
+    font-size: 6vh;
+}
+.nav-right {
+    float: right !important;
+}
+
+.map-container {
+    position: absolute;
+    top: 8%;
+    bottom: 8%;
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+}
+
+.submit-btn {
+    position: absolute;
+    bottom: 0px;
+    height: 8%;
+    width: 100%;
+    overflow: hidden;
+    color: white;
+    border: 0px;
+    border-radius: 0px;
+    padding: 0px;
+
+}
+
+.submit-btn>span {
+    font-size: 32px;
+    font-size: 6vh;
+    letter-spacing: 8px;
+}
+
+
+/** dark background **/
+.submit-btn, .mobile-navbar {
+    background-color: #363636;
+}

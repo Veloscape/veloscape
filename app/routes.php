@@ -15,22 +15,26 @@ Route::get('/', 'MapController@index');
 
 Route::post('/', 'MapController@save');
 
+Route::get('/mobile', function() {
+    return View::make('mobile.map');
+});
+
 Route::get('/map/form', array('as' => 'partialMarkerFeedback', 
     function() {
         $id = Input::get('id');
-        $poi = 'poi['.$id.']';
-        $lat = $poi.'[lat]';
-        $lng = $poi.'[lng]';
+        $node = 'node['.$id.']';
+        $lat = $node.'[lat]';
+        $lng = $node.'[lng]';
         $latData = Input::get('lat');
         $lngData = Input::get('lng');
-        $revgeo = $poi.'[revgeocode]';
-        $type = $poi.'[type]';
-        $rate1 = $poi.'[rate1]';
-        $rate2 = $poi.'[rate2]';
-        $rate3 = $poi.'[rate3]';
-        $rate4 = $poi.'[rate4]';
-        $rate5 = $poi.'[rate5]';
-        $comments = $poi.'[comments]';
+        $revgeo = $node.'[revgeocode]';
+        $type = $node.'[type]';
+        $rate1 = $node.'[rate1]';
+        $rate2 = $node.'[rate2]';
+        $rate3 = $node.'[rate3]';
+        $rate4 = $node.'[rate4]';
+        $rate5 = $node.'[rate5]';
+        $comments = $node.'[comments]';
 
         $data = array(
                 'id' => $id,
