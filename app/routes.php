@@ -19,6 +19,10 @@ Route::get('/mobile', function() {
     return View::make('mobile.map');
 });
 
+Route::post('/mobile', function() {
+    return Input::all();
+});
+
 Route::get('/map/form', array('as' => 'partialMarkerFeedback', 
     function() {
         $id = Input::get('id');

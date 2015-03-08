@@ -15,17 +15,15 @@ function updateQueryStringParameter(uri, key, value) {
 
 function mapClick(location) {
     var path = poly.getPath();
-
-    this.addMarker(location);
-    /*this.getFormattedAddress(location);*/
-    this.modifyAddress(location.lat() + ", " + location.lng());
-
+    
     /* if path is empty then remove info page */
     if (path.getLength() == 0) {
-        $(".side-info").fadeOut("fast");
+        $(".map-hint").fadeOut("fast");
     }
 
+    this.addMarker(location);
     path.push(location);
+
     var preUrl = partialUrl;
     preUrl = updateQueryStringParameter(preUrl, 'id', activeMarkerId.toString());
     preUrl = updateQueryStringParameter(preUrl, 'lat', location.lat());
@@ -46,57 +44,31 @@ function addMarker(location) {
         markerId: index,
     });
 
-    var infowindow = new google.maps.InfoWindow({
-        content: "<button type='button'>Delete</button>"
-    });
     activeMarkerId = marker.markerId;
     index++;
 
     google.maps.event.addListener(marker, 'click', function(event) {
         activeMarkerId = this.markerId;
-        changeFormFocus(this.markerId);
-        infowindow.open(map, marker);
     });
-    google.maps.event.addListener(marker, 'dragstart', function(event) {
-        activeMarkerId = this.markerId;
-    });
-    google.maps.event.addListener(marker, 'drag', function(event) {
-        poly.getPath().setAt(this.markerId, event.latLng);
-    });
-    google.maps.event.addListener(marker, 'dragend', function(event) {
-        poly.getPath().setAt(this.markerId, event.latLng);
-        changeMarkerGeo(this.markerId, event.latLng);
-    });
-
+    
+    $(".tab-disable-map").show();
+    $(".tab-marker").show();
 }
 
 function changeMarkerGeo(id, location) {
-    $("#".id).find(".lat").val(location.lat());
-    $("#".id).find(".lng").val(location.lng());
+    $("#"+id).find(".lat").val(location.lat());
+    $("#"+id).find(".lng").val(location.lng());
     getFormattedAddress(location);
     
 }
 
-function changeFormFocus(id) {
-    $(".map-form-entity").hide();
-    $("#"+id.toString()).show();
-    modifyAddress($("#"+id.toString()).find(".revgeo").val());
-
-}
-
 function addFormData(data) {
-    $(".content").prepend(data);
-    changeFormFocus(activeMarkerId);
-    var lat = $("#"+ this.activeMarkerId.toString()).find(".lat").val();
-    var lng = $("#"+ this.activeMarkerId.toString()).find(".lng").val();
+    var id = this.activeMarkerId.toString();
+    $(".form-data").prepend(data);
+    var lat = $("#"+ id).find(".lat").val();
+    var lng = $("#"+ id).find(".lng").val();
     var latlng = new google.maps.LatLng(lat, lng);
     this.getFormattedAddress(latlng);
-}
-
-function modifyAddress(address) {
-    $(".marker-address").attr("title", address);
-    $(".marker-address").text(address);
-    $("#"+ this.activeMarkerId.toString()).find(".revgeo").val(address);
 }
 
 function getFormattedAddress(location) {
@@ -111,13 +83,25 @@ function getFormattedAddress(location) {
         } else {
             address = 'Geocoder failed due to: ' + status;
         }
-        this.modifyAddress(address);
+        $("#"+this.activeMarkerId.toString()).find(".revgeo").val(address);
     });
 
 }
 
 /* menu toggle */
 $(document).ready(function() {
+
+    $(".marker-type").click(function() {
+        var type = $(this).attr('id'); 
+        $("#"+activeMarkerId).find(".type").val(type);
+        
+        $(".tab").hide();
+    });
+
+    $(".tab-dismiss").click(function() {
+        $(".tab").hide();
+    });
+
     $(".toggler").click(function() {
         $(".body-container").toggleClass("menu-collapsed");
         if (menuVisible) {
