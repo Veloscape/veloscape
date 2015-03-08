@@ -21,6 +21,6 @@
     
 
     <div class="btn submit h3">
-        Submit
+        {{ Form::submit() }}
     </div>
 </div>

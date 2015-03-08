@@ -45,26 +45,39 @@ function addMarker(location) {
         draggable: true,
         markerId: index,
     });
+
+    var infowindow = new google.maps.InfoWindow({
+        content: "<button type='button'>Delete</button>"
+    });
     activeMarkerId = marker.markerId;
     index++;
 
     google.maps.event.addListener(marker, 'click', function(event) {
-        changeFocus(this.markerId);
+        activeMarkerId = this.markerId;
+        changeFormFocus(this.markerId);
+        infowindow.open(map, marker);
     });
     google.maps.event.addListener(marker, 'dragstart', function(event) {
-
+        activeMarkerId = this.markerId;
     });
     google.maps.event.addListener(marker, 'drag', function(event) {
         poly.getPath().setAt(this.markerId, event.latLng);
     });
     google.maps.event.addListener(marker, 'dragend', function(event) {
         poly.getPath().setAt(this.markerId, event.latLng);
+        changeMarkerGeo(this.markerId, event.latLng);
     });
 
 }
 
-function changeFocus(id) {
-    activeMarkerId = id;
+function changeMarkerGeo(id, location) {
+    $("#".id).find(".lat").val(location.lat());
+    $("#".id).find(".lng").val(location.lng());
+    getFormattedAddress(location);
+    
+}
+
+function changeFormFocus(id) {
     $(".map-form-entity").hide();
     $("#"+id.toString()).show();
     modifyAddress($("#"+id.toString()).find(".revgeo").val());
@@ -73,7 +86,7 @@ function changeFocus(id) {
 
 function addFormData(data) {
     $(".content").prepend(data);
-    changeFocus(activeMarkerId);
+    changeFormFocus(activeMarkerId);
     var lat = $("#"+ this.activeMarkerId.toString()).find(".lat").val();
     var lng = $("#"+ this.activeMarkerId.toString()).find(".lng").val();
     var latlng = new google.maps.LatLng(lat, lng);
