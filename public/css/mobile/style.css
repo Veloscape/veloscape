@@ -1,8 +1,6 @@
 body {
     height: 100%;
     width: 100%;
-    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 450;
 
 }
 
@@ -15,12 +13,17 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 99;
+    background: white;
     opacity: 0.8;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 2px;
 }
 
 .map-hint>.content {
+    padding-left: 4px;
+    padding-right: 4px;
     font-size: 18px;
-    background: white;
     visibility: visible;
 }
 
@@ -123,22 +126,22 @@ body {
 
 /** nav boundries **/
 .map-container, .tab-horo-fill {
-    top: 40px;
+    top: 8%;
 }
 
 .mobile-navbar {
-    height: 40px;
+    height: 8%;
 }
 
 
 /** bottum boundries **/
 
 .map-container, .tab-horo-fill {
-    bottom: 40px;
+    bottom: 8%;
 }
 
 .submit-btn {
-    height: 40px;
+    height: 8%;
 }
 
 /** dark background **/

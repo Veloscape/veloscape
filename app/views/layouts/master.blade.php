@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>
 	@section('title')
 		Veloscape - a Curating Cities project
@@ -19,6 +20,8 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
 
     {{ HTML::style('css/style.css') }}
+    {{ HTML::style('css/jquery.nouislider.min.css') }}
+    {{ HTML::script('js/jquery.nouislider.min.js') }}
 	@show
 </head>
 <body>

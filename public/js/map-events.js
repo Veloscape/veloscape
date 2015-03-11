@@ -38,24 +38,36 @@ function mapClick(location) {
     });
 }
 
+
 function addMarker(location) {
+    var dgreen = {
+        url: '/img/markers/diamond-green.png',
+        size: new google.maps.Size(30, 44),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(15,27)
+    };
+
+    var mgreen = {
+        url: '/img/markers/measle-green.png',
+        size: new google.maps.Size(20, 20),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(10, 10)
+    };
+
     var marker = new google.maps.Marker({
         position: location,
         map: map,
         draggable: true,
         markerId: index,
+        icon: mgreen 
     });
 
-    var infowindow = new google.maps.InfoWindow({
-        content: "<button type='button'>Delete</button>"
-    });
     activeMarkerId = marker.markerId;
     index++;
 
     google.maps.event.addListener(marker, 'click', function(event) {
         activeMarkerId = this.markerId;
         changeFormFocus(this.markerId);
-        infowindow.open(map, marker);
     });
     google.maps.event.addListener(marker, 'dragstart', function(event) {
         activeMarkerId = this.markerId;

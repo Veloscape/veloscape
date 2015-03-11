@@ -50,8 +50,8 @@ body {
 }
 
 .navbar-inverse .navbar-brand{
-    height:100px;
-    line-height:100px;
+    height:85px;
+    line-height:85px;
 }
 
 .navbar>.container .navbar-brand{
@@ -74,7 +74,7 @@ body {
 
 .navbar-inverse .navbar-left, .navbar-inverse .navbar-right {
     margin-right: 0px;
-    margin-top: 38px;
+    margin-top: 25px;
 }
 
 
@@ -108,16 +108,16 @@ body {
     background: grey;
 }
 .map-container, .side-menu, .map-controls {
-    top: 100px;
+    top: 85px;
 }
 
 .map-container {
     position: absolute !important;
     bottom: 0px;
     left: 0px;
-    right: 45%;
+    right: 540px;
     z-index: -1;
-    margin-right: 40px;
+    margin-right: 32px;
     overflow: hidden;
     transition: right 1s cubic-bezier(0.345, 0, 0.25, 1) 0s;
 }
@@ -127,7 +127,7 @@ body {
 }
 
 .menu-collapsed .side-menu {
-    right: -45%;
+    right: -540px;
 
 }
 
@@ -141,8 +141,8 @@ body {
     position: absolute;
     bottom: 0px;
     left: auto;
-    right: 45%;
-    width: 40px;
+    right: 540px;
+    width: 32px;
     z-index: 99;
     height: auto !important;
     background: #a9b0e2;
@@ -167,7 +167,7 @@ body {
 /* map side menu */
 .side-menu {
     position: absolute;
-    width: 45%;
+    width: 540px;
     bottom: 0px;
     right: 0px;
     z-index: 11;
@@ -245,40 +245,115 @@ abbr.no-border {
 .side-main .top {
     position: absolute;
     top: 0px;
-    bottom: 100px;
+    bottom: 0px;
+    margin-bottom: 50px;
     width: 100%;
+    overflow: hidden;
+}
+
+.side-main .top .header {
+    display: block;
+    position: relative;
     height: auto;
-}
-
-/* top / content alignment */
-.side-main .top .header {
-    height: 46px;
-}
-.side-main .top .content {
-    top: 46px;
-}
-/* -- */
-
-.side-main .top .header {
-    position: absolute;
-    top: 0px;
     width: 100%;
-    background: #EF5ED6;
 }
 
-.side-main .top .header .marker-address {
+.side-main .top .marker-content .marker-address {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 34px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
 
 }
 
 .side-main .top .content {
     position: absolute;
-    width: 100%;
+    top: 122px;
     bottom: 0px;
-    height: auto;
-    background: grey;
-    overflow-x: hidden;
+    width: 100%;
+    
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow-x: none;
     overflow-y: auto;
+}
+
+/** search / reset buttons **/
+.header > .btn-group > .btn-group > .btn {
+    border-radius: 0px;
+    background: orange;
+    border: 5px solid #ffffff;
+}
+
+.header > .btn-group > .btn-group > .btn:hover {
+    background: grey;
+}
+
+
+/** prev / delete /next **/
+.marker-content > .btn-group > .btn-group > .btn {
+    border-radius: 4px !important;
+    border: 5px solid #ffffff;
+    font-size: 14px;
+    line-height: 1.42857;
+}
+
+.marker-content > .btn-group > .btn-group > .btn > .fa {
+}
+
+/** form css **/
+.btn-path {
+    display: inline-block;
+    width: 28%;
+    height: auto;
+    position: relative;
+    white-space: normal;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-width: 2px;
+    background-color: white;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+
+.btn-path-label {
+    display: block;
+    float: left;
+}
+
+/** path type buttons **/
+.path-road {
+    border-color: #404040;
+    
+}
+
+.path-bike {
+    border-color: #FFCC66;
+}
+
+.path-cycleway {
+    border-color: #33CC33;
+}
+
+.path-foot {
+    border-color: #99CCFF;
+}
+
+.path-shared-foot {
+    border-color: #3366FF;
+}
+
+.path-null {
+    border-color: #808080;
+}
+.btn-path > .pull-right {
+    margin-top: 3px;
+    visibility: visible;
+    opacity: 0.5;
 }

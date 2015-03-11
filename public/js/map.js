@@ -12,9 +12,9 @@ var zoom = 15;
 var mapTypeId = google.maps.MapTypeId.ROADMAP;
 
 //init poly settings
-var strokeColor = '#333333';
+var strokeColor = '#33CC33';
 var strokeOpacity = 1.0;
-var strokeWeight = 3;
+var strokeWeight = 5;
 
 function polyInitialize() {
     var polyOptions = {
