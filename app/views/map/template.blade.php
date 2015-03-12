@@ -1,6 +1,21 @@
-<div>
-    <h4>What travel surface do you encounter most in this section of your journey?</h4>
+<div class="form-section form-btn-group">
+    <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default btn-prev"><i class="fa fa-chevron-left fa-fw"></i></button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default btn-delete"><i class="fa fa-trash-o fa-fw"></i></button>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default btn-next"><i class="fa fa-chevron-right fa-fw"></i></button>
+        </div>
+    </div>
+</div>
 
+<div class="form-section">
+    <div class="section-title">
+        <span class="h4">Which option most accurately describes the type of surface encountered along this section of your journey</span>
+    </div>
     <div style="text-align: center">
         <button type="button" class="btn btn-path path-road">
             <span class="btn-path-label">Road</span>
@@ -27,26 +42,97 @@
             <i class="fa fa-check pull-right"></i>
         </button>
     </div>
-
-    <h4>Safety</h4>
-    <div id="slider">
+</div>
+<div class="form-section">
+    <div class="section-title">
+        <span class="h4">How would you rate the conditions along this section of your journey</span>
+    </div>
+    <div class="section">
+        <abbr title="" class="rate-label"><span class="h4">Safety&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
+        <div class="rate-info">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.         
+        </div> 
+        <div  class="noUi-slider">
+        </div>
+        <div class="rate-value">
+            <span>Safety One </span>
+        </div>
     </div>
 
-    <h4>Momentum</h4>
-    <div>
+    <div class="section">
+        <abbr title="" class="rate-label"><span class="h4">Momentum&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
+        <div class="rate-info">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.         
+        </div> 
+        <div  class="noUi-slider">
+        </div>
+        <div class="rate-value">
+            <span>Safety One </span>
+        </div>
+    </div>
+    <div class="section">
+        <abbr title="" class="rate-label"><span class="h4">Enjoyment&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
+        <div class="rate-info">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.         
+        </div> 
+        <div  class="noUi-slider">
+        </div>
+        <div class="rate-value">
+            <span>Safety One </span>
+        </div>
+    </div>
+    <div class="section">
+        <abbr title="" class="rate-label"><span class="h4">Attractiveness&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
+        <div class="rate-info">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.         
+        </div> 
+        <div  class="noUi-slider">
+        </div>
+        <div class="rate-value">
+            <span>Safety One </span>
+        </div>
+    </div>
+    <div class="section">
+        <abbr title="" class="rate-label"><span class="h4">Comfort&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
+        <div class="rate-info">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.         
+        </div> 
+        <div  class="noUi-slider">
+        </div>
+        <div class="rate-value">
+            <span>Safety One </span>
+        </div>
+    </div>
+</div>    
+<div class="form-section">
 
+    <div class="section-reverse">
+    <span class="h4">Which of these atttributes apply to this section of your journey</span>
     </div>
-    <h4>Enjoyment</h4>
-    <div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="">
+            Anger
+        </label>
     </div>
-    <h4>Attractiveness</h4>
-    <div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="">
+            illegality 
+        </label>
     </div>
-    <h4>Comfort</h4>
-    <div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="">
+            Cycling Pride and Fellowship
+        </label>
     </div>
 
-    <h4>Additional Comments</h4>
-    <input type="textarea"></input>    
+</div>
+<div class="section-comment">
+    <div class="section-title">
+        <span class="h4">Any additional thoughts or comments you would like to share about this section of your journey</span>
+    </div>
+    <input type="textarea" class="comments"></input>    
 
 </div>

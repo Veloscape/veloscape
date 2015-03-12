@@ -54,7 +54,7 @@ Route::get('/map/form', array('as' => 'partialMarkerFeedback',
                 'rate4' => $rate4,
                 'rate5' => $rate5,
                 'comments' => $comments);
-        return View::make('map.form-test', $data);
+        return View::make('map.form-template', $data);
     })
 );
 

@@ -83,8 +83,8 @@ function addMarker(location) {
 }
 
 function changeMarkerGeo(id, location) {
-    $("#".id).find(".lat").val(location.lat());
-    $("#".id).find(".lng").val(location.lng());
+    $("#"+id).find(".lat").val(location.lat());
+    $("#"+id).find(".lng").val(location.lng());
     getFormattedAddress(location);
     
 }
@@ -98,6 +98,7 @@ function changeFormFocus(id) {
 
 function addFormData(data) {
     $(".content").prepend(data);
+    this.formEvents();
     changeFormFocus(activeMarkerId);
     var lat = $("#"+ this.activeMarkerId.toString()).find(".lat").val();
     var lng = $("#"+ this.activeMarkerId.toString()).find(".lng").val();
@@ -128,6 +129,77 @@ function getFormattedAddress(location) {
 
 }
 
+/** form js effects **/
+function formEvents() {
+    $(".btn-path").hover(
+        function() {
+            $(this).find(".fa").css("visibility", "visible");
+        },
+        function() {
+            $(this).find(".fa").css("visibility", "hidden");
+        }
+    );
+
+    $(".btn-delete").hover(
+        function() {
+            $(this).find(".fa").hide();
+            $(this).append("<span>Delete</span>");
+        },
+        function() {
+            $(this).children().show();
+            $(this).find("span:first").remove();
+        }
+    );
+
+    $(".btn-prev").hover(
+        function() {
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+
+            $(this).find(".fa").hide();
+            $(this).append("<span>Previous Point</span>");
+        },
+        function() {
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+            $(this).children().show();
+            $(this).find("span:first").remove();
+        }
+    );
+
+    $(".btn-next").hover(
+        function() {
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+
+            $(this).find(".fa").hide();
+            $(this).append("<span>Next Point</span>");
+        },
+        function() {
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+            $(this).children().show();
+            $(this).find("span:first").remove();
+        }
+    );
+
+    $(".noUi-slider").noUiSlider({
+        start: [3],
+        step: 1,
+        connect: "lower",
+        range: {
+            'min': [1],
+            'max': [5]
+        }
+    });
+   
+    $(".noUi-slider").removeClass("noUi-slider");
+}
+
 /* menu toggle */
 $(document).ready(function() {
     $(".toggler").click(function() {
@@ -144,4 +216,5 @@ $(document).ready(function() {
     $(".map-container").bind("transitionend", function() {
         google.maps.event.trigger(map, 'resize');
     });
+    
 });
