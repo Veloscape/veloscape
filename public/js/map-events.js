@@ -1,76 +1,58 @@
 var index = 0;
 var activeMarkerId = 0;
-var menuVisible = true;
+var formEntity;
 
-function updateQueryStringParameter(uri, key, value) {
-    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
-    if (uri.match(re)) {
-        return uri.replace(re, '$1' + key + "=" + value + '$2');
-    }
-    else {
-        return uri + separator + key + "=" + value;
-    }
-}
+var dgreen = {
+    url: '/img/markers/diamond-green.png',
+    size: new google.maps.Size(30, 44),
+    origin: new google.maps.Point(0,0),
+    anchor: new google.maps.Point(15,27)
+};
+
+var mgreen = {
+    url: '/img/markers/measle-green.png',
+    size: new google.maps.Size(20, 20),
+    origin: new google.maps.Point(0,0),
+    anchor: new google.maps.Point(10, 10)
+};
 
 function mapClick(location) {
-    var path = poly.getPath();
-
-    this.addMarker(location);
-    /*this.getFormattedAddress(location);*/
-    this.modifyAddress(location.lat() + ", " + location.lng());
+    inactivateOldMarker();      /** set old marker (if any) icon to measle **/
+    activeMarkerId = index;     /** set activeMarkerId to new index **/
+    
+    addFormData(formEntity, location);        /** add form entity for new marker **/
+    this.addMarker(location);       /** add new marker to map at location **/
+    this.modifyAddress(location.lat() + ", " + location.lng());     /** assign placeholder address **/
 
     /* if path is empty then remove info page */
+    var path = poly.getPath();
     if (path.getLength() == 0) {
         $(".side-info").fadeOut("fast");
+        $(".top").show();
     }
-
     path.push(location);
-    var preUrl = partialUrl;
-    preUrl = updateQueryStringParameter(preUrl, 'id', activeMarkerId.toString());
-    preUrl = updateQueryStringParameter(preUrl, 'lat', location.lat());
-    preUrl = updateQueryStringParameter(preUrl, 'lng', location.lng());
-    $.ajax({
-        url: preUrl,
-            success: function(data) {
-                addFormData(data);
-            }
-    });
+    
+    index++;        /** lastly update index for new entries **/
 }
 
 
 function addMarker(location) {
-    var dgreen = {
-        url: '/img/markers/diamond-green.png',
-        size: new google.maps.Size(30, 44),
-        origin: new google.maps.Point(0,0),
-        anchor: new google.maps.Point(15,27)
-    };
-
-    var mgreen = {
-        url: '/img/markers/measle-green.png',
-        size: new google.maps.Size(20, 20),
-        origin: new google.maps.Point(0,0),
-        anchor: new google.maps.Point(10, 10)
-    };
-
     var marker = new google.maps.Marker({
         position: location,
         map: map,
         draggable: true,
         markerId: index,
-        icon: mgreen 
+        icon: dgreen 
     });
-
-    activeMarkerId = marker.markerId;
-    index++;
+    
+    nodes.push(marker);         /** add new marker to list of markers for ref **/
 
     google.maps.event.addListener(marker, 'click', function(event) {
-        activeMarkerId = this.markerId;
+        setActiveMarker(this.markerId);
         changeFormFocus(this.markerId);
     });
     google.maps.event.addListener(marker, 'dragstart', function(event) {
-        activeMarkerId = this.markerId;
+        setActiveMarker(this.markerId);
     });
     google.maps.event.addListener(marker, 'drag', function(event) {
         poly.getPath().setAt(this.markerId, event.latLng);
@@ -80,6 +62,29 @@ function addMarker(location) {
         changeMarkerGeo(this.markerId, event.latLng);
     });
 
+}
+
+function inactivateOldMarker() {
+    var oldMarker = getMarker(activeMarkerId);
+    if (oldMarker != null) {
+        oldMarker.setIcon(mgreen);
+    }
+}
+
+function setActiveMarker(id) {
+    inactivateOldMarker();
+    var newMarker = getMarker(id);
+    newMarker.setIcon(dgreen);
+    activeMarkerId = id;
+}
+
+function getMarker(id) {
+    for (i = 0; i < nodes.length; i++) {
+        if (nodes[i].markerId == id) {
+            return nodes[i];
+        }
+    }
+    return null;
 }
 
 function changeMarkerGeo(id, location) {
@@ -96,14 +101,14 @@ function changeFormFocus(id) {
 
 }
 
-function addFormData(data) {
-    $(".content").prepend(data);
-    this.formEvents();
-    changeFormFocus(activeMarkerId);
-    var lat = $("#"+ this.activeMarkerId.toString()).find(".lat").val();
-    var lng = $("#"+ this.activeMarkerId.toString()).find(".lng").val();
-    var latlng = new google.maps.LatLng(lat, lng);
-    this.getFormattedAddress(latlng);
+function addFormData(template, location) {
+    var data = template.replace(/blank/g, activeMarkerId);
+    $(".content").prepend(data);                                        /** add form entity for new entry **/
+    $("#blank").first().attr("id", activeMarkerId);                     /** assign marker id to new entity **/
+    
+    activateFormEvents();                                                  /** enable js-functions **/
+    changeMarkerGeo(activeMarkerId, location);                          /** fill in form geo-code **/
+    changeFormFocus(activeMarkerId);                                    /** hide other entities **/
 }
 
 function modifyAddress(address) {
@@ -130,9 +135,13 @@ function getFormattedAddress(location) {
 }
 
 /** form js effects **/
-function formEvents() {
-    $(".btn-path").hover(
+function activateFormEvents() {
+    
+    $(".btn-path").slice(0,6).hover(
         function() {
+            if ($(this).hasClass("active")) {
+                return;
+            }
             $(this).find(".fa").css("visibility", "visible");
         },
         function() {
@@ -140,7 +149,14 @@ function formEvents() {
         }
     );
 
-    $(".btn-delete").hover(
+    $(".btn-path").slice(0,6).click(function() {
+        var type = $(this).data("type");
+        $(this).parent().find(".type").val(type);
+        $(this).parent().find(".btn-path").removeClass("active");
+        $(this).addClass("active");
+    });
+
+    $(".btn-delete").first().hover(
         function() {
             $(this).find(".fa").hide();
             $(this).append("<span>Delete</span>");
@@ -151,7 +167,7 @@ function formEvents() {
         }
     );
 
-    $(".btn-prev").hover(
+    $(".btn-prev").first().hover(
         function() {
             if ($(this).hasClass("disabled")) {
                 return;
@@ -169,7 +185,7 @@ function formEvents() {
         }
     );
 
-    $(".btn-next").hover(
+    $(".btn-next").first().hover(
         function() {
             if ($(this).hasClass("disabled")) {
                 return;
@@ -187,7 +203,7 @@ function formEvents() {
         }
     );
 
-    $(".noUi-slider").noUiSlider({
+    $(".noUi-slider").slice(0,5).noUiSlider({
         start: [3],
         step: 1,
         connect: "lower",
@@ -196,25 +212,79 @@ function formEvents() {
             'max': [5]
         }
     });
-   
-    $(".noUi-slider").removeClass("noUi-slider");
+    $(".noUi-slider").on({
+        slide: function() {
+            var val = $(this).val();
+            $(this).parent().find(".rate-input").val(val);
+            var set = $(this).parent().find(".rate-value").data("set");
+            var label = rateLabels[parseInt(set)][parseInt(val)-1];
+            $(this).parent().find(".rate-value").children().text(label);
+        }
+    });
+
+}
+
+function dismissSubmitPane() {
+    $(".side-confirm").removeClass("active");
+    $(".map-confirm").removeClass("active");
+}
+
+function resetMap() {
+    $(".top").hide();
+    $(".side-info").fadeIn("fast");
+    $(".content").empty();
+    poly.getPath().clear();
+    for (i = 0; i < nodes.length; i++) {
+        nodes[i].setMap(null);
+    }
+    index = 0;
 }
 
 /* menu toggle */
 $(document).ready(function() {
+    $.ajax({
+        url: formEntityUrl,
+            success: function(data) {
+                formEntity = data;
+            }
+    });
+
     $(".toggler").click(function() {
+        $(".side-main").css("visibility", "visible");
         $(".body-container").toggleClass("menu-collapsed");
-        if (menuVisible) {
+        if ($(".body-container").hasClass("menu-collapsed")) {
             $(this).children().switchClass("fa-angle-right", "fa-angle-left", 1000, "easInOutQuad");
         }
         else {
             $(this).children().switchClass("fa-angle-left", "fa-angle-right", 1000, "easInOutQuad");
         }
-        menuVisible = !menuVisible;
     });
 
     $(".map-container").bind("transitionend", function() {
         google.maps.event.trigger(map, 'resize');
+        if ($(".body-container").hasClass("menu-collapsed")) {
+            $(".side-main").css("visibility", "hidden");
+        }
     });
     
+    $(".side-confirm").bind("transitionend", function() {
+        if ($(this).hasClass("active")) return;
+        $(this).css("visibility", "hidden");
+    });
+
+    $(".btn-submit").click(function() {
+        $(".side-confirm").css("visibility", "visible");
+        $(".side-confirm").addClass("active");
+        $(".map-confirm").addClass("active");
+
+    });
+
+    $(".dismiss-submit").click(function() {
+        dismissSubmitPane();
+    });
+
+    $(".btn-reset").click(function() {
+        resetMap();
+    });
+
 });

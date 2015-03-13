@@ -5,21 +5,20 @@
         </h1>
     </div>
 </div>
-
 <div class="side-main" style="z-index: -1">
     <div class="top">
         <div class="header">
              <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default"><i class="fa fa-search"></i>&nbsp;Search</button>
+                    <button type="button" class="btn btn-default btn-search"><i class="fa fa-search"></i>&nbsp;Search</button>
                 </div>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default"><i class="fa fa-refresh fa-rotate-90"></i>&nbsp;Reset Map</button>
+                    <button type="button" class="btn btn-default btn-reset"><i class="fa fa-refresh fa-rotate-90"></i>&nbsp;Reset Map</button>
                 </div>
             </div>
         </div>
         <div class="marker-address h3">
-            Address here
+            ...
         </div>
 
         <div class="content">
@@ -27,6 +26,9 @@
     </div>
     
     <div class="bottom">
-            <button type="submit" class="btn btn-block">Submit</button>
+            <button type="button" class="btn btn-block btn-submit">
+                <i class="fa fa-save"></i>
+                <span>&nbsp;Submit</span>
+            </button>
     </div>
 </div>

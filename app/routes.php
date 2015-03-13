@@ -23,14 +23,11 @@ Route::post('/mobile', function() {
     return Input::all();
 });
 
-Route::get('/map/form', array('as' => 'partialMarkerFeedback', 
+Route::get('/map/form/entity', array('as' => 'partialMarkerFeedback', 
     function() {
-        $id = Input::get('id');
-        $node = 'node['.$id.']';
+        $node = 'node[blank]';
         $lat = $node.'[lat]';
         $lng = $node.'[lng]';
-        $latData = Input::get('lat');
-        $lngData = Input::get('lng');
         $revgeo = $node.'[revgeocode]';
         $type = $node.'[type]';
         $rate1 = $node.'[rate1]';
@@ -38,14 +35,12 @@ Route::get('/map/form', array('as' => 'partialMarkerFeedback',
         $rate3 = $node.'[rate3]';
         $rate4 = $node.'[rate4]';
         $rate5 = $node.'[rate5]';
+        $attr = $node.'[attr]';
         $comments = $node.'[comments]';
 
         $data = array(
-                'id' => $id,
                 'lat' => $lat,
-                'latData' => $latData,
                 'lng' => $lng,
-                'lngData' => $lngData,
                 'revgeo' => $revgeo,
                 'type' => $type,
                 'rate1' => $rate1,
@@ -53,6 +48,7 @@ Route::get('/map/form', array('as' => 'partialMarkerFeedback',
                 'rate3' => $rate3,
                 'rate4' => $rate4,
                 'rate5' => $rate5,
+                'attr' => $attr,
                 'comments' => $comments);
         return View::make('map.form-template', $data);
     })

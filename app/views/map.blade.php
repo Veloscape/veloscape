@@ -14,7 +14,7 @@
         <div class="map-container">
             @include('map.map-container')
         </div>
-
+        @include('map.confirm')
         <div class="side-menu">
            @include('map.side-menu') 
         </div>

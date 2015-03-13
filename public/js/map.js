@@ -1,5 +1,6 @@
 var map;
 var poly;
+var nodes = [];
 var geocoder;
 
 //map center geocode
@@ -39,12 +40,13 @@ function initialize() {
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
     geocoder = new google.maps.Geocoder();
     polyInitialize(); 
-
-
+    
     google.maps.event.addListener(map, 'click', function(event) {
         mapClick(event.latLng);
     });
+
    
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
