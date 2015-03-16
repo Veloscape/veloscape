@@ -71,3 +71,11 @@ h1 {
     background-color: black;
     border-color: black;
 }
+
+.btn:hover {
+    background-color: #404040;
+}
+
+.navbar {
+    display: none;
+}

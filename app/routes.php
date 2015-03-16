@@ -11,17 +11,10 @@
 |
 */
 
-Route::get('/', 'MapController@index');
-
-Route::post('/', 'MapController@save');
-
-Route::get('/mobile', function() {
-    return View::make('mobile.map');
-});
-
-Route::post('/mobile', function() {
-    return Input::all();
-});
+Route::get('/', array('as' => 'home', function() 
+{
+    return Redirect::to('comingsoon');
+}));
 
 Route::get('/map/form/entity', array('as' => 'partialMarkerFeedback', 
     function() {
@@ -54,20 +47,10 @@ Route::get('/map/form/entity', array('as' => 'partialMarkerFeedback',
     })
 );
 
-Route::get('/comingsoon', function() {
+Route::get('/comingsoon', array('as' => 'comingsoon', function() {
     return View::make('landing');
-});
+}));
 
-Route::get('/comingsoon2', function() {
-    return View::make('landing_white');
-});
+Route::get('/development/map', 'MapController@index');
 
-Route::get('/a', function() {
-    return View::make('map.accordion');
-});
-
-Route::get('/test', function() {
-    return View::make('test');
-});
-
-Route::post('/test/', 'MapController@save');
+Route::post('/development/map', 'MapController@save');
