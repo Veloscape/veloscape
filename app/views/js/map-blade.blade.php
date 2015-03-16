@@ -1,4 +1,4 @@
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAA4Yq0AZ9MYvZz5gz_9WUZPzYOguRYWaM"></script>
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAA4Yq0AZ9MYvZz5gz_9WUZPzYOguRYWaM"></script>
 <script type="text/javascript">
     var formEntityUrl = '{{ URL::route('partialMarkerFeedback') }}';
     var rateLabels = [

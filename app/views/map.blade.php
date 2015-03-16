@@ -10,6 +10,7 @@
 
 @section('body')
     <div class="body-container">
+        @include('map.search')
         {{ Form::open() }}
         <div class="map-container">
             @include('map.map-container')

@@ -40,7 +40,18 @@ function initialize() {
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
     geocoder = new google.maps.Geocoder();
     polyInitialize(); 
-    
+
+    var input = document.getElementById("pac-input");
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.bindTo('bounds', map);
+    autocomplete.setTypes(['address']);
+
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        var place = autocomplete.getPlace();
+        search(place);
+    });
+
+
     google.maps.event.addListener(map, 'click', function(event) {
         mapClick(event.latLng);
     });

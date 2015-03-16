@@ -226,7 +226,7 @@ abbr.no-border {
 /** side block code ***/
 .side-info {
     position: absolute;
-    top: 0px;
+    top: 42px;
     left: 0px;
     width: 100%;
     height: 100%;
@@ -239,7 +239,6 @@ abbr.no-border {
     margin-bottom: 50px;
     width: 100%;
     overflow: hidden;
-    display: none;
 }
 
 .side-main .top .header {
@@ -307,7 +306,7 @@ abbr.no-border {
     width: 100%;
 }
 
-.side-confirm .btn-dismiss {
+.btn-dismiss {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -324,23 +323,19 @@ abbr.no-border {
     color: white;
 }
 
-.side-confirm .btn-dismiss:hover {
+.btn-dismiss:hover {
     opacity: 1;
 }
 
-.side-confirm .btn-dismiss:active {
+.btn-dismiss:active {
     box-shadow: none;
 }
 
-.side-confirm .btn-dismiss:active > .fa-close {
+.btn-dismiss:active > .fa-close {
     text-shadow: none;
 }
 
-.side-confirm .btn-dismiss:hover > .dismiss-text {
-    display: inline-block;
-}
-
-.side-confirm .fa-close {
+.btn-dismiss>  .fa-close {
     text-shadow:
         -1px -1px 0 #FFFFFF,  
         1px -1px 0 #FFFFFF,
@@ -349,6 +344,63 @@ abbr.no-border {
 }
 
 /** search css **/
+.side-search {
+    position: absolute;
+    display: none;
+    z-index: 101;
+    top: 80px;
+    right: 0px;
+    bottom: 0px;
+    width: 572px;
+    background-color: orange;
+}
+
+.side-search > .search-body {
+    margin-top: 110px;
+    margin-left: 45px;
+    margin-right: 45px;
+    height: 50px;
+}
+
+.search-body > .form-control {
+    display: inline-block;
+    width: 374px;
+    font-size: 23px;
+    height: 100%;
+}
+
+.search-body > .btn {
+    margin-right: -8px;
+    height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    float: right !important;
+}
+
+.pac-container {
+    margin-top: 5px;
+}
+.pac-container:after {
+    display: none;
+}
+
+.pac-item {
+    height: 50px;
+    padding-left: 14px;
+    padding-right: 4px;
+    font-family:"Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-size: 18px;
+    padding-top: 12px;
+}
+
+.pac-item-query {
+    font-size: 20px;
+}
+
+.pac-icon {
+    display: none;
+}
+
 
 /** bottom side menu **/
 .side-menu .bottom {
@@ -520,6 +572,7 @@ abbr.no-border {
 /** slider css **/
 .section {
     margin-top: 2px;
+    padding-top: 3px;
     padding-bottom: 12px;
     margin-bottom: 4px;
     margin-right: 0px;

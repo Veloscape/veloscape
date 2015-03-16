@@ -1,6 +1,7 @@
 var index = 0;
 var activeMarkerId = 0;
 var formEntity;
+var dragIndex = -1;
 
 var dgreen = {
     url: '/img/markers/diamond-green.png',
@@ -17,6 +18,9 @@ var mgreen = {
 };
 
 function mapClick(location) {
+    if ($(".side-search").css("display") != "none") {
+        $(".side-search").fadeOut("slow");
+    }
     inactivateOldMarker();      /** set old marker (if any) icon to measle **/
     activeMarkerId = index;     /** set activeMarkerId to new index **/
     
@@ -27,8 +31,7 @@ function mapClick(location) {
     /* if path is empty then remove info page */
     var path = poly.getPath();
     if (path.getLength() == 0) {
-        $(".side-info").fadeOut("fast");
-        $(".top").show();
+        $(".side-info").fadeOut();
     }
     path.push(location);
     
@@ -53,15 +56,82 @@ function addMarker(location) {
     });
     google.maps.event.addListener(marker, 'dragstart', function(event) {
         setActiveMarker(this.markerId);
+        dragIndex = getMarkerIndex(this.markerId);
     });
     google.maps.event.addListener(marker, 'drag', function(event) {
-        poly.getPath().setAt(this.markerId, event.latLng);
+        poly.getPath().setAt(dragIndex, event.latLng);
     });
     google.maps.event.addListener(marker, 'dragend', function(event) {
-        poly.getPath().setAt(this.markerId, event.latLng);
+        poly.getPath().setAt(dragIndex, event.latLng);
         changeMarkerGeo(this.markerId, event.latLng);
+        dragIndex = -1;
     });
 
+}
+
+function getMarkerIndex(id) {
+    for (i = 0; i < nodes.length; i++) {
+        if(nodes[i].markerId == id) {
+            return i;
+        }
+    }
+    return i;
+}
+
+function deleteNode(id) {
+    var i;
+    for (i = 0; i < nodes.length; i++) {
+        var node = nodes[i];
+        if (node.markerId == id) {
+            node.setMap(null);                  /** remove marker from map **/
+            nodes.splice(i,1);                  /** remove marker from array **/
+            $("#"+node.markerId).remove();      /** delete form entity **/
+            poly.getPath().removeAt(i);
+            return;
+        }
+    }
+    
+}
+
+/** returns 0 if no next node found, returns 1 if successful **/
+function nextNode() {
+    var id = activeMarkerId;
+    var node;
+    for (i = 0; i < nodes.length;) {
+        node = nodes[i];
+        i++;
+        if (node.markerId == id && i != nodes.length) {
+            node = nodes[i];
+            setActiveMarker(node.markerId);
+            break;
+        }
+    }
+    changeFormFocus(node.markerId);
+    panMap(node.position);
+    if (id == node.markerId) {
+        return 0;
+    }
+    else return 1;
+}
+
+/** return 0 if no prev, return 1 if prev was found **/
+function prevNode() {
+    var id = activeMarkerId;
+    var prev = nodes[0];
+    for (i = 0; i < nodes.length; i++) {
+        var node = nodes[i];
+        if (node.markerId == id) {
+            break;
+        }
+        prev = nodes[i];
+    }
+    setActiveMarker(prev.markerId);
+    changeFormFocus(prev.markerId);
+    panMap(prev.position);
+    if (prev.markerId == id) {
+        return 0;
+    }
+    else return 1;
 }
 
 function inactivateOldMarker() {
@@ -87,6 +157,40 @@ function getMarker(id) {
     return null;
 }
 
+function search(place) {
+    var location;
+    if (place.geometry != null) {
+        location = place.geometry.location;
+        panMap(location);
+    }
+    else {
+        location = searchAddress(place.name);
+        return;
+    }
+}
+
+function panMap(location) {
+    map.panTo(location);
+    var zoom = map.getZoom();
+    if (zoom < 16) {
+        map.setZoom(17);
+    }
+
+}
+
+function searchAddress(address) {
+    console.log("searchaddress: " + address);
+    geocoder.geocode( {"address" : address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            panMap(results[0].geometry.location);
+        }
+        else {
+            console.log('Geocode was not successfull: ' + status);
+        }
+    });
+}
+
+
 function changeMarkerGeo(id, location) {
     $("#"+id).find(".lat").val(location.lat());
     $("#"+id).find(".lng").val(location.lng());
@@ -98,7 +202,6 @@ function changeFormFocus(id) {
     $(".map-form-entity").hide();
     $("#"+id.toString()).show();
     modifyAddress($("#"+id.toString()).find(".revgeo").val());
-
 }
 
 function addFormData(template, location) {
@@ -166,6 +269,18 @@ function activateFormEvents() {
             $(this).find("span:first").remove();
         }
     );
+    $(".btn-delete").first().click(function() {
+        if (nodes.length == 1) {
+            resetMap();
+        }
+        else {
+            var id = activeMarkerId;
+            if (prevNode() == 0) {
+                nextNode();
+            }
+            deleteNode(id);
+        }
+    });
 
     $(".btn-prev").first().hover(
         function() {
@@ -185,6 +300,10 @@ function activateFormEvents() {
         }
     );
 
+    $(".btn-prev").first().click(function() {
+        prevNode();
+    });
+
     $(".btn-next").first().hover(
         function() {
             if ($(this).hasClass("disabled")) {
@@ -202,6 +321,10 @@ function activateFormEvents() {
             $(this).find("span:first").remove();
         }
     );
+    
+    $(".btn-next").first().click(function() {
+        nextNode();
+    });
 
     $(".noUi-slider").slice(0,5).noUiSlider({
         start: [3],
@@ -230,7 +353,6 @@ function dismissSubmitPane() {
 }
 
 function resetMap() {
-    $(".top").hide();
     $(".side-info").fadeIn("fast");
     $(".content").empty();
     poly.getPath().clear();
@@ -238,6 +360,7 @@ function resetMap() {
         nodes[i].setMap(null);
     }
     index = 0;
+    nodes = [];
 }
 
 /* menu toggle */
@@ -248,6 +371,8 @@ $(document).ready(function() {
                 formEntity = data;
             }
     });
+
+
 
     $(".toggler").click(function() {
         $(".side-main").css("visibility", "visible");
@@ -281,6 +406,20 @@ $(document).ready(function() {
 
     $(".dismiss-submit").click(function() {
         dismissSubmitPane();
+    });
+
+    $(".dismiss-search").click(function() {
+        $(this).parent().fadeOut("slow");
+    });
+
+    $(".btn-search").click(function() {
+        $(".side-search").fadeIn("slow");
+        $("#pac-input").val('').select();
+    });
+
+    $("#search").click(function() {
+        var address = $("#pac-input").val();
+        searchAddress(address);
     });
 
     $(".btn-reset").click(function() {
