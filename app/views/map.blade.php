@@ -6,7 +6,11 @@
     @include('js.map')
     @include('js.map-style')
     @include('js.map-events')
-    @stop
+@stop
+
+@section('header')
+    @include('layouts.navbar')
+@stop
 
 @section('body')
     <div class="body-container">

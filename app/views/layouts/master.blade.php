@@ -26,7 +26,6 @@
 </head>
 <body>
     @section('header')
-        @include('layouts.navbar')
     @show
     @yield('body')
     @yield('footer')
