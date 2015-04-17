@@ -3,18 +3,18 @@ var activeMarkerId = 0;
 var formEntity;
 var dragIndex = -1;
 
-var dgreen = {
-    url: '/img/markers/diamond-green.png',
-    size: new google.maps.Size(30, 44),
+var mactive = {
+    url: '/img/markers/marker-measle.png',
+    size: new google.maps.Size(28, 55),
     origin: new google.maps.Point(0,0),
-    anchor: new google.maps.Point(15,27)
+    anchor: new google.maps.Point(14,49)
 };
 
-var mgreen = {
-    url: '/img/markers/measle-green.png',
-    size: new google.maps.Size(20, 20),
+var mpip = {
+    url: '/img/markers/measle.png',
+    size: new google.maps.Size(12,12),
     origin: new google.maps.Point(0,0),
-    anchor: new google.maps.Point(10, 10)
+    anchor: new google.maps.Point(6,6)
 };
 
 function mapClick(location) {
@@ -45,7 +45,7 @@ function addMarker(location) {
         map: map,
         draggable: true,
         markerId: index,
-        icon: dgreen 
+        icon: mactive 
     });
     
     nodes.push(marker);         /** add new marker to list of markers for ref **/
@@ -137,14 +137,14 @@ function prevNode() {
 function inactivateOldMarker() {
     var oldMarker = getMarker(activeMarkerId);
     if (oldMarker != null) {
-        oldMarker.setIcon(mgreen);
+        oldMarker.setIcon(mpip);
     }
 }
 
 function setActiveMarker(id) {
     inactivateOldMarker();
     var newMarker = getMarker(id);
-    newMarker.setIcon(dgreen);
+    newMarker.setIcon(mactive);
     activeMarkerId = id;
 }
 
