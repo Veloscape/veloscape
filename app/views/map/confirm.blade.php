@@ -18,6 +18,3 @@
         <button type="submit" class="btn btn-default">Confirm</button>
     </div>
 </div>
-<div class="map-confirm dismiss-submit">
-</div>
-

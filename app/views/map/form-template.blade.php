@@ -1,18 +1,4 @@
 <div id="blank" class="map-form-entity">
-   <div class="form-section form-btn-group">
-        <div class="btn-group btn-group-justified" role="group">
-            <div class="btn-group">
-                <button type="button" class="btn btn-default btn-options btn-prev"><i class="fa fa-chevron-left fa-fw"></i></button>
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default btn-options btn-delete"><i class="fa fa-trash-o fa-fw"></i></button>
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default btn-options btn-next"><i class="fa fa-chevron-right fa-fw"></i></button>
-            </div>
-        </div>
-    </div> 
-
     <div class="form-hidden">
         <div>
         {{ Form::label($lat, 'lat') }}
@@ -44,7 +30,7 @@
                 <i class="fa fa-check pull-right"></i>
             </button>
             <button type="button" class="btn btn-path path-cycleway" data-type="cycleway">
-                <span class="btn-path-label">Cycleway</span>
+                <span class="btn-path-label">Seperated Cycleway</span>
                 <i class="fa fa-check pull-right"></i>
             </button>
             <button type="button" class="btn btn-path path-foot" data-type="footpath">
@@ -114,65 +100,7 @@
                 {{ Form::number($rate3, '0', ['class' => 'rate-input']) }}
             </div>
         </div>
-        <div class="section">
-            <abbr title="" class="rate-label"><span class="h4">Attractiveness&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
-            <div class="rate-info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.         
-            </div> 
-            <div  class="noUi-slider slider-options">
-            </div>
-            <div class="rate-value" data-set="3">
-                <span></span>
-            </div>
-            <div class="form-hidden">
-                {{ Form::number($rate4, '0', ['class' => 'rate-input']) }}
-            </div>
-        </div>
-        <div class="section">
-            <abbr title="" class="rate-label"><span class="h4">Comfort&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
-            <div class="rate-info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.         
-            </div> 
-            <div  class="noUi-slider slider-options">
-            </div>
-            <div class="rate-value" data-set="4">
-                <span></span>
-            </div>
-            <div class="form-hidden">
-                {{ form::number($rate5, '0', ['class' => 'rate-input']) }}
-            </div>
-        </div>
     </div>    
-
-    
-    
-
-    <div class="form-section">
-
-        <div class="section-reverse">
-        <span class="h4">Which of these atttributes apply to this section of your journey</span>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="{{$attr}}" value="anger">
-                Anger
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="{{$attr}}" value="illegality">
-                illegality 
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="{{$attr}}" value="pride">
-                Cycling Pride and Fellowship
-            </label>
-        </div>
-
-    </div>
-
     <div class="section-comment">
         <div class="section-reverse">
             <span class="h4">Any additional thoughts or comments you would like to share about this section of your journey</span>

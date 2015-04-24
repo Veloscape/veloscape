@@ -18,6 +18,7 @@ var mpip = {
 };
 
 function mapClick(location) {
+    /** hide search tab if open **/
     if ($(".side-search").css("display") != "none") {
         $(".side-search").fadeOut("slow");
     }
@@ -206,7 +207,7 @@ function changeFormFocus(id) {
 
 function addFormData(template, location) {
     var data = template.replace(/blank/g, activeMarkerId);
-    $(".content").prepend(data);                                        /** add form entity for new entry **/
+    $(".form-content").prepend(data);                                        /** add form entity for new entry **/
     $("#blank").first().attr("id", activeMarkerId);                     /** assign marker id to new entity **/
     
     activateFormEvents();                                                  /** enable js-functions **/
@@ -370,31 +371,6 @@ $(document).ready(function() {
             success: function(data) {
                 formEntity = data;
             }
-    });
-
-
-
-    $(".toggler").click(function() {
-        $(".side-main").css("visibility", "visible");
-        $(".body-container").toggleClass("menu-collapsed");
-        if ($(".body-container").hasClass("menu-collapsed")) {
-            $(this).children().switchClass("fa-angle-right", "fa-angle-left", 1000, "easInOutQuad");
-        }
-        else {
-            $(this).children().switchClass("fa-angle-left", "fa-angle-right", 1000, "easInOutQuad");
-        }
-    });
-
-    $(".map-container").bind("transitionend", function() {
-        google.maps.event.trigger(map, 'resize');
-        if ($(".body-container").hasClass("menu-collapsed")) {
-            $(".side-main").css("visibility", "hidden");
-        }
-    });
-    
-    $(".side-confirm").bind("transitionend", function() {
-        if ($(this).hasClass("active")) return;
-        $(this).css("visibility", "hidden");
     });
 
     $(".btn-submit").click(function() {

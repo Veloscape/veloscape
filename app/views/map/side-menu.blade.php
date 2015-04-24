@@ -1,36 +1,14 @@
-<div class="side-info" style="z-index: 2">
-    <div class="centered">
-        <h1 class="light"> 
-        Place a marker by left-clicking anywhere on the map to begin
-        </h1>
-    </div>
-</div>
 <div class="side-main" style="z-index: 1">
     <div class="options">
-        <div class="options-btn" data-toggle="tooltip" data-placement="left" title="Search location">
-            <button type="button" class="btn">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </button>
-        </div>
-        <div class="options-btn" data-toggle="tooltip" data-placement="left" title="Clear all markers">
-            <button type="button" class="btn">
-                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-            </button>
-        </div>
-        <div class="options-btn" data-toggle="tooltip" data-placement="left" title="Map help">
-            <button type="button" class="btn">
-                <i class="fa fa-question" style="font-size: 25px"></i>
-            </button>
-        </div>
-        <div class="options-btn btn-done" data-toggle="tooltip" data-placement="left" title="Submit route">
-            <button type="button" class="btn">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </button>
-        </div>
+        @include('map.options')
     </div>
 
     <div class="inner">
         @include('map.confirm')
+        @include('map.info')
+        <div class="form-content">
+
+        </div>
     </div>
 
     <!--
