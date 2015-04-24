@@ -2,6 +2,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
+                <span class="gear"></span>
                 <span class="logo"></span>
             </a>
         </div>

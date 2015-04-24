@@ -426,4 +426,8 @@ $(document).ready(function() {
         resetMap();
     });
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
 });

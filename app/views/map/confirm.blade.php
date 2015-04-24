@@ -5,14 +5,16 @@
 
     <div class="body">
         <h1>You're almost done!</h1>
-        <h3>Route Name</h3>
-        <input type="text" class="form-control" placeholder="Eg. My Weekly Commute" name="map[name]"></input>
+        <div class="body-overflow">
+            <h3>Route Name</h3>
+            <input type="text" class="form-control" placeholder="Eg. My Weekly Commute" name="map[name]"></input>
 
-        <h3>Description for this route</h3>
-        <textarea class="form-control" rows="3" name="map[desc]"></textarea>
+            <h3>Description for this route</h3>
+            <textarea class="form-control" rows="7" name="map[desc]"></textarea>
+        </div>
     </div>
 
-    <div>
+    <div class="btn-confirm">
         <button type="submit" class="btn btn-default">Confirm</button>
     </div>
 </div>

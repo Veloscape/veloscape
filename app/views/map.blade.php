@@ -15,19 +15,12 @@
 @section('body')
     <div class="body-container">
         @include('map.search')
-        {{ Form::open() }}
         <div class="map-container">
             @include('map.map-container')
         </div>
-        @include('map.confirm')
+        {{ Form::open() }}
         <div class="side-menu">
            @include('map.side-menu') 
-        </div>
-
-        <div class="map-controls">
-            <button class="control toggler" type="button">
-                <i class="fa fa-angle-right fa-2x"></i>
-            </button> 
         </div>
         {{ Form::close() }}
     </div>
