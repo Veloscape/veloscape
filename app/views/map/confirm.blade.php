@@ -6,7 +6,7 @@
     <div class="body">
         <h1>You're almost done!</h1>
         <div class="body-overflow">
-            <h3>Route Name</h3>
+            <h3>Route name</h3>
             <input type="text" class="form-control" placeholder="Eg. My Weekly Commute" name="map[name]"></input>
 
             <h3>Description for this route</h3>

@@ -5,9 +5,9 @@ var dragIndex = -1;
 
 var mactive = {
     url: '/img/markers/marker-measle.png',
-    size: new google.maps.Size(28, 55),
+    size: new google.maps.Size(28, 53),
     origin: new google.maps.Point(0,0),
-    anchor: new google.maps.Point(14,49)
+    anchor: new google.maps.Point(14,47)
 };
 
 var mpip = {
@@ -20,7 +20,7 @@ var mpip = {
 function mapClick(location) {
     /** hide search tab if open **/
     if ($(".side-search").css("display") != "none") {
-        $(".side-search").fadeOut("slow");
+        dismissSearchPane();
     }
     inactivateOldMarker();      /** set old marker (if any) icon to measle **/
     activeMarkerId = index;     /** set activeMarkerId to new index **/
@@ -32,6 +32,7 @@ function mapClick(location) {
     /* if path is empty then remove info page */
     var path = poly.getPath();
     if (path.getLength() == 0) {
+        $(".body-container").removeClass("info");
         $(".side-info").fadeOut();
     }
     path.push(location);
@@ -162,20 +163,24 @@ function search(place) {
     var location;
     if (place.geometry != null) {
         location = place.geometry.location;
+        /** this code will add a marker at location of search address**/
+        mapClick(location);
+        
+        /** this moves the map to the searched locaton **/
         panMap(location);
     }
     else {
-        location = searchAddress(place.name);
-        return;
+        searchAddress(place.name);
     }
 }
 
 function panMap(location) {
-    map.panTo(location);
     var zoom = map.getZoom();
     if (zoom < 16) {
         map.setZoom(17);
     }
+    map.panTo(location);
+    map.panBy(240,0);
 
 }
 
@@ -183,6 +188,9 @@ function searchAddress(address) {
     console.log("searchaddress: " + address);
     geocoder.geocode( {"address" : address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
+            /** this code will add a marker at location of search address**/
+            mapClick(results[0].geometry.location);
+            /** this moves the map to the searched locaton **/
             panMap(results[0].geometry.location);
         }
         else {
@@ -240,36 +248,54 @@ function getFormattedAddress(location) {
 
 /** form js effects **/
 function activateFormEvents() {
-    
-    $(".btn-path").slice(0,6).hover(
-        function() {
-            if ($(this).hasClass("active")) {
-                return;
-            }
-            $(this).find(".fa").css("visibility", "visible");
-        },
-        function() {
-            $(this).find(".fa").css("visibility", "hidden");
-        }
-    );
-
-    $(".btn-path").slice(0,6).click(function() {
+    $(".map-form-entity").first().find(".btn-path").click(function() {
         var type = $(this).data("type");
         $(this).parent().find(".type").val(type);
         $(this).parent().find(".btn-path").removeClass("active");
         $(this).addClass("active");
     });
+}
 
-    $(".btn-delete").first().hover(
-        function() {
-            $(this).find(".fa").hide();
-            $(this).append("<span>Delete</span>");
-        },
-        function() {
-            $(this).children().show();
-            $(this).find("span:first").remove();
-        }
-    );
+function dismissSubmitPane() {
+    $(".side-confirm").fadeOut("slow");
+    $(".map-overlay").fadeOut("slow");
+    $(".body-container").removeClass("submit-active");
+}
+
+function dismissSearchPane() {
+    $(".side-search").fadeOut("slow");
+    $(".body-container").removeClass("search");
+}
+
+function resetMap() {
+    $(".body-container").addClass("info");
+    $(".side-info").fadeIn("fast");
+    $(".form-content").empty();
+    poly.getPath().clear();
+    for (i = 0; i < nodes.length; i++) {
+        nodes[i].setMap(null);
+    }
+    index = 0;
+    nodes = [];
+}
+
+/* init */
+$(document).ready(function() {
+    $.ajax({
+        url: formEntityUrl,
+            success: function(data) {
+                formEntity = data;
+            }
+    });
+
+    $(".btn-submit").click(function() {
+        $(".side-confirm").fadeIn("fast");
+        $(".map-overlay").fadeIn("fast");
+        $(".body-container").addClass("submit-active");
+        dismissSearchPane();
+    });
+
+    /** SIDE HEADER FUNCTIONS **/
     $(".btn-delete").first().click(function() {
         if (nodes.length == 1) {
             resetMap();
@@ -283,116 +309,32 @@ function activateFormEvents() {
         }
     });
 
-    $(".btn-prev").first().hover(
-        function() {
-            if ($(this).hasClass("disabled")) {
-                return;
-            }
-
-            $(this).find(".fa").hide();
-            $(this).append("<span>Previous Point</span>");
-        },
-        function() {
-            if ($(this).hasClass("disabled")) {
-                return;
-            }
-            $(this).children().show();
-            $(this).find("span:first").remove();
-        }
-    );
-
     $(".btn-prev").first().click(function() {
         prevNode();
     });
 
-    $(".btn-next").first().hover(
-        function() {
-            if ($(this).hasClass("disabled")) {
-                return;
-            }
-
-            $(this).find(".fa").hide();
-            $(this).append("<span>Next Point</span>");
-        },
-        function() {
-            if ($(this).hasClass("disabled")) {
-                return;
-            }
-            $(this).children().show();
-            $(this).find("span:first").remove();
-        }
-    );
     
     $(".btn-next").first().click(function() {
         nextNode();
     });
-
-    $(".noUi-slider").slice(0,5).noUiSlider({
-        start: [3],
-        step: 1,
-        connect: "lower",
-        range: {
-            'min': [1],
-            'max': [5]
-        }
-    });
-    $(".noUi-slider").on({
-        slide: function() {
-            var val = $(this).val();
-            $(this).parent().find(".rate-input").val(val);
-            var set = $(this).parent().find(".rate-value").data("set");
-            var label = rateLabels[parseInt(set)][parseInt(val)-1];
-            $(this).parent().find(".rate-value").children().text(label);
-        }
-    });
-
-}
-
-function dismissSubmitPane() {
-    $(".side-confirm").removeClass("active");
-    $(".map-confirm").removeClass("active");
-}
-
-function resetMap() {
-    $(".side-info").fadeIn("fast");
-    $(".content").empty();
-    poly.getPath().clear();
-    for (i = 0; i < nodes.length; i++) {
-        nodes[i].setMap(null);
-    }
-    index = 0;
-    nodes = [];
-}
-
-/* menu toggle */
-$(document).ready(function() {
-    $.ajax({
-        url: formEntityUrl,
-            success: function(data) {
-                formEntity = data;
-            }
-    });
-
-    $(".btn-submit").click(function() {
-        $(".side-confirm").css("visibility", "visible");
-        $(".side-confirm").addClass("active");
-        $(".map-confirm").addClass("active");
-
-    });
+    /***/
 
     $(".dismiss-submit").click(function() {
         dismissSubmitPane();
     });
 
     $(".dismiss-search").click(function() {
-        $(this).parent().fadeOut("slow");
+        dismissSearchPane();
     });
 
+    //FIX
     $(".btn-search").click(function() {
-        $(".side-search").fadeIn("slow");
+        $(".body-container").addClass("search");
+        $(".side-search").fadeIn("fast");
         $("#pac-input").val('').select();
     });
 
+    //FIX
     $("#search").click(function() {
         var address = $("#pac-input").val();
         searchAddress(address);

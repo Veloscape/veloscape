@@ -18,12 +18,12 @@
 
     <div class="form-section">
         <div class="section-title">
-            <span class="h4">Which option most accurately describes the type of surface encountered along this section of your journey</span>
+            <span class="h4">Which option most accurately describes this section of your route</span>
         </div>
         <div class="section-centered">
             <button type="button" class="btn btn-path path-road" data-type="road">
-                <i class="fa fa-check pull-right"></i>
                 <span class="btn-path-label">Road</span>
+                <i class="fa fa-check pull-right"></i>
             </button>
             <button type="button" class="btn btn-path path-bike" data-type="bikelane">
                 <span class="btn-path-label">Bike Lane</span>
@@ -34,7 +34,7 @@
                 <i class="fa fa-check pull-right"></i>
             </button>
             <button type="button" class="btn btn-path path-foot" data-type="footpath">
-                <span class="btn-path-label">Footpath</span>
+                <span class="btn-path-label">Sidewalk</span>
                 <i class="fa fa-check pull-right"></i>
             </button>
             <button type="button" class="btn btn-path path-shared-foot" data-type="sharedfootpath">
@@ -55,12 +55,12 @@
     
     <div class="form-section">
         <div class="section-title">
-            <span class="h4">How would you rate the conditions along this section of your journey</span>
+            <span class="h4">How would you rate the conditions along this section of your route</span>
         </div>
         <div class="section">
             <abbr title="" class="rate-label"><span class="h4">Safety&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
             <div class="rate-info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.         
+                Where do you feel exposed to danger, and where do you feel totally safe?
             </div> 
             <div  class="noUi-slider slider-options">
             </div>
@@ -75,7 +75,7 @@
         <div class="section">
             <abbr title="" class="rate-label"><span class="h4">Momentum&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
             <div class="rate-info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.         
+                Is this part of your ride interrupted by long traffic lights, fragmented cycleways and dodgy road surfaces, or are you able to cruise comfortably and set your own pace?
             </div> 
             <div  class="noUi-slider slider-options">
             </div>
@@ -89,7 +89,7 @@
         <div class="section">
             <abbr title="" class="rate-label"><span class="h4">Enjoyment&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
             <div class="rate-info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.         
+                Where are the beautiful views, the thrills and the mellow moments on your ride? And which parts of your ride do you most dislike?
             </div> 
             <div  class="noUi-slider slider-options">
             </div>
@@ -103,7 +103,7 @@
     </div>    
     <div class="section-comment">
         <div class="section-reverse">
-            <span class="h4">Any additional thoughts or comments you would like to share about this section of your journey</span>
+            <span class="h4">Any additional thoughts or comments you would like to share about this section of your route</span>
         </div>
             <textarea id="{{$comments}}" name="{{$comments}}" class="form-control comments" placeholder="(Max 250 characters)"></textarea>
     </div>

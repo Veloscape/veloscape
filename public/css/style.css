@@ -1,9 +1,7 @@
-/** testing css DELETE **/
-
 /** hide internal form elements **/
 .form-hidden {
     background-color: rgba(255,100,100,0.2);
-    display: block;
+    display: none;
 }
 
 /*
@@ -27,10 +25,27 @@ container and container-max-width-settings
 @media screen and (min-width:1200px){
 }
 
+@media screen and (min-height:900px) {
+    .side-search {
+        height: 762px !important;
+        bottom: auto !important;
+    }
+    .side-menu, .options {
+        height: 775px !important;
+        bottom: auto !important;
+    }
+}
+
 body {
     font-family: 'Didact Gothic', sans-serif;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+/** gear icon **/
+.gear {
+    background: transparent url('../img/veloscape-gear-white-border.png') center no-repeat;
+    background-size: contain;
 }
 
 /*
@@ -59,8 +74,6 @@ body {
     left: 0px;
     height: 100px;
     width: 50px;
-    background: transparent url('../img/veloscape-gear-white-border.png') center no-repeat;
-    background-size: contain;
 }
 
 .navbar>.container .navbar-brand .logo{
@@ -126,8 +139,77 @@ body {
     position: absolute !important;
     height: 100%;
     width: 100%;
+
     overflow: hidden;
     z-index: 1;
+}
+
+/** side-header **/
+.side-header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 60px;
+}
+.side-header .gear {
+    position: absolute;
+    top: -4px;
+    left: 10px;
+    height: 60px;
+    width: 45px;
+}
+
+.side-header .header-address {
+    display: inline-block;
+    margin-left: 53px;
+    width: 285px;
+}
+
+.side-header .header-address h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 14px;
+}
+
+.side-header .btn-header-group {
+    position: relative;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.side-header .btn-header-group .btn-header {
+    height: 40px;
+    width: 40px;
+    margin-left: 0px;
+    padding: 0px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+
+    text-align: center;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.side-header .btn-header-group .btn:active {
+    box-shadow: none;
+}
+.side-header .btn-header-group .btn:hover {
+    opacity: 0.8;
+}
+
+.side-header .tooltip {
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+
+/** side-header-hide-conditions **/
+.body-container.submit-active .side-header, 
+.body-container.info .side-header,
+.body-container.search .side-header{
+    visibility: hidden !important;
 }
 
 
@@ -135,14 +217,13 @@ body {
 .side-menu {
     position: absolute;
     width: 480px;
-    top: 3vh;
-    bottom: 3vh;
-    right: 3vh;
-    z-index: 11;
+    top: 30px;
+    bottom: 30px;
+    right: 20px;
+    z-index: 600;
     background: transparent;
     font-weight: 600;
 }
-
 
 .side-menu .side-main {
     background: #FFFFFF;
@@ -150,6 +231,7 @@ body {
     width: 100%;
     border-radius: 10px;
     overflow: visible;
+    z-index: 1;
     -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
@@ -189,59 +271,41 @@ abbr.no-border {
     opacity: 0.25;
 }
 
-.side-main .top {
-    position: absolute;
-    top: 0px;
-    height: 200px;
-    margin-bottom: 50px;
-    width: 100%;
-    overflow: hidden;
-}
 
-.side-main .top .header {
-    display: block;
-    position: relative;
-    height: auto;
-    width: 100%;
-}
-
-.side-main .top .marker-address {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 34px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    text-align: center;
-
-}
-
+/** form-content **/
 .side-main .inner .form-content {
     position: absolute;
-    top: 0px;
+    top: 50px;
     bottom: 0px;
     left: 0px;
     right: 0px;
     border-radius: inherit;
-    margin-top: 100px; 
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-right: 6px;
+    margin-bottom: 4px;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-
-/** side menu options **/
-.side-main .options {
+.side-main .inner .form-content .gear {
     position: absolute;
     top: 0px;
-    bottom: 0px;
-    right: 0px;
-    margin-right: 100%;
+    left: 0px;
+    height: 100px;
+    width: 60px;
+}
+
+/** side menu options **/
+.options {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    right: 20px;
+    margin-right: 480px;
     width: 60px;
     padding-right: 10px;
+    z-index: 150;
     pointer-events: none;
 }
 
@@ -252,6 +316,10 @@ abbr.no-border {
     border-radius: 25px;
     background-color: white;
     text-align: center;
+    border: none;
+    padding: 0px;
+    font-size: 20px;
+    line-height: 50px;
     
     pointer-events: auto;
     -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
@@ -265,26 +333,35 @@ abbr.no-border {
     white-space: nowrap;
 }
 
-.options .options-btn.btn-done {
+.options .btn-submit {
     position: absolute;
     left: 0px;
     bottom: 0px;
     margin-bottom: 0px;
 }
 
-.options .btn {
-    background: transparent;
-    border: none;
-    padding: 0px;
-    font-size: 20px;
-    line-height: 28px;
-    height: 100%;
-    width: 100%;
-}
-
 .options .btn:active {
     box-shadow: none;
     -webkit-box-shadow: none;
+}
+
+
+/** option-btn hovers **/
+.options .btn-reset:hover {
+    background-color: #DB4A38 !important;
+    color: #FFFFFF;
+}
+.options .btn-submit:hover {
+    background-color: #8561b9; /** purple **/
+    color: #FFFFFF;
+}   
+.options .btn-help:hover {
+    background-color: #555555;
+    color: #FFFFFF;
+}
+.options .btn-search:hover {
+    background-color: #34AADE;
+    color: #FFFFFF;
 }
 
 /** side inner **/
@@ -300,34 +377,26 @@ abbr.no-border {
 
 /** confirm css **/
 .side-confirm {
+    position: absolute;
+    z-index: 5;
     height: 100%;
     width: 100%;
     background-color: #8561b9; /** purple **/
-    z-index: 101;
     font-weight: 500;
     overflow: hidden;
     display: none;
 }
-.side-confirm.active {
-    right: 0px;
-}
 
-.map-confirm {
+.map-overlay {
+    display: none;
     position: absolute;
-    top: 80px;
-    width: 0%;
-    bottom: 0px;
-    right: 0px;
-    border-radius: inherit;
-    background-color: rgba(255,200,100,0.2);
-    z-index: 100;
-    transition: width 0.2s ease-in-out;
-}
-.map-confirm.active {
     width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 200;
 }
 
-.side-confirm .btn-dismiss {
+.btn-dismiss {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -372,20 +441,20 @@ abbr.no-border {
     margin-bottom: 20px;
 }
 
-.side-confirm .btn-dismiss:hover {
+..btn-dismiss:hover {
     opacity: 1;
 }
 
-.side-confirm .btn-dismiss:active {
+.btn-dismiss:active {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 
-.side-confirm .btn-dismiss:active > .fa-close {
+.btn-dismiss:active > .fa-close {
     text-shadow: none;
 }
 
-.side-confirm .btn-dismiss>  .fa-close {
+.btn-dismiss>  .fa-close {
     text-shadow:
         -1px -1px 0 #FFFFFF,  
         1px -1px 0 #FFFFFF,
@@ -422,33 +491,38 @@ abbr.no-border {
 .side-search {
     position: absolute;
     display: none;
-    z-index: 101;
-    top: 80px;
-    right: 0px;
-    bottom: 0px;
-    width: 572px;
-    background-color: orange;
+    z-index: 800;
+    top: 37px;
+    right: 27px;
+    bottom: 37px;
+    height: auto;
+    width: 466px;
+    border-radius: 10px;
+    background-color: #34AADE;
+}
+
+.body-container.search .inner {
+    border: 3px solid #34AADE;
 }
 
 .side-search > .search-body {
-    margin-top: 110px;
-    margin-left: 45px;
-    margin-right: 45px;
+    margin-top: 80px;
+    margin-left: 15px;
+    margin-right: 15px;
     height: 50px;
 }
 
 .search-body > .form-control {
     display: inline-block;
-    width: 374px;
-    font-size: 23px;
+    width: 340px;
+    font-size: 18px;
     height: 100%;
 }
 
 .search-body > .btn {
-    margin-right: -8px;
     height: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     float: right !important;
 }
 
@@ -463,114 +537,16 @@ abbr.no-border {
     height: 50px;
     padding-left: 14px;
     padding-right: 4px;
-    font-size: 18px;
+    font-size: 14px;
     padding-top: 12px;
 }
 
 .pac-item-query {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .pac-icon {
     display: none;
-}
-
-
-/** bottom side menu **/
-.side-menu .bottom {
-    position: absolute;
-    display: block;
-    bottom: 0px;
-    left:0px;
-    right: 0px;
-    height: 45px;
-    margin-top: 5px;
-    margin: inherit !important;
-    
-    box-shadow: 0px -5px 0px 0px rgba(255,200,100, 0.7);
-    text-align: center;
-    color: #000000;
-}
-
-.side-menu .bottom > .btn {
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-    border-radius: 0px;
-    background-color: transparent;
-    border-style: solid;
-    border-width: 3px 0px 0px 0px;
-    border-color: orange;
-
-    font-size: 20px;
-}
-
-.side-menu .bottom>.btn>.pull-left {
-    margin-top: 4px;
-    margin-left: 4px;
-}
-
-.side-menu .bottom>.btn>.pull-right {
-    margin-right: 200px;
-}
-/** search / reset buttons **/
-.top .btn {
-    background: #F1F1F1;
-    widtH: 40px;
-    height: 40px;
-    line-height: 30px;
-    border-radius: 100px;
-    text-align: center;
-    padding: 0px;
-}
-
-.top > .btn-group > .btn-group > .btn {
-    border-radius: 0px;
-    background: #FFFFFF;
-    border-radius: 10px !important;
-    border: 5px solid transparent;
-    font-weight: 600;
-}
-
-.top > .btn-group > .btn-group > .btn:hover {
-    background: grey;
-    border: 5px solid transparent;
-}
-
-
-/** prev / delete /next **/
-.form-section > .btn-group > .btn-group > .btn {
-    border-radius: 0px !important;
-    border: 5px solid rgba(255,255,255,0.1);
-    font-size: 14px;
-    line-height: 1.42857;
-    color: #000000;
-    background-color: rgba(255,255,255,0.5);
-}
-
-.form-section > .btn-group > .btn-group > .btn:focus {
-    box-shadow: inset 0px 0px 10px -5px #000000;
-    background-color: inherit;
-}
-
-.form-section > .btn-group > .btn-group > .btn:hover {
-    border: 5px solid #FFFFFF;
-    box-shadow: inset 0px 0px 10px -5px #000000;
-}
-.btn-next:hover, .btn-prev:hover {
-    background-color: #A3A3A3;
-    font-weight: 600;
-    
-}
-
-.btn-delete:hover {
-    background-color: #D9534F !important;
-    color: #FFFFFF !important;
-    font-weight: 600;
-}
-
-.form-section > .btn-group > .btn-group > .disabled {
-    color: #666666;
 }
 
 /** form css **/
@@ -618,6 +594,11 @@ abbr.no-border {
     opacity: 0.5;
 }
 
+.btn-path:hover > .fa {
+    visibility: visible !important;
+    opacity: 0.5 !important;
+}
+
 .btn-path.active > .fa {
     visibility: visible !important;
     opacity: 1 !important;
@@ -636,7 +617,7 @@ abbr.no-border {
 }
 
 .path-bike {
-    border-color: #FFCC66;
+    border-color: #8561b9; /** purple **/
 }
 
 .path-cycleway {
@@ -667,7 +648,7 @@ abbr.no-border {
 }
 
 .section:hover {
-    background-color: #FFEE88;
+    background-color: inherit;
 }
 
 .section-reverse {
@@ -695,9 +676,6 @@ abbr.no-border {
     float: left !important;
 }
 
-.noUi-connect {
-    background: #FFCC66 !important;
-}
 
 /** slider info divs **/
 .rate-info {
@@ -745,9 +723,9 @@ abbr.no-border {
     padding-left: 4px;
     padding-right: 4px;
     resize: vertical;
-    margin-top: 3px;
-    min-height: 60px;
-    min-widtH: 500px;
+    margin-top: 6px;
+    min-height: 120px;
+    min-widtH: 400px;
 }
 
 .comments:focus {
