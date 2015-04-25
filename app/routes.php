@@ -10,9 +10,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+/**
 Route::get('/test/nav', function() {
     return View::make('test/nav');
 });
+**/
 
 Route::get('/', array('as' => 'home', function() 
 {
