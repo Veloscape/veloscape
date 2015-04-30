@@ -10,7 +10,39 @@ class MapController extends BaseController {
 
     public function save()
     {
-        return Input::all();
+        $input = Input::all();
+        $route_id = $this->newRoute($input['map']);
+        $this->addMarkers($route_id, $input['node']);
+
+        dd($input);
+    }
+
+    public function newRoute($data) {
+        $route = new MapRoute;
+        $route->title = $data['name'];
+        $route->desc =$data['desc']; 
+        $route->save();
+
+        return $route->id;
+    }
+
+    public function addMarkers($id, $data) {
+        foreach (array_reverse($data) as $m) {
+            $marker = new Marker;
+            $marker->lat = $m['lat'];
+            $marker->lng = $m['lng'];
+            $marker->rev_geo = $m['revgeocode'];
+            $marker->save();
+
+            $info_array = $m['info'];
+            foreach (array_keys($info_array) as $key) {
+                $marker_info = new MarkerValue;
+                $marker_info->marker_id = $marker->id;
+                $marker_info->key = $key;
+                $marker_info->value = $info_array[$key];
+                $marker_info->save();
+            }
+        }
     }
 
     public function addEntity() {
@@ -18,14 +50,11 @@ class MapController extends BaseController {
         $lat = $node.'[lat]';
         $lng = $node.'[lng]';
         $revgeo = $node.'[revgeocode]';
-        $type = $node.'[type]';
-        $rate1 = $node.'[rate1]';
-        $rate2 = $node.'[rate2]';
-        $rate3 = $node.'[rate3]';
-        $rate4 = $node.'[rate4]';
-        $rate5 = $node.'[rate5]';
-        $attr = $node.'[attr]';
-        $comments = $node.'[comments]';
+        $type = $node.'[info][type]';
+        $rate1 = $node.'[info][safety]';
+        $rate2 = $node.'[info][momentum]';
+        $rate3 = $node.'[info][enjoyment]';
+        $comments = $node.'[info][comments]';
 
         $data = array(
                 'lat' => $lat,
@@ -35,9 +64,6 @@ class MapController extends BaseController {
                 'rate1' => $rate1,
                 'rate2' => $rate2,
                 'rate3' => $rate3,
-                'rate4' => $rate4,
-                'rate5' => $rate5,
-                'attr' => $attr,
                 'comments' => $comments);
         return View::make('map.form-template', $data);
     }
