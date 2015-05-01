@@ -24,7 +24,7 @@ class AdminController extends BaseController {
 
             // create our user data for the authentication
             $userdata = array(
-                'email'     => Input::get('email'),
+                'username'     => Input::get('username'),
                 'password'  => Input::get('password')
             );
 
@@ -35,7 +35,7 @@ class AdminController extends BaseController {
                 // redirect them to the secure section or whatever
                 // return Redirect::to('secure');
                 // for now we'll just echo success (even though echoing in a controller is bad)
-                echo 'SUCCESS!';
+                return 'SUCCESS!';
 
             } else {        
 
