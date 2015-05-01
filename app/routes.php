@@ -25,8 +25,18 @@ Route::get('/comingsoon', array('as' => 'comingsoon', function() {
     return View::make('landing');
 }));
 
-Route::get('/map/form/entity', array('as' => 'partialMarkerFeedback', 'uses' => 'MapController@addEntity'));
+Route::group(array('prefix' => 'development'), function() {
 
-Route::get('/development/map', 'MapController@index');
+    Route::get('map', 'MapController@index');
 
-Route::post('/development/map', 'MapController@save');
+    Route::post('map', 'MapController@save');
+
+    Route::get('/map/form/entity', array('as' => 'partialMarkerFeedback', 'uses' => 'MapController@addEntity'));
+
+    Route::group(array('prefix' => 'admin'), function() {
+        Route::get('/', array('as' => 'login', 'uses' =>'AdminController@index'));
+        Route::post('/', 'AdminController@login');
+    });
+});
+
+
