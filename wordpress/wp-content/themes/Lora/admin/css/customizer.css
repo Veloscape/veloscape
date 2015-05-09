@@ -1,0 +1,58 @@
+.layout_selector input[type="radio"] {
+	margin: 0;
+	padding: 0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+            display: none;
+}
+
+.layout_selector label {
+	cursor: pointer;
+	background-size: container;
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 90px;
+	height: 74px;
+	margin: 0 10px 10px 0;
+}
+
+.layout_3_1 {
+	background-image: url(../images/3_1.jpg);
+}
+
+.layout_selector input[type="radio"]:checked + .layout_3_1 {
+	background-image: url(../images/3_1_selected.jpg);
+}
+
+.layout_3x3 {
+	background-image: url(../images/3x3.jpg);
+}
+
+.layout_selector input[type="radio"]:checked + .layout_3x3 {
+	background-image: url(../images/3x3_selected.jpg);
+}
+
+.layout_2_1 {
+	background-image: url(../images/2_1.jpg);
+}
+
+.layout_selector input[type="radio"]:checked + .layout_2_1 {
+	background-image: url(../images/2_1_selected.jpg);
+}
+
+.layout_2x2 {
+	background-image: url(../images/2x2.jpg);
+}
+
+.layout_selector input[type="radio"]:checked + .layout_2x2 {
+	background-image: url(../images/2x2_selected.jpg);
+}
+
+.layout_1x1 {
+	background-image: url(../images/1x1.jpg);
+}
+
+.layout_selector input[type="radio"]:checked + .layout_1x1 {
+	background-image: url(../images/1x1_selected.jpg);
+}
