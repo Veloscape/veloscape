@@ -9,7 +9,7 @@ class UserTableSeeder extends Seeder {
         //create admin account
         User::create(array(
             'username' => 'admin',
-            'password' => Hash::make('veloDashbordPassword'),
+            'password' => Hash::make('changeMe'),
         ));
     }
 }

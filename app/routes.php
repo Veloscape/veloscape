@@ -33,9 +33,29 @@ Route::group(array('prefix' => 'development'), function() {
 
     Route::get('/map/form/entity', array('as' => 'partialMarkerFeedback', 'uses' => 'MapController@addEntity'));
 
+    
     Route::group(array('prefix' => 'admin'), function() {
-        Route::get('/', array('as' => 'login', 'uses' =>'AdminController@index'));
-        Route::post('/', 'AdminController@login');
+        Route::get('/', array('as' => 'admin home', 'uses' =>'AdminController@index'));
+        Route::get('/login', function() { return Redirect::route('admin home'); });
+        Route::post('/login', array('as' => 'admin login', 'uses' => 'AdminController@login'));
+
+        Route::group(array('before' => 'admin.auth'), function() {
+            Route::get('/dashboard', array('as' => 'admin dashboard', 'uses' => 'AdminController@dashboard'));
+
+            Route::get('/logout', function() {
+                Auth::logout();
+                return Redirect::route('admin home');
+            });
+
+
+            Route::get('/page/new', function() {
+                return View::make('admin.new-page');
+            });
+        });
+    });
+
+    Route::filter('admin.auth', function() {
+        if (Auth::guest()) return Redirect::route('admin home');
     });
 });
 
