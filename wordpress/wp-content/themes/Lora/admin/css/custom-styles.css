@@ -1,0 +1,14 @@
+#video-post-format,
+#audio-post-format,
+#quote-post-format,
+#link-post-format {
+	display: none;
+}
+
+.upload-url {
+	width: 90%;
+}
+
+.preview-img {
+	border: 2px solid #ddd;
+}
