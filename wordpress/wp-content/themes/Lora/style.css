@@ -1,9 +1,9 @@
 /*
-Theme Name: Lora
-Theme URI: http://cadengrant.com/lora/
-Author: Caden Grant
-Author URI: http://www.themeforest.net/user/CadenGrant/
-Description: A premium WordPress blog & portfolio theme.
+Theme Name: Veloscape modified Lora
+Theme URI: Lora: http://cadengrant.com/lora/
+Author: Veloscape: Ivan, Lora: Caden Grant
+Author URI: Lora: http://www.themeforest.net/user/CadenGrant/
+Description: 
 Version: 1.0.1
 License: ThemeForest Split License
 License URI: --
@@ -156,6 +156,7 @@ a {
 a:hover,
 a:active {
 	outline: 0;
+	text-decoration: none;
 }
 
 a img {
