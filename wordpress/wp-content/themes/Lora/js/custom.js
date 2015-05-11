@@ -114,7 +114,7 @@ jQuery.noConflict();
 
     var list = $(this).find('ul');
 
-    if( list.parent('li').hasClass('list-left') ) {
+    /*if( list.parent('li').hasClass('list-left') ) {
       $('body').mousemove( function( event ) {
         if( isNear( list.parent('li'), 40, event ) || isNear( list, 1, event ) || isNear( list.find('ul'), 1, event) ) {
           // do nothing
@@ -123,8 +123,9 @@ jQuery.noConflict();
         }
       });
     } else {
-      list.hide();
-    }
+    */
+    list.hide();
+    
 
   });
 
