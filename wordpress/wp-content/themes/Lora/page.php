@@ -71,6 +71,7 @@ get_header(); ?>
 	<?php } ?>
 
 	<div class="wrapper">
+    <!-- page.php wrapper -->
 
 		<div id="container" class="container">
 

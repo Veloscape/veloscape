@@ -76,7 +76,7 @@ get_header(); ?>
 
 	endif;
 
-	$layout = get_theme_mod( 'layout', '3_1' );
+	$layout = get_theme_mod( 'layout', '3x3' );
 
 	if( $blog_layout == 'default' && ! ($blog_param == 'standard' || $blog_param == 'standard_sidebar' || $blog_param == 'masonry' || $blog_param == 'masonry_sidebar' || $blog_param == 'masonry_fullscreen' || $slider_param == 'owlslider' ) ) :
 
@@ -95,11 +95,12 @@ get_header(); ?>
 
 	<?php if( has_wrapper() ) : ?>
 	<div class="wrapper">
+    <!-- index.php wrapper -->
 	<?php endif; ?>
 
 		<div id="<?php echo esc_attr( $container_id ); ?>" class="<?php echo esc_attr( $container_class ); ?>">
 			<main id="main" role="main">
-
+                <!-- index.php main -->
 				<div class="<?php echo esc_attr( $content_class ); ?>">
 
 					<div class="<?php echo esc_attr( $posts_container ); ?>">
@@ -116,19 +117,21 @@ get_header(); ?>
 
 								if( ( $layout == '3_1' || $blog_param == '3colalt' ) && !( $blog_param == '1col' || $blog_param == '2col' || $blog_param == '2colalt' || $blog_param == '3col' || $slider_param == 'owlslider' ) ) {
 
-									if( $x == 4 ) {
+                                    /* disable fill width panel */
+                                    
+                                    if( $x == 4 ) {
 										$article_class = 'fullwidth';
 										$thumb_size = 'fullwidth';
 										$img_width = '1400';
 										$img_height = '430';
 										$x = 0;
-									} else {
-										$article_class = 'standard';
-										$thumb_size = 'three_col';
-										$img_width = '550';
-										$img_height = '430';
-									}
-
+                                    } else {
+                                    
+                                    $article_class = 'standard';
+                                    $thumb_size = 'three_col';
+                                    $img_width = '550';
+                                    $img_height = '430';
+                                    }
 									if( $x == 3 ) {
 										$article_class .= ' last';
 									}
@@ -198,7 +201,12 @@ get_header(); ?>
 								?>
 								
 								<?php if( $blog_layout == 'default' && ! ($blog_param == 'standard' || $blog_param == 'standard_sidebar' || $blog_param == 'masonry' || $blog_param == 'masonry_sidebar' || $blog_param == 'masonry_fullscreen' || $slider_param == 'owlslider' ) ) { ?>
-								
+
+                                <?php if ($x == 1) { ?>
+                                    <!-- velo row -->
+                                    <div class="row">
+                                <?php } ?>
+
 								<article id="post-<?php the_ID(); ?>" <?php post_class( $article_class . ' masonry-item' ); ?>>
 									
 									<?php if( $thumb && !has_post_format( 'gallery' ) ) { ?>
@@ -226,17 +234,27 @@ get_header(); ?>
 
 								</article>
 
+                                <?php if ($x == 0) { ?>
+                                <!-- velo end row -->
+                                </div>
+                                <?php } ?>
+
 								<?php } else {
 									get_template_part( 'content', get_post_format() );
 								}
 
-							endwhile;
-
+                            endwhile;
+                        
+                            if ($x != 0) { ?>
+                                <!-- velo end row -->
+                                </div>
+                            <?php };
 						else:
 
 							get_template_part( 'content', 'none' );
 
 						endif; ?>
+
 
 					</div>
 
