@@ -206,7 +206,7 @@ function lora_scripts() {
 		wp_enqueue_script( 'imagesloaded.pkgd.min', get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js', array(), '3.1.8', true );
 	}
 
-	wp_enqueue_script( 'custom.min', get_template_directory_uri() . '/js/custom.min.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'custom.min', get_template_directory_uri() . '/js/custom.js', array(), '1.0.0', true );
 	
 	if( is_page_template( 'contact.php' ) ) {
 		wp_enqueue_script( 'contact-form', get_template_directory_uri() . '/js/contact-form.js', array(), '1.0.0', true );
