@@ -16,47 +16,13 @@ Route::get('/test/nav', function() {
 });
 **/
 
-Route::get('/', array('as' => 'home', function() 
-{
-    return Redirect::to('comingsoon');
-}));
 
-Route::get('/comingsoon', array('as' => 'comingsoon', function() {
-    return View::make('landing');
-}));
+    Route::get('/', 'MapController@index');
 
-Route::group(array('prefix' => 'development'), function() {
+    Route::post('/', 'MapController@save');
 
-    Route::get('map', 'MapController@index');
-
-    Route::post('map', 'MapController@save');
-
-    Route::get('/map/form/entity', array('as' => 'partialMarkerFeedback', 'uses' => 'MapController@addEntity'));
-
-    
-    Route::group(array('prefix' => 'admin'), function() {
-        Route::get('/', array('as' => 'admin home', 'uses' =>'AdminController@index'));
-        Route::get('/login', function() { return Redirect::route('admin home'); });
-        Route::post('/login', array('as' => 'admin login', 'uses' => 'AdminController@login'));
-
-        Route::group(array('before' => 'admin.auth'), function() {
-            Route::get('/dashboard', array('as' => 'admin dashboard', 'uses' => 'AdminController@dashboard'));
-
-            Route::get('/logout', function() {
-                Auth::logout();
-                return Redirect::route('admin home');
-            });
+    Route::get('/form/entity', array('as' => 'partialMarkerFeedback', 'uses' => 'MapController@addEntity'));
 
 
-            Route::get('/page/new', function() {
-                return View::make('admin.new-page');
-            });
-        });
-    });
-
-    Route::filter('admin.auth', function() {
-        if (Auth::guest()) return Redirect::route('admin home');
-    });
-});
 
 

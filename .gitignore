@@ -1,5 +1,5 @@
-/bootstrap/compiled.php
-/vendor
+cadence/bootstrap/compiled.php
+cadence/vendor/
 /app/storage/*
 composer.phar
 composer.lock
@@ -20,5 +20,5 @@ wp-content/backups/
 wp-content/blogs.dir/
 wp-content/cache/
 wp-content/upgrade/
-wp-content/uploads/
+wordpress/wp-content/uploads/
 wp-content/wp-cache-config.php
