@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
     'local' => array('UX302LA'),
-    //default: 'production'
+    //will default to production 'production'
 
 ));
 
