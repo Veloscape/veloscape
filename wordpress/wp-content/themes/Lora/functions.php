@@ -353,6 +353,13 @@ function lora_post_meta( $layout ) {
 				echo "</li>";
 			}
 
+            /* show tags */
+            if (has_tag()) {
+                echo "<li>";
+                the_tags("", ", ");
+                echo "</li>";
+            }
+
 			if( current_user_can( 'manage_options' ) ) {
 				echo "<li><strong>&middot;</strong></li>";
 			} ?>
