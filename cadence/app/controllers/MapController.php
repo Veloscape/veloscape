@@ -34,6 +34,7 @@ class MapController extends BaseController {
     public function addMarkers($id, $data) {
         foreach (array_reverse($data) as $m) {
             $marker = new Marker;
+            $marker->route_id = $id;
             $marker->lat = $m['lat'];
             $marker->lng = $m['lng'];
             $marker->rev_geo = $m['revgeocode'];
