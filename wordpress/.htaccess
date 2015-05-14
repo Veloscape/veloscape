@@ -5,7 +5,7 @@ RewriteEngine On
 RewriteBase /
 
 # these will be ignored by wordpress and handeled by the laravel/public/.htaccess file
-# RewriteCond %{REQUEST_URI} !^/map
+# RewriteCond $1 !^(map/.*)$
 # RewriteCond %{REQUEST_URI} !^/admin
 # end laravel app exclusions
 
