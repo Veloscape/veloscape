@@ -6,7 +6,7 @@ class MapController extends BaseController {
     {
         $urls = array (
             'url_home'  => "http://www.veloscape.dev/",
-            'url_map'   => "http://www.veloscape.dev/map",
+            'url_map'   => "http://www.veloscape.dev/map/new",
             'url_about' => "http://www.veloscape.dev/about-veloscape",
             'url_null'  => "#"
         );
