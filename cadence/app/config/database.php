@@ -62,6 +62,18 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
+        
+        'wp-mysql' => array(
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'veloscape',
+            'username'  => 'root',
+            'password'  => 'root',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => 'velo_',
+
+        ),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
