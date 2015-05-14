@@ -4,14 +4,14 @@ var formEntity;
 var dragIndex = -1;
 
 var mactive = {
-    url: '/img/markers/marker-measle.png',
+    url: '/map/img/markers/marker-measle.png',
     size: new google.maps.Size(28, 53),
     origin: new google.maps.Point(0,0),
     anchor: new google.maps.Point(14,47)
 };
 
 var mpip = {
-    url: '/img/markers/measle.png',
+    url: '/map/img/markers/measle.png',
     size: new google.maps.Size(12,12),
     origin: new google.maps.Point(0,0),
     anchor: new google.maps.Point(6,6)

@@ -363,7 +363,7 @@ jQuery.noConflict();
 
   /* Post Hover Effect */
   $('.fullscreen .post', '.wrapper').hover(function() {
-    $(this).find('.overlay').stop().animate({'opacity': '.6' });
+    $(this).find('.overlay').stop().animate({'opacity': '.3' });
   }, function() {
     $(this).find('.overlay').stop().animate({'opacity': '.2' });
   });

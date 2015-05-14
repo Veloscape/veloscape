@@ -37,7 +37,8 @@ container and container-max-width-settings
 }
 
 body {
-    font-family: 'Didact Gothic', sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 300;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -52,79 +53,71 @@ body {
  * Navbar Settings
  */
 
-.navbar {
-    height: 65px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 0px;
-    border-width: 0px;
-    z-index: 100;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
-}
-
-.navbar>.container .navbar-brand{
-    display: table;
-    padding: 0px;
-    position: relative;
-    padding-left: 52px;
-}
-.navbar>.container .navbar-brand .gear {
+#header {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 5px 0px rgba(50,50,50,0.1);
+    display: block;
     position: absolute;
-    top: -18px;
+    top: 0px;
     left: 0px;
-    height: 100px;
-    width: 50px;
+    height: auto;
+    width: 100%;
+    overflow: visible;
+    z-index: 9999;
+
 }
 
-.navbar>.container .navbar-brand .logo{
-    display:table-cell;
-    width:150px;
-    height: 50px;
-    background:transparent url('../img/velo-text-header.png') center no-repeat;
-    background-size:contain;
+#header .logo {
+    margin: 17px 0px;
+    min-width: 100px;
+    float: left;
+    padding: 0px 2em;
 }
 
-.navbar .navbar-collapse {
-    margin-top: 0px;
+#header .logo a {
+    display: block;
+    font-size: 28px;
+    text-transform: uppercase;
+    border: 0px none;
+    color: #333;
+    line-height: 1;
 }
 
-.social-links {
-    margin-top: -5px;
-    font-size: 16px;
+#header .log a img {
+    vertical-align: baseline;
 }
 
-.social-links > .navbar-text {
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-.social-links .fa-stack-1x {
+.main-menu {
+    float: right;
+    margin: 0px 40px 0px 0px;
+    position: absolute;
+    right: 0px;
+    z-index: 999;
     font-size: 14px;
 }
 
-.navbar a{
-    color: #000000;
-    font-weight: 500;
-    line-height: 12px;
-    letter-spacing: 1px;
-    text-transform: lowercase;
+.main-menu ul {
+    text-align: center;
+    overflow: visible;
+    background: #FFFFFF;
+    list-style: outside none none;
+}
+
+.main-menu ul li {
+    line-height: 62px;
+    height: 62px;
+    float: left;
+    margin: 0px 1.4em;
+}
+
+.main-menu ul li a {
+    color: #333;
     text-transform: uppercase;
+    border: 0px none;
+    padding-bottom: 0.4em;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
 }
-
-.navbar li > a:hover:after, .navbar li > a:focus:after{
-    content: "";
-    position: absolute;
-    bottom: 5px;
-    left: 14px;
-    right: 14px;
-    height: 0.5em;
-    border-top: 2px solid black;
-}
-
-.navbar a:hover, .navbar a:focus{
-    background-color: transparent !important;
-}
-
 
 /* map container */
 .body-container {

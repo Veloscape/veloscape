@@ -4,8 +4,13 @@ class MapController extends BaseController {
 
     public function index()
     {
-
-        return View::make('map');
+        $urls = array (
+            'url_home'  => "http://www.veloscape.dev/",
+            'url_map'   => "http://www.veloscape.dev/map",
+            'url_about' => "http://www.veloscape.dev/about-veloscape",
+            'url_null'  => "#"
+        );
+        return View::make('map', $urls);
     }
 
     public function save()

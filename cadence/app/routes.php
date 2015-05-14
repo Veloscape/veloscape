@@ -17,12 +17,11 @@ Route::get('/test/nav', function() {
 **/
 
 
-    Route::get('/', 'MapController@index');
+Route::get('/', 'MapController@index');
 
-    Route::post('/', 'MapController@save');
+Route::post('/', 'MapController@save');
 
-    Route::get('/form/entity', array('as' => 'partialMarkerFeedback', 'uses' => 'MapController@addEntity'));
-
+Route::get('/form/entity', array('as' => 'partialMarkerFeedback', 'uses' => 'MapController@addEntity'));
 
 
 
