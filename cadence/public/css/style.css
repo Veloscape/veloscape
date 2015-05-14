@@ -55,7 +55,7 @@ body {
 
 #header {
     background: #FFFFFF;
-    box-shadow: 0px 2px 5px 0px rgba(50,50,50,0.1);
+    box-shadow: 0px 2px 5px 0px rgba(50,50,50,0.6);
     display: block;
     position: absolute;
     top: 0px;
@@ -71,7 +71,7 @@ body {
     margin: 17px 0px;
     min-width: 100px;
     float: left;
-    padding: 0px 2em;
+    padding: 0px 36px;
 }
 
 #header .logo a {
@@ -83,8 +83,8 @@ body {
     line-height: 1;
 }
 
-#header .log a img {
-    vertical-align: baseline;
+#header .logo a img {
+    vertical-align: baseline !important;
 }
 
 .main-menu {
@@ -123,7 +123,7 @@ body {
 .body-container {
     background: grey;
     position: absolute !important;
-    top: 65px;
+    top: 62px;
     bottom: 0px;
     width: 100%;
 }

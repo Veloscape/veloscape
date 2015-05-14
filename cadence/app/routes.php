@@ -19,6 +19,8 @@ Route::get('/test/nav', function() {
 
 Route::get('/', 'MapController@index');
 
+Route::get('/new/', 'MapController@index');
+
 Route::post('/', 'MapController@save');
 
 Route::get('/form/entity', array('as' => 'partialMarkerFeedback', 'uses' => 'MapController@addEntity'));
