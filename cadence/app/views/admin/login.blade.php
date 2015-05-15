@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    login - Veloscape Cadence
+    login - Cadence | Veloscape
 @stop
 
 @section('body')

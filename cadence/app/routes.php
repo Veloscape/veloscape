@@ -10,13 +10,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-/**
-Route::get('/test/nav', function() {
-    return View::make('test/nav');
-});
-**/
-
-
 Route::get('/', array('as' => 'home', function() {
     if (preg_match('/map/', Request::url())) {
         return Redirect::to('/new');
@@ -37,17 +30,17 @@ Route::group(array('before' => 'admin.domain'), function() {
 
 });
 
-Route::group(array('before' => 'map.domain'), function() {
-    Route::get('/cadence/login', function() { return Redirect::route('admin dashboard'); });
-    Route::post('/cadence/login', array('as' => 'admin login', 'uses' => 'AdminController@login'));
+Route::group(array('before' => 'map.domain', 'prefix' => '/cadence'), function() {
+    Route::get('/', function() { return Redirect::route('admin dashboard'); });
+    Route::get('/login', function() { return Redirect::route('admin dashboard'); });
+    Route::post('/login', array('as' => 'admin login', 'uses' => 'AdminController@login'));
 
-    Route::group(array('before' => 'admin.auth', 'prefix' => '/cadence'), function() {
-        Route::get('/', function() { return Redirect::route('admin dashboard'); });
+    Route::group(array('before' => 'admin.auth'), function() {
         Route::get('/dashboard', array('as' => 'admin dashboard', 'uses' => 'AdminController@dashboard'));
         Route::get('/routes/show', array('as' => 'admin routes', 'uses' => 'AdminController@routes'));
-        Route::post('/routes/show', array('as' => 'admin routes', 'uses' => 'AdminController@export'));
+        Route::post('/routes/show', array('as' => 'admin export routes', 'uses' => 'AdminController@export'));
 
-        Route::get('/cadence/logout', array('as' => 'admin logout', function() {
+        Route::get('/logout', array('as' => 'admin logout', function() {
             Auth::logout();
             return Redirect::route('home')->withErrors(array('message' => 'Successfully logged off'));
         }));
@@ -59,9 +52,8 @@ Route::group(array('before' => 'map.domain'), function() {
 /** Route Filters **/
 
 Route::filter('admin.auth', function() {
-    if (Auth::guest()) return Redirect::route('home');
+    if (Auth::guest()) return Redirect::route('home')->withErrors(array('message' => 'Please log in first'));
 });
-
 
 Route::filter('map.domain', function() {
     if (preg_match('/map/', Request::url())) {

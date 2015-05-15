@@ -14,6 +14,7 @@ a:hover {
     bottom: 0px;
     left: 0px;
     width:  240px;
+    background: #FFF url('../img/admin-bg.png');
 
     border-right: 1px solid rgba(0,0,0, 0.14);
 }
@@ -28,6 +29,7 @@ a:hover {
 .sidenav .logo h1 {
     margin-top: 6px;
     margin-bottom: 6px;
+    font-weight: 600;
 }
 
 .sidenav nav {

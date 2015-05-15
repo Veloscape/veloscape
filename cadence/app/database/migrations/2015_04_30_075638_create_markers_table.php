@@ -16,6 +16,7 @@ class CreateMarkersTable extends Migration {
 		{
             $table->increments('id');
             $table->integer('map_route_id');
+            $table->integer('marker_no');
             $table->string('lat');
             $table->string('lng');
             $table->string('rev_geo')->nullable();

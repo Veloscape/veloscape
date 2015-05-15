@@ -1,13 +1,24 @@
 @extends('admin.master')
 
+@section('title')
+    routes - Cadence | Veloscape
+@stop
+
 @section('body')
 @include('admin.sidenav')
 <div class="main">
     <div class="container-fluid">
+        @if($errors->has())
+            @foreach($errors->all() as $error)
+                <div class="alert alert-warning">
+                    {{$error}}
+                </div>
+            @endforeach
+        @endif
         <div>
             <h3>Routes :: all</h3>
-            <form action="{{ Request::url() }}?export=csv" method="POST">
-                <button type='submit' class="btn btn-default">Export to CSV</button>
+            <form action="{{ URL::route('admin export routes', array('export' => 'xls')) }}" method="POST">
+                <button type='submit' class="btn btn-default">Export to xls</button>
             </form>
         </div>
         <div class="tb-routes">
@@ -22,6 +33,7 @@
                         <th>end loc</th>
                         <th>date added</th>
                         <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -34,8 +46,13 @@
                                 <th>{{$route->markers->last()->rev_geo }}</th>
                                 <th>{{$route->updated_at}}</th>
                                 <th>
-                                    <a href="/admin/cadence/routes/maproute?id={{$route->id}}">
+                                    <a href="{{URL::route('admin routes', array('id' => $route->id)) }}">
                                         select
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="/admin/cadence/routes/maproute?id={{$route->id}}">
+                                        delete
                                     </a>
                                 </th>
                             </tr>
