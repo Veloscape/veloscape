@@ -6,7 +6,7 @@ class MapRoute extends Eloquent {
 
     //MASS ASSIGNMENT
     //define which attribs are mass assignable.
-    protected $fillable = array('title','desc');
+    protected $fillable = array('title', 'desc');
 
     public function markers() {
         return $this->hasMany('Marker');

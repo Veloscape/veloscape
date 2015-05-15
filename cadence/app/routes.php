@@ -28,30 +28,48 @@ Route::get('/', array('as' => 'home', function() {
     } 
 }));
 
-Route::get('/new/', 'MapController@index');
+Route::group(array('before' => 'admin.domain'), function() {
+    Route::get('/new/', 'MapController@index');
 
-Route::post('/new/', 'MapController@save');
+    Route::post('/new/', 'MapController@save');
 
-Route::get('/form/entity', array('as' => 'partialMarkerFeedback', 'uses' => 'MapController@addEntity'));
+    Route::get('/form/entity', array('as' => 'partialMarkerFeedback', 'uses' => 'MapController@addEntity'));
 
-Route::get('/login', function() { return Redirect::route('home'); });
-Route::post('/login', array('as' => 'admin login', 'uses' => 'AdminController@login'));
-
-Route::group(array('before' => 'admin.auth'), function() {
-    Route::get('/dashboard', array('as' => 'admin dashboard', 'uses' => 'AdminController@dashboard'));
-
-    Route::get('/logout', function() {
-        Auth::logout();
-        return Redirect::route('ahome');
-    });
-
-
-    Route::get('/page/new', function() {
-        return View::make('admin.new-page');
-    });
 });
+
+Route::group(array('before' => 'map.domain'), function() {
+    Route::get('/login', function() { return Redirect::route('home'); });
+    Route::post('/login', array('as' => 'admin login', 'uses' => 'AdminController@login'));
+
+    Route::group(array('before' => 'admin.auth'), function() {
+        Route::get('/cadence', function() { return Redirect::route('admin dashboard'); });
+        Route::get('/cadence/dashboard', array('as' => 'admin dashboard', 'uses' => 'AdminController@dashboard'));
+        Route::get('/cadence/routes', array('as' => 'admin routes', 'uses' => 'AdminController@routes'));
+
+        Route::get('/logout', function() {
+            Auth::logout();
+            return Redirect::route('home');
+        });
+
+    });
+
+});
+
+/** Route Filters **/
 
 Route::filter('admin.auth', function() {
-    if (Auth::guest()) return Redirect::route('admin home');
+    if (Auth::guest()) return Redirect::route('home');
 });
 
+
+Route::filter('map.domain', function() {
+    if (preg_match('/map/', Request::url())) {
+        return Redirect::route('home');
+    }
+});
+
+Route::filter('admin.domain', function() {
+    if (preg_match('/admin/', Request::url())) {
+        return Redirect::route('home');
+    }
+});

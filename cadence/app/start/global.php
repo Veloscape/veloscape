@@ -53,8 +53,7 @@ App::error(function(Exception $exception, $code)
 
 App::missing(function($exception)
 {
-    return "404 page not found";
-    return Response::view('errors.missing', array(), 404);
+    return Redirect::to('http://veloscape.dev/404', 302);
 });
 /*
 |--------------------------------------------------------------------------

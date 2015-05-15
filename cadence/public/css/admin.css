@@ -2,6 +2,12 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
+/* sidenav */
+
 .sidenav {
     position: fixed;
     top: 0px;
@@ -13,17 +19,48 @@ body {
 }
 
 .sidenav .logo {
-    display: table-cell;
     border-bottom: 1px solid rgba(0,0,0, 0.14);
-    width: 240px;
-    height: 64px;
-    position: relative;
-    background: #FFF url('../img/admin.png') center no-repeat;
+    padding: 12px 24px 10px;
+    background-color: #4584F0;
+    color: #FFFFFF;
 }
 
-.container {
-    padding-left: 255px;
+.sidenav .logo h1 {
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
+
+.sidenav nav {
+    font-size: 13px;
+    padding: 12px 0px 10px;
+}
+
+.sidenav nav dl dt {
+    font-weight: 700;
+    padding: 15px 0px 15px 22px;
+    color: #333 !important;
+}
+
+.sidenav nav dl dt:hover {
+    background-color: #EEE;
+}
+
+/* end sidenav */
+
+.main {
+    position: absolute;
+    top: 0px;
+    left: 240px;
+    right: 0px;
+    height: auto;
+}
+
+.tb-routes {
+    padding-top: 20px;
+}
+
+
+/** logo **/
 
 .btn-grey {
     border: 1px solid #CCC !important;
@@ -75,4 +112,11 @@ body {
 
 .login .alert {
     border-radius: 0px;
+}
+
+.btn-wordpress {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    margin-top: 20px;
 }

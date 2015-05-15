@@ -6,7 +6,11 @@ class AdminController extends BaseController {
         if (Auth::check()) {
             return Redirect::route('admin dashboard');
         }
-        return View::make('admin.login');
+        $urls = array(
+            'url_wordpress' => 'http://www.veloscape.dev/wp-admin'
+        );
+
+        return View::make('admin.login', $urls);
     }
 
     public function login() {
@@ -52,6 +56,15 @@ class AdminController extends BaseController {
     }
 
     public function dashboard() {
-       return 'dashboard'; 
+        return View::make('admin.dashboard'); 
+    }
+
+    public function routes() {
+        $routes = MapRoute::with('markers')->get();
+        return View::make('admin.routes')->with('routes', $routes);
+    }
+
+    public function exportToCSV() {
+
     }
 }

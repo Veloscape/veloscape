@@ -7,6 +7,11 @@
 @section('body')
 <div class="login bg">
     <div class="login centered">
+    <div class="btn-wordpress">
+        <a href=" {{ $url_wordpress }}">
+            <button type="button" class="btn btn-default btn-warning">Click here to access Wordpress dashboard</button>
+        </a>
+    </div>
 
     {{ Form::open(array('route' => 'admin login')) }}
         <h1>Cadence</h1>
