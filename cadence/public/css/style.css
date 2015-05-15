@@ -37,7 +37,7 @@ container and container-max-width-settings
 }
 
 body {
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Didact Gothic', Arial, sans-serif;
     font-weight: 300;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -63,6 +63,7 @@ body {
     height: auto;
     width: 100%;
     overflow: visible;
+    font-family: 'Montserrat', Arial, sans-serif;
     z-index: 9999;
 
 }
@@ -665,12 +666,16 @@ abbr.no-border {
 
 .slider-options {
     margin-left: 10px;
-    width: 60%;
+    width: 40%;
     float: left !important;
 }
 
 
 /** slider info divs **/
+.noUi-connect {
+    background: #FFCC66 !important;
+}
+
 .rate-info {
     text-align: justify;
     padding-left: 10px;
@@ -683,8 +688,14 @@ abbr.no-border {
     transition: height 0.5s ease-in-out;
 }
 
-.rate-label:hover + .rate-info {
+.rate-label:hover + .rate-info.info-safety {
     height: 60px;
+}
+.rate-label:hover + .rate-info.info-momentum {
+    height: 80px;
+}
+.rate-label:hover + .rate-info.info-enjoyment {
+    height: 80px;
 }
 
 .rate-value {
@@ -693,6 +704,7 @@ abbr.no-border {
     font-weight: 500;
     line-height: 1.12;
     margin-left: 60px;
+    max-width: 40%;
 }
 
 

@@ -12,7 +12,7 @@
             <span class="glyphicon glyphicon-arrow-right"></span>
         </div>
         <div class="btn btn-header btn-delete" data-toggle="tooltip" data-placement="auto" title="Delete current marker">
-            <span class="glyphicon glyphicon-remove"></span>
+            <span class="glyphicon glyphicon-trash"></span>
         </div>
     </div>
 </div>

@@ -5,9 +5,9 @@ var dragIndex = -1;
 
 var mactive = {
     url: '/map/img/markers/marker-measle.png',
-    size: new google.maps.Size(28, 53),
+    size: new google.maps.Size(24, 46),
     origin: new google.maps.Point(0,0),
-    anchor: new google.maps.Point(14,47)
+    anchor: new google.maps.Point(12,40)
 };
 
 var mpip = {
@@ -254,6 +254,27 @@ function activateFormEvents() {
         $(this).parent().find(".btn-path").removeClass("active");
         $(this).addClass("active");
     });
+
+    $('.map-form-entity').first().find('.noUi-slider').noUiSlider({
+        start:  [3],
+        step:   1,
+        connect:    "lower",
+        range:  {
+            'min':  [1],
+            'max':  [5]
+        }
+    });
+
+    $('.map-form-entity').first().find('.noUi-slider').on({
+        slide:  function() {
+            var val = $(this).val();
+            $(this).parent().find('.rate-input').val(val);
+            var set = $(this).parent().find(".rate-value").data("set");
+            var label = rateLabels[parseInt(set)][parseInt(val)-1];
+            $(this).parent().find(".rate-value").children().text(label);
+        }
+    });
+
 }
 
 function dismissSubmitPane() {

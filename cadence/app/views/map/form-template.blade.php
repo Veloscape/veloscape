@@ -34,7 +34,7 @@
                 <i class="fa fa-check pull-right"></i>
             </button>
             <button type="button" class="btn btn-path path-foot" data-type="footpath">
-                <span class="btn-path-label">Sidewalk</span>
+                <span class="btn-path-label">Footpath</span>
                 <i class="fa fa-check pull-right"></i>
             </button>
             <button type="button" class="btn btn-path path-shared-foot" data-type="sharedfootpath">
@@ -59,13 +59,13 @@
         </div>
         <div class="section">
             <abbr title="" class="rate-label"><span class="h4">Safety&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
-            <div class="rate-info">
+            <div class="rate-info info-safety">
                 Where do you feel exposed to danger, and where do you feel totally safe?
             </div> 
             <div  class="noUi-slider slider-options">
             </div>
             <div class="rate-value" data-set="0">
-                <span></span>
+                <span>Neutral</span>
             </div>
             <div class="form-hidden">
                 {{ Form::number($rate1, '0', ['class' => 'rate-input']) }}
@@ -74,13 +74,13 @@
 
         <div class="section">
             <abbr title="" class="rate-label"><span class="h4">Momentum&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
-            <div class="rate-info">
+            <div class="rate-info info-momentum">
                 Is this part of your ride interrupted by long traffic lights, fragmented cycleways and dodgy road surfaces, or are you able to cruise comfortably and set your own pace?
             </div> 
             <div  class="noUi-slider slider-options">
             </div>
             <div class="rate-value" data-set="1">
-                <span></span>
+                <span>Neutral</span>
             </div>
             <div class="form-hidden">
                 {{ Form::number($rate2, '0', ['class' => 'rate-input']) }}
@@ -88,13 +88,13 @@
         </div>
         <div class="section">
             <abbr title="" class="rate-label"><span class="h4">Enjoyment&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
-            <div class="rate-info">
+            <div class="rate-info info-enjoyment">
                 Where are the beautiful views, the thrills and the mellow moments on your ride? And which parts of your ride do you most dislike?
             </div> 
             <div  class="noUi-slider slider-options">
             </div>
             <div class="rate-value" data-set="2">
-                <span></span>
+                <span>Neutral</span>
             </div>
             <div class="form-hidden">
                 {{ Form::number($rate3, '0', ['class' => 'rate-input']) }}
