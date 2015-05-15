@@ -60,11 +60,34 @@ class AdminController extends BaseController {
     }
 
     public function routes() {
-        $routes = MapRoute::with('markers')->get();
+        $routes = MapRoute::with('markers')->orderBy('created_at', 'desc')->get();
         return View::make('admin.routes')->with('routes', $routes);
     }
 
-    public function exportToCSV() {
-
+    public function export() {
+        $routes = MapRoute::with('markers.values')->orderBy('created_at', 'desc')->get();
+        Excel::create(Carbon::now()->toDateString().'_veloscape_routes', function($excel) use ($routes) {
+            $excel->sheet('Routes', function($sheet) use ($routes) {
+                $sheet->fromArray($routes->toArray()); 
+            });
+            $excel->sheet('Markers', function($sheet) use ($routes) {
+                $sheet->appendRow(array('id', 'route_id', 'lat', 'lng', 'location', 'surface type', 'safety', 'momentum', 'enjoyment', 'comments'));
+                foreach($routes as $route) {
+                    foreach($route->markers as $marker) {
+                        $row = array(
+                            $marker->id,
+                            $marker->map_route_id,
+                            $marker->lat,
+                            $marker->lng,
+                            $marker->rev_geo,
+                        );
+                        foreach($marker->values as $value) {
+                            array_push($row, $value->value);
+                        }
+                        $sheet->appendRow($row);
+                    }
+                }
+            });
+        })->export('xls');
     }
 }

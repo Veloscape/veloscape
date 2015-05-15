@@ -41,10 +41,11 @@ Route::group(array('before' => 'map.domain'), function() {
     Route::get('/cadence/login', function() { return Redirect::route('admin dashboard'); });
     Route::post('/cadence/login', array('as' => 'admin login', 'uses' => 'AdminController@login'));
 
-    Route::group(array('before' => 'admin.auth'), function() {
-        Route::get('/cadence', function() { return Redirect::route('admin dashboard'); });
-        Route::get('/cadence/dashboard', array('as' => 'admin dashboard', 'uses' => 'AdminController@dashboard'));
-        Route::get('/cadence/routes/show', array('as' => 'admin routes', 'uses' => 'AdminController@routes'));
+    Route::group(array('before' => 'admin.auth', 'prefix' => '/cadence'), function() {
+        Route::get('/', function() { return Redirect::route('admin dashboard'); });
+        Route::get('/dashboard', array('as' => 'admin dashboard', 'uses' => 'AdminController@dashboard'));
+        Route::get('/routes/show', array('as' => 'admin routes', 'uses' => 'AdminController@routes'));
+        Route::post('/routes/show', array('as' => 'admin routes', 'uses' => 'AdminController@export'));
 
         Route::get('/cadence/logout', array('as' => 'admin logout', function() {
             Auth::logout();
