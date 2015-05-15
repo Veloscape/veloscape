@@ -38,18 +38,18 @@ Route::group(array('before' => 'admin.domain'), function() {
 });
 
 Route::group(array('before' => 'map.domain'), function() {
-    Route::get('/login', function() { return Redirect::route('home'); });
-    Route::post('/login', array('as' => 'admin login', 'uses' => 'AdminController@login'));
+    Route::get('/cadence/login', function() { return Redirect::route('admin dashboard'); });
+    Route::post('/cadence/login', array('as' => 'admin login', 'uses' => 'AdminController@login'));
 
     Route::group(array('before' => 'admin.auth'), function() {
         Route::get('/cadence', function() { return Redirect::route('admin dashboard'); });
         Route::get('/cadence/dashboard', array('as' => 'admin dashboard', 'uses' => 'AdminController@dashboard'));
-        Route::get('/cadence/routes', array('as' => 'admin routes', 'uses' => 'AdminController@routes'));
+        Route::get('/cadence/routes/show', array('as' => 'admin routes', 'uses' => 'AdminController@routes'));
 
-        Route::get('/logout', function() {
+        Route::get('/cadence/logout', array('as' => 'admin logout', function() {
             Auth::logout();
-            return Redirect::route('home');
-        });
+            return Redirect::route('home')->withErrors(array('message' => 'Successfully logged off'));
+        }));
 
     });
 

@@ -123,7 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Hampel\WordPress\Auth\WordPressAuthServiceProvider',
         'Hampel\WordPress\Hashing\WordPressHashServiceProvider',
-
+        'Maatwebsite\Excel\ExcelServiceProvider',
 	),
 
 	/*
@@ -190,6 +190,7 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
+        'Excel'             => 'Maatwebsite\Excel\Facades\Excel',
 
 	),
 

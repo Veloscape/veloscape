@@ -1,6 +1,6 @@
 <div id="header">
     <div class="logo">
-        <a rel="home" href="http://www.veloscape.org">
+        <a rel="home" href="{{ $url_home }}">
             <img alt="veloscape" src="./img/logo_text.png"></img>
         </a>
     </div>

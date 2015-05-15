@@ -7,7 +7,7 @@ class AdminController extends BaseController {
             return Redirect::route('admin dashboard');
         }
         $urls = array(
-            'url_wordpress' => 'http://www.veloscape.dev/wp-admin'
+            'url_wordpress' => '/wp-admin'
         );
 
         return View::make('admin.login', $urls);

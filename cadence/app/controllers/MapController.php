@@ -5,9 +5,9 @@ class MapController extends BaseController {
     public function index()
     {
         $urls = array (
-            'url_home'  => "http://www.veloscape.dev/",
-            'url_map'   => "http://www.veloscape.dev/map/new",
-            'url_about' => "http://www.veloscape.dev/about-veloscape",
+            'url_home'  => "/",
+            'url_map'   => "/map/new",
+            'url_about' => "/about-veloscape",
             'url_null'  => "#"
         );
         return View::make('map', $urls);
