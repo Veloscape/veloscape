@@ -612,7 +612,7 @@ table tr:nth-child(even) {
 	font-family: Montserrat, Arial, sans-serif;
 	min-width: 100px;
 	float: left;
-	padding-left: 86px;
+	padding-left: 36px;
 	padding-right: 36px;
 }
 
@@ -638,7 +638,7 @@ table tr:nth-child(even) {
 /** -veloscape end addition- **/
 
 .logo img {
-
+    padding-left: 48px;
 }
 
 .site-name {
