@@ -18,7 +18,7 @@
 
     <div class="form-section">
         <div class="section-title">
-            <span class="h4">Which option most accurately describes this section of your route</span>
+            <span class="h4">Which option matches this location best?</span>
         </div>
         <div class="section-centered">
             <button type="button" class="btn btn-path path-road" data-type="road">
@@ -55,7 +55,7 @@
     
     <div class="form-section">
         <div class="section-title">
-            <span class="h4">How would you rate the conditions along this section of your route</span>
+            <span class="h4">How would you rate this section of your route?</span>
         </div>
         <div class="section">
             <abbr title="" class="rate-label"><span class="h4">Safety&nbsp;&nbsp;</span><i class="fa fa-info-circle"></i></abbr>
@@ -103,7 +103,7 @@
     </div>    
     <div class="section-comment">
         <div class="section-reverse">
-            <span class="h4">Any additional thoughts or comments you would like to share about this section of your route</span>
+            <span class="h4">Any additional thoughts or comments?</span>
         </div>
             <textarea id="{{$comments}}" name="{{$comments}}" class="form-control comments" placeholder="(Max 250 characters)"></textarea>
     </div>
