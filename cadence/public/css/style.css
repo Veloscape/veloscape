@@ -246,24 +246,12 @@ abbr.no-border {
     height: 100%;
     border-radius: 10px;
     background: #FFFFFF;
+    margin-left: 4px;
+    margin-top: 4px;
+    padding-right: 6px;
+    background: transparent;
 }
 
-.side-info .centered {
-    text-align: center;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -70%;
-    transform: translate(-50%, -50%);
-    padding-left: 25%;
-    padding-right: 25%;
-}
-
-.light {
-    color: #000000;
-    opacity: 0.25;
-}
 
 
 /** form-content **/
