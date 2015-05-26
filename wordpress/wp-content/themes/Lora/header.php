@@ -185,6 +185,8 @@ if( has_background_img() ) {
 			}
 
 			if( $logo ) : ?>
+                <!-- veloscape logo here -->
+                <span class="gear"></span>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-name" rel="home"><img src="<?php echo esc_url( $logo ); ?>" data-altsrc="<?php echo esc_url( $dark ); ?>"<?php echo $retina; ?> alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" /></a>
 			<?php else : ?>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-name" rel="home"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>

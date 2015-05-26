@@ -612,7 +612,8 @@ table tr:nth-child(even) {
 	font-family: Montserrat, Arial, sans-serif;
 	min-width: 100px;
 	float: left;
-	padding: 0 36px;
+	padding-left: 86px;
+	padding-right: 36px;
 }
 
 .logo a {
@@ -623,6 +624,18 @@ table tr:nth-child(even) {
 	color: #333;
 	line-height: 1;
 }
+
+/** Veloscape addition **/
+.logo .gear {
+    background: transparent url('./images/veloscape-gear-white-border.png') center no-repeat;
+    background-size: contain;
+    position: absolute;
+    height: 100px;
+    width: 44px;
+    top: -12px;
+    left: 36px;
+}
+/** -veloscape end addition- **/
 
 .logo img {
 
