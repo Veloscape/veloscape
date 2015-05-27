@@ -34,6 +34,11 @@ function initialize() {
         streetViewControl: false,
         mapTypeControl: false,
         mapTypeId: mapTypeId,
+        panControl: false,
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        },
         styles: style
     };
 

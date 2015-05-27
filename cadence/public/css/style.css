@@ -54,8 +54,7 @@ body {
  */
 
 #header {
-    background: #FFFFFF;
-    box-shadow: 0px 2px 5px 0px rgba(50,50,50,0.6);
+    background: rgba(255,255,255, 0.75);
     display: block;
     position: absolute;
     top: 0px;
@@ -65,6 +64,9 @@ body {
     overflow: visible;
     font-family: 'Montserrat', Arial, sans-serif;
     z-index: 9999;
+    -moz-box-shadow: 0px -2px 8px 5px rgba(255,255,255,0.6);
+    -webkit-box-shadow: 0px -2px 8px 5px rgba(255,255,255,0.6);
+    box-shadow: 0px -2px 8px 5px rgba(255,255,255,0.6);
 
 }
 
@@ -84,8 +86,17 @@ body {
     line-height: 1;
 }
 
+#header .logo a .gear {
+    position: absolute;
+    top: -12px;
+    left: 36px;
+    width: 44px;
+    height: 100px;
+}
+
 #header .logo a img {
     vertical-align: baseline !important;
+    padding-left: 48px;
 }
 
 .main-menu {
@@ -131,12 +142,14 @@ body {
 
 .map-container {
     position: absolute !important;
-    height: 100%;
     width: 100%;
+    top: -62px;
+    bottom: 0px;
 
     overflow: hidden;
     z-index: 1;
 }
+
 
 /** side-header **/
 .side-header {
@@ -187,6 +200,8 @@ body {
 }
 
 .side-header .btn-header-group .btn:active {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
     box-shadow: none;
 }
 .side-header .btn-header-group .btn:hover {
@@ -324,6 +339,7 @@ abbr.no-border {
 
 .options .btn:active {
     box-shadow: none;
+    -moz-box-shadow: none;
     -webkit-box-shadow: none;
 }
 
@@ -429,6 +445,7 @@ abbr.no-border {
 
 .btn-dismiss:active {
     -webkit-box-shadow: none;
+    -moz-box-shadow: none;
     box-shadow: none;
 }
 
@@ -662,7 +679,7 @@ abbr.no-border {
 
 /** slider info divs **/
 .noUi-connect {
-    background: #FFCC66 !important;
+    background: #8561B9 !important;
 }
 
 .rate-info {
@@ -723,7 +740,9 @@ abbr.no-border {
 }
 
 .comments:focus {
-    border-color: orange;
-    box-shadow: 0 0 8px rgba(200,200,100,0.6);
+    border-color: #8561B9;
+    box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.6);
 }
 

@@ -176,9 +176,12 @@ function search(place) {
 
 function panMap(location) {
     var zoom = map.getZoom();
+    /** this code zooms in the map to a close up of location **/
+    /**
     if (zoom < 16) {
         map.setZoom(17);
     }
+    **/
     map.panTo(location);
     map.panBy(240,0);
 
