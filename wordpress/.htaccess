@@ -3,13 +3,6 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
-
-# these will be ignored by wordpress and handeled by the laravel/public/.htaccess file
-# RewriteCond $1 !^(map/.*)$
-# RewriteCond %{REQUEST_URI} !^/admin
-# end laravel app exclusions
-
-
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
