@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'model' => 'User',
+	'model' => 'Hampel\WordPress\Auth\Models\WordPressUser',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -121,6 +121,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+        'Hampel\Validate\Laravel\ValidateServiceProvider',
+        'Hampel\User\UserServiceProvider',
         'Hampel\WordPress\Auth\WordPressAuthServiceProvider',
         'Hampel\WordPress\Hashing\WordPressHashServiceProvider',
         'Maatwebsite\Excel\ExcelServiceProvider',

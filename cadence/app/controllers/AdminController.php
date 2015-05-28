@@ -31,7 +31,7 @@ class AdminController extends BaseController {
 
             // create our user data for the authentication
             $userdata = array(
-                'username'     => Input::get('username'),
+                'user_login'     => Input::get('username'),
                 'password'  => Input::get('password')
             );
 
