@@ -52,7 +52,9 @@ Route::group(array('before' => 'map.domain', 'prefix' => '/cadence'), function()
 /** Route Filters **/
 
 Route::filter('admin.auth', function() {
-    if (Auth::guest()) return Redirect::route('home')->withErrors(array('message' => 'Please log in first'));
+    if (!Auth::check()) {
+        return Redirect::route('home')->withErrors(array('message' => 'Please log in first'));
+    }
 });
 
 Route::filter('map.domain', function() {
