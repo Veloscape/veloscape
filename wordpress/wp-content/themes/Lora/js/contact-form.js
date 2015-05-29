@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
 		if( !hasError ) {
 
 			$.ajax({
-				type: "POST",
+				type: "GET",
 				url: $(this).attr('data-src'),
 				data: $(this).serialize(),
 				success: function() {
