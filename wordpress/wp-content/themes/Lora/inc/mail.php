@@ -1,11 +1,10 @@
 <?php
 require_once( '../../../../wp-load.php' );
-
 if( isset($_POST['submit'] ) ) {
 	
 	//Check to make sure that the name field is not empty
 	if( trim( $_POST['name'] ) === '' ) {
-		$name_error = 'You forgot to enter your name.';
+		$name_error = 'You forgot to enter your name111.';
 		$error = true;
 	} else {
 		$name = trim( $_POST['name'] );
@@ -38,14 +37,14 @@ if( isset($_POST['submit'] ) ) {
 		
 	//If there is no error, send the email
 	if( !isset( $error ) ) {
-		
 		$to = get_option( 'admin_email' );
+        echo 'qweqwe';
 		$subject = 'Contact Form Submission from ' . $name;
 		$body = "Name: $name \n\nEmail: $email \n\nComments: $message";
 		$headers = 'From: My Site <' . $to . '>' . "\r\n" . 'Reply-To: ' . $email;
 		
 		mail( $to, $subject, $body, $headers );
 
-		$sent = true;
+		//$sent = true;
 	}
 }
