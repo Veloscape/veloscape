@@ -3,7 +3,6 @@
 class AdminController extends BaseController {
 
     public function index() {
-        echo 'authcheck:' . var_dump(Auth::check());
         if (Auth::check()) {
             return Redirect::route('admin dashboard');
         }
