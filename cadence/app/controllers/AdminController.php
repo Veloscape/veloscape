@@ -36,7 +36,7 @@ class AdminController extends BaseController {
             );
 
             // attempt to do the login
-            if (Auth::attempt(($userdata), true)) {
+            if (Auth::attempt($userdata)) {
 
                 // validation successful!
                 // redirect them to the secure section or whatever
