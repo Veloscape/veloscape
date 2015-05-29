@@ -1,5 +1,4 @@
 <?php
-use Log;
 
 class AdminController extends BaseController {
 
