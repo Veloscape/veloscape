@@ -5,7 +5,7 @@ class AdminController extends BaseController {
 
     public function index() {
         Log::info('authcheck');
-        Log::info(Auth::check());
+        Log::info(var_dump(Auth::check()));
         if (Auth::check()) {
             return Redirect::route('admin dashboard');
         }
