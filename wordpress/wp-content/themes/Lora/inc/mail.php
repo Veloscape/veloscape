@@ -14,7 +14,7 @@ if( isset($_GET['submit'] ) ) {
     $to = get_option( 'admin_email' );
     $subject = 'Contact Form Submission from ' . $name;
     $body = "Name: $name \n\nEmail: $email \n\nComments: $message";
-    $headers = 'From: My Site <' . $to . '>' . "\r\n" . 'Reply-To: ' . $email;
+    $headers = 'From: Veloscape <' . $to . '>' . "\r\n" . 'Reply-To: ' . $email;
 
     mail( $to, $subject, $body, $headers );
 }
