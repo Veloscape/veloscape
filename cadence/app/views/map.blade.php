@@ -23,7 +23,6 @@
         <div class="map-overlay dismiss-submit">
         </div>
         
-        @include('map.options')
         @include('map.search')
 
         {{ Form::open() }}

@@ -11,14 +11,21 @@ container and container-max-width-settings
 }
 
 @media screen and (max-width:1000px) {
-    .navbar-right {
+    #header .main-menu .menu .long {
         display: none !important;
     }
+    #header .main-menu .menu .nav-icon {
+        display: block !important;
+    }
+
 }
 
 @media screen and (min-width:1001px) {
-    .navbar-right {
+    #header .main-menu .menu .long {
         display: block !important;
+    }
+    #header .main-menu .menu .nav-icon {
+        display: none !important;
     }
 }
 
@@ -118,17 +125,40 @@ body {
     line-height: 62px;
     height: 62px;
     float: left;
+    min-width: 60px;
     margin: 0px 1.4em;
+    transition: all 0.3s ease-in-out 0s;
 }
 
 .main-menu ul li button {
-    color: #333;
+    color: inherit;
     text-transform: uppercase;
     padding: 0px 10px 0px 10px;
     background-color: rgba(255,255,255,0);
     border: 0px none;
     text-decoration: none;
-    transition: all 0.3s ease 0s;
+}
+
+.main-menu .nav-icon {
+    font-size: 20px;
+}
+
+/** option-btn hovers **/
+.menu .btn-reset:hover {
+    background-color: rgba(220,75,60,0.75) !important;
+    color: #FFFFFF !important;
+}
+.menu .btn-submit:hover {
+    background-color: rgba(135,100,185,0.75) !important; /** purple **/
+    color: #FFFFFF !important;
+}   
+.menu .btn-help:hover {
+    background-color: rgba(85,85,85,0.75) !important;
+    color: #FFFFFF !important;
+}
+.menu .btn-search:hover {
+    background-color: rgba(50,170,220, 0.75) !important;
+    color: #FFFFFF !important;
 }
 
 /* map container */
@@ -293,74 +323,6 @@ abbr.no-border {
     width: 60px;
 }
 
-/** side menu options **/
-.options {
-    position: absolute;
-    top: 30px;
-    bottom: 30px;
-    right: 20px;
-    margin-right: 480px;
-    width: 60px;
-    padding-right: 10px;
-    z-index: 150;
-    pointer-events: none;
-}
-
-.options .options-btn {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-    border-radius: 25px;
-    background-color: white;
-    text-align: center;
-    border: none;
-    padding: 0px;
-    font-size: 20px;
-    line-height: 50px;
-    
-    pointer-events: auto;
-    -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
-}
-
-.options .tooltip {
-    margin-right: 40px;
-    font-size: 16px;
-    white-space: nowrap;
-}
-
-.options .btn-submit {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    margin-bottom: 0px;
-}
-
-.options .btn:active {
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-}
-
-
-/** option-btn hovers **/
-.options .btn-reset:hover {
-    background-color: #DB4A38 !important;
-    color: #FFFFFF;
-}
-.options .btn-submit:hover {
-    background-color: #8561b9; /** purple **/
-    color: #FFFFFF;
-}   
-.options .btn-help:hover {
-    background-color: #555555;
-    color: #FFFFFF;
-}
-.options .btn-search:hover {
-    background-color: #34AADE;
-    color: #FFFFFF;
-}
 
 /** side inner **/
 .side-main .inner {
