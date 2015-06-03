@@ -6,3 +6,5 @@ on clone:
 - composer update (cd cadence; composer update)
 - migrate tables (php artisan migate)
 - seed if required (php db:seed)
+
+- update wordpress if required
