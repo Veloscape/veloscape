@@ -12,8 +12,11 @@
     <div class="section">
         You’ll also be helping us to create public artworks that explore how Sydney is experienced by bike. 
     </div>
-    <div class="section">
-        Left-click anywhere on the map to begin. Click on the <i class="fa fa-question"></i> if you require help.
+    <div class="section last">
+
+        <div class="centered"><span id="bordered">Left-click anywhere on the map to begin.</span></div> 
+
+        <div class="centered"><small>Check out <strong>MAP HELP</strong> for further assistance.</small></div>
     </div>
 </div>
 
