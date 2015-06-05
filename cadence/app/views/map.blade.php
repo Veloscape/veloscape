@@ -16,7 +16,7 @@
     <div class="body-container info">
 
         <div class="map-container"> 
-            @include('map.map-container')
+        @include('map.map-container')
 
         </div>
 

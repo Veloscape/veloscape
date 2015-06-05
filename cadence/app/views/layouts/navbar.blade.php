@@ -2,7 +2,7 @@
     <div class="logo">
         <a rel="home" href="{{ $url_home }}">
             <span class="gear"></span>
-            <img alt="veloscape" src="./img/logo_text.png"></img>
+            <img alt="veloscape" src="/map/img/logo_text.png">
         </a>
     </div>
     <div class="main-menu" style="float: left; display:none">
