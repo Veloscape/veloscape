@@ -286,16 +286,15 @@ abbr.no-border {
 /** side block code ***/
 .side-info {
     position: absolute;
-    top: 0px;
+    top: 4px;
+    bottom: 4px;
     left: 0px;
     width: 100%;
-    height: 100%;
     font-family: 'Montserrat', Arial, sans-serif;
     font-weight: 300;
     border-radius: 10px;
     background: #FFFFFF;
     padding-left: 10px;
-    margin-top: 4px;
     padding-right: 10px;
     background: transparent;
     overflow-x: hidden;

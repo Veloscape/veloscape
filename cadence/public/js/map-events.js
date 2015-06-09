@@ -33,7 +33,7 @@ function mapClick(location) {
     var path = poly.getPath();
     if (path.getLength() == 0) {
         $(".body-container").removeClass("info");
-        $(".side-info").fadeOut();
+        $(".side-info").hide();
     }
     path.push(location);
     
