@@ -57,13 +57,13 @@ function addMarker(location) {
         changeFormFocus(this.markerId);
     });
     google.maps.event.addListener(marker, 'dragstart', function(event) {
-        setActiveMarker(this.markerId);
         dragIndex = getMarkerIndex(this.markerId);
     });
     google.maps.event.addListener(marker, 'drag', function(event) {
         poly.getPath().setAt(dragIndex, event.latLng);
     });
     google.maps.event.addListener(marker, 'dragend', function(event) {
+        setActiveMarker(this.markerId);
         poly.getPath().setAt(dragIndex, event.latLng);
         changeMarkerGeo(this.markerId, event.latLng);
         dragIndex = -1;
