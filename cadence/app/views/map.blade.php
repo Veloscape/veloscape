@@ -25,7 +25,7 @@
         
         @include('map.search')
 
-        {{ Form::open() }}
+        {{ Form::open(array('id' => 'createroute')) }}
         @include('map.side-menu') 
         {{ Form::close() }}
     </div>

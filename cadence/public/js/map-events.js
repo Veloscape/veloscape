@@ -312,6 +312,22 @@ $(document).ready(function() {
             }
     });
 
+    $('#createroute').submit(function(event) {
+        event.preventDefault();
+        
+        var url = $(this).attr('action');
+        var data = $(this).serialize();
+
+        $.ajax({
+            type:   "POST",
+            url:    url,
+            data:   data,
+            success: function() {
+                alert('success');
+            }
+        });
+    });
+
     $(".btn-submit").click(function() {
         $(".side-confirm").fadeIn("fast");
         $(".map-overlay").fadeIn("fast");
