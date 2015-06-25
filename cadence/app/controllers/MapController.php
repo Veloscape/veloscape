@@ -16,8 +16,8 @@ class MapController extends BaseController {
     public function save()
     {
         $input = Input::all();
-        if (sizeof($input['node']) == 0) {
-            return; //check map has at lest 1 point, if no point do not save
+        if (!array_key_exists('node', $input)) {
+            return 'null route'; //check map has at lest 1 point, if no point do not save
         }
 
         $route_id = $this->newRoute($input['map']);
