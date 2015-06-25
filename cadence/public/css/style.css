@@ -375,7 +375,9 @@ abbr.no-border {
     z-index: 5;
     height: 100%;
     width: 100%;
-    background-color: #8561b9; /** purple **/
+    /** background-color: #8561b9; **/ /** purple **/
+    background-color: #FFFFFF;
+    border-radius: 10px;
     font-weight: 500;
     overflow: hidden;
     display: none;
@@ -412,7 +414,7 @@ abbr.no-border {
     margin-right: 30px;
     overflow: hidden;
     text-align: left;
-    color: white;
+    color: #8561b9;
 }
 
 .side-confirm > .body > .body-overflow {
@@ -431,7 +433,36 @@ abbr.no-border {
     margin-top: 0px !important;
 }
 
+.side-confirm sup {
+    top: -0.2em;
+    padding-left: 2px;
+}
+
 .side-confirm .body-overflow .form-control {
+    margin-bottom: 4px;
+}
+
+.side-confirm .warning-show .form-control, .side-confirm .required-show .form-control {
+    border-color: #DD4B39;
+    box-shadow: 0px 0px 8px rgba(220, 75, 60, 0.6);
+}
+
+.side-confirm .warning, .side-confirm .required {
+    font-size: 16px;
+    padding-left: 6px;
+    color: #DD4B39; /** red **/
+    display: none;
+}
+
+.side-confirm .warning-show .warning {
+    display: block;
+}
+
+.side-confirm .required-show .required {
+    display: block;
+}
+
+.side-confirm .spacer {
     margin-bottom: 20px;
 }
 
@@ -468,7 +499,7 @@ abbr.no-border {
 .btn-confirm .btn {
     border: 2px solid transparent;
     background-color: transparent;
-    color: #FFFFFF;
+    color: #8561b9;
     font-size: 36px;
     padding-top: 0px;
     padding-bottom: 0px;
@@ -478,7 +509,7 @@ abbr.no-border {
 }
 
 .btn-confirm .btn:hover, .btn-confirm .btn:focus {
-    border: 2px solid #FFF;
+    border: 2px solid #8561b9;
 
 }
 

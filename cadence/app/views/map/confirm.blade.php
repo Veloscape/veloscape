@@ -6,11 +6,18 @@
     <div class="body">
         <h1>You're almost done!</h1>
         <div class="body-overflow">
-            <h3>Route name</h3>
-            <input type="text" class="form-control" placeholder="Eg. My Weekly Commute" name="map[name]"></input>
+            <div class="route-name spacer">
+                <h3>Route name<sup>*</sup></h3>
+                <input type="text" class="form-control" placeholder="Eg. My Weekly Commute" name="map[name]" maxlength="50"></input>
+                <span class="warning">Character limit reached.</span>
+                <span class="required">A route name is required.</span>
+            </div>
 
-            <h3>Description for this route</h3>
-            <textarea class="form-control" rows="7" name="map[desc]"></textarea>
+            <div class="route-desc spacer">
+                <h3>Description for this route</h3>
+                <textarea class="form-control" rows="7" name="map[desc]" maxlength="500"></textarea>
+                <span class="warning">Character limit reached.</span>
+            </div>
         </div>
     </div>
 
