@@ -314,6 +314,12 @@ $(document).ready(function() {
 
     $('#createroute').submit(function(event) {
         event.preventDefault();
+
+        /** check route name is not zero **/
+        if ($("#name").val().length == 0) {
+           $(".route-name").first().addClass("required-show");
+           return;
+        }
         
         var url = $(this).attr('action');
         var data = $(this).serialize();
@@ -365,6 +371,7 @@ $(document).ready(function() {
             $(".route-name").first().addClass('warning-show');
         }
         else {
+            $(".route-name").first().removeClass('required-show');
             $(".route-name").first().removeClass('warning-show');
         }
     });
