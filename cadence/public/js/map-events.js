@@ -358,6 +358,28 @@ $(document).ready(function() {
         nextNode();
     });
     /***/
+    
+    /** submit boundry functions **/
+    $("#name").keyup(function() {
+        if($(this).val().length == 50) {
+            $(".route-name").first().addClass('warning-show');
+        }
+        else {
+            $(".route-name").first().removeClass('warning-show');
+        }
+    });
+
+    $("#desc").keyup(function() {
+        if($(this).val().length == 500) {
+            $(".route-desc").first().addClass('warning-show');
+        }
+        else {
+            $(".route-desc").first().removeClass('warning-show');
+        }
+    });
+
+    /***/
+
 
     $(".dismiss-submit").click(function() {
         dismissSubmitPane();
