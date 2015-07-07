@@ -383,6 +383,14 @@ abbr.no-border {
     display: none;
 }
 
+.side-confirm > .inputs {
+    display: none;
+}
+
+.side-confirm > .thanks {
+    display: block;
+}
+
 .map-overlay {
     display: none;
     position: absolute;
@@ -408,7 +416,7 @@ abbr.no-border {
     color: #8561B9;
 }
 
-.side-confirm > .body {
+.side-confirm .body {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -421,7 +429,11 @@ abbr.no-border {
     color: #8561b9;
 }
 
-.side-confirm > .body > .body-overflow {
+.side-confirm small {
+    color: inherit;
+}
+
+.side-confirm .body > .body-overflow {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -431,6 +443,10 @@ abbr.no-border {
     padding-right: 10px;
 
     overflow-y: auto;
+}
+
+.side-confirm .body > .body-overflow.top-padding {
+    margin-top: 120px;
 }
 
 .side-confirm .body-overflow h3 {
