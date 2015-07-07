@@ -1,6 +1,6 @@
 <div class="side-confirm">
     <div class="btn-dismiss btn dismiss-submit">
-        <i class="fa fa-close fa-3x fa-inverse"></i>
+        <i class="fa fa-close fa-3x fa-submit-close"></i>
     </div>
 
     <div class="body">

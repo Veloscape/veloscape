@@ -404,6 +404,10 @@ abbr.no-border {
     z-index: 200;
 }
 
+.btn-dismiss .fa-submit-close {
+    color: #8561B9;
+}
+
 .side-confirm > .body {
     position: absolute;
     top: 0px;
@@ -476,10 +480,6 @@ abbr.no-border {
     box-shadow: none;
 }
 
-.btn-dismiss:active > .fa-close {
-    text-shadow: none;
-}
-
 .btn-dismiss>  .fa-close {
     text-shadow:
         -1px -1px 0 #FFFFFF,  
@@ -487,6 +487,19 @@ abbr.no-border {
         -1px 1px 0 #FFFFFF,
         1px 1px 0 #FFFFFF;
 }
+
+.btn-dismiss > .fa-close.fa-submit-close {
+    text-shadow:
+        -1px -1px 0 #8561B9,  
+        1px -1px 0 #8561B9,
+        -1px 1px 0 #8561B9,
+        1px 1px 0 #8561B9;
+}
+
+.btn-dismiss:active > .fa-close {
+    text-shadow: none;
+}
+
 
 .btn-confirm {
     position: absolute;
