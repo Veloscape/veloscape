@@ -802,3 +802,16 @@ abbr.no-border {
     -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.6);
 }
 
+/** help css **/
+.help {
+    position: absolute;
+    display: none;
+    z-index: 800;
+    top: 8px;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+
+}

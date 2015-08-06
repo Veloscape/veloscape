@@ -22,6 +22,8 @@
 
         <div class="map-overlay dismiss-submit">
         </div>
+
+        @include('map.help')
         
         @include('map.search')
 

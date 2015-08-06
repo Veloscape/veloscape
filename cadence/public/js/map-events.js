@@ -303,6 +303,14 @@ function resetMap() {
     nodes = [];
 }
 
+function showHelp() {
+    $(".help").fadeIn("fast");
+}
+
+function hideHelp() {
+    $(".help").fadeOut("fast");
+}
+
 /* init */
 $(document).ready(function() {
     $.ajax({
@@ -411,6 +419,14 @@ $(document).ready(function() {
 
     $(".btn-reset").click(function() {
         resetMap();
+    });
+
+    $(".btn-help").click(function() {
+        showHelp();
+    });
+
+    $(".dismiss-help").click(function() {
+        hideHelp();
     });
 
 });
