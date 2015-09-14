@@ -40,4 +40,13 @@ var style = [
             }
         ]
     },
+    {
+        "featureType": "transit.station",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
 ]

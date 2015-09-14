@@ -202,6 +202,7 @@ body {
     display: inline-block;
     margin-left: 53px;
     width: 285px;
+
 }
 
 .side-header .header-address h3 {
@@ -209,6 +210,8 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     margin-top: 14px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .side-header .btn-header-group {
