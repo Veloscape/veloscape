@@ -13,6 +13,7 @@
             <img src="/map/img/map-help-7.png" class="img-responsive">
         </div>
         <p>
+            The <b>RESET</b> button can be used to clear away all Markers you've made and start from the beginning.
             When you're happy with your map, click on the <b>SUBMIT</b> button and give your journey a name 
             (eg: Ashfield to the CBD). Hit <b>CONFIRM</b> to complete your response, its that easy.
         </p>
@@ -33,7 +34,7 @@
         <h3>Providing Detailed Feedback</h3>
         <p>
             Completing the addtional feedback questions are entirely optional but much appreciated!
-            You may fill in as much, or as little as your like for each Marker.
+            You may fill in as much, or as little as you like for each Marker.
         </p>
 
         <p>
