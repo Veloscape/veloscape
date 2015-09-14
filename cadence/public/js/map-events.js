@@ -305,10 +305,12 @@ function resetMap() {
 
 function showHelp() {
     $(".help").fadeIn("fast");
+    $(".side-menu").hide();
 }
 
 function hideHelp() {
     $(".help").fadeOut("fast");
+    $(".side-menu").show();
 }
 
 /* init */

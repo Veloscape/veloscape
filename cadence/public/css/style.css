@@ -344,8 +344,8 @@ abbr.no-border {
     left: 0px;
     right: 0px;
     border-radius: inherit;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 4px !important;
+    margin-right: 4px !important;
     padding-right: 6px;
     margin-bottom: 4px;
     overflow-x: hidden;
@@ -795,7 +795,7 @@ abbr.no-border {
     resize: vertical;
     margin-top: 6px;
     min-height: 120px;
-    min-widtH: 400px;
+    min-width: 400px;
 }
 
 .comments:focus {
@@ -810,11 +810,15 @@ abbr.no-border {
     position: absolute;
     display: none;
     z-index: 800;
-    top: 8px;
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
-    border-radius: 8px;
-    background-color: #FFFFFF;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(50,50,50,0.9);
 
+    color: #FFFFFF;
+}
+
+.help .img-container {
+    width: 500px;
 }
