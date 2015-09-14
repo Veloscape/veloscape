@@ -387,11 +387,11 @@ abbr.no-border {
 }
 
 .side-confirm > .inputs {
-    display: none;
+    display: block;
 }
 
 .side-confirm > .thanks {
-    display: block;
+    display: none;
 }
 
 .map-overlay {

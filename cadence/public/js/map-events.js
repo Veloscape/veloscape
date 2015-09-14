@@ -326,6 +326,7 @@ $(document).ready(function() {
         /** check route name is not zero **/
         if ($("#name").val().length == 0) {
            $(".route-name").first().addClass("required-show");
+           $(".route-name").parent().animate({scrollTop: 0}, "fast");
            return;
         }
         
