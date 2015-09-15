@@ -145,20 +145,14 @@ body {
 }
 
 /** option-btn hovers **/
-.menu .btn-reset:hover {
-    background-color: rgba(220,75,60,0.75) !important;
+.menu .menu-btn:hover {
+    background-color: #64b5f6 !important;
     color: #FFFFFF !important;
 }
-.menu .btn-submit:hover {
-    background-color: rgba(135,100,185,0.75) !important; /** purple **/
-    color: #FFFFFF !important;
-}   
-.menu .btn-help:hover {
-    background-color: rgba(85,85,85,0.75) !important;
-    color: #FFFFFF !important;
-}
-.menu .btn-search:hover {
-    background-color: rgba(50,170,220, 0.75) !important;
+
+.submit-active .menu .btn-search:hover,
+.submit-active .menu .btn-reset:hover {
+    background-color: #BDBDBD !important;
     color: #FFFFFF !important;
 }
 
@@ -188,7 +182,11 @@ body {
     top: 0px;
     left: 0px;
     right: 0px;
-    height: 60px;
+    height: 50px;
+    background-color: rgba(33,135,243,1);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
 }
 .side-header .gear {
     position: absolute;
@@ -226,7 +224,6 @@ body {
     margin-left: 0px;
     padding: 0px;
     border-radius: 20px;
-    background-color: #FFFFFF;
 
     text-align: center;
     font-size: 20px;
@@ -234,11 +231,13 @@ body {
 }
 
 .side-header .btn-header-group .btn:active {
+    color: #e3f2fd;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
 }
 .side-header .btn-header-group .btn:hover {
+    color: #e3f2fd;
     opacity: 0.8;
 }
 
@@ -251,8 +250,13 @@ body {
 /** side-header-hide-conditions **/
 .body-container.submit-active .side-header, 
 .body-container.info .side-header,
-.body-container.search .side-header{
+.body-container.search .side-header {
     visibility: hidden !important;
+}
+
+.body-container.search > .side-search > .search-main > .side-header,
+.body-container.submit-active .side-confirm > .confirm-main > .side-header {
+    visibility: visible !important;
 }
 
 
@@ -275,6 +279,7 @@ body {
     border-radius: 10px;
     overflow: visible;
     z-index: 1;
+    border: 3px solid rgba(33,135,243,1);
     -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
@@ -308,8 +313,7 @@ abbr.no-border {
     margin-top: 0px;
     margin-bottom: 0px;
     font-weight: 300;
-    text-align: center;
-    color: #B786FF;
+    color: #2979ff;
 }
 
 .side-info .title small {
@@ -368,22 +372,42 @@ abbr.no-border {
     bottom: 5px;
     right: 5px;
     left: 5px;
-    border-radius: 10px;
-    border: 3px solid #8561b9; /** purple **/
 }
 
 /** confirm css **/
 .side-confirm {
     position: absolute;
-    z-index: 5;
-    height: 100%;
-    width: 100%;
-    /** background-color: #8561b9; **/ /** purple **/
-    background-color: #FFFFFF;
-    border-radius: 10px;
+    z-index: 650;
+    top: 30px;
+    bottom: 30px;
+    right: 20px;
+    width: 480px;
+    background-color: transparent;
     font-weight: 500;
     overflow: hidden;
     display: none;
+}
+
+.confirm-main {
+    background: #FFF;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 3px solid rgba(33,135,243,1);
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+    
+}
+
+.side-confirm .inner {
+    position: absolute;
+    z-index: 800;
+    top: 50px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    height: auto;
 }
 
 .side-confirm > .inputs {
@@ -403,48 +427,18 @@ abbr.no-border {
     z-index: 200;
 }
 
-.btn-dismiss {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    height: auto;
-    width: auto;
-    margin-top: 10px;
-    margin-right: 10px;
-    opacity: 0.8;
-    z-index: 200;
-}
-
-.btn-dismiss .fa-submit-close {
-    color: #8561B9;
-}
-
-.side-confirm .body {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 70px;
-    margin-left: 30px;
-    margin-right: 30px;
-    overflow: hidden;
-    text-align: left;
-    color: #8561b9;
-}
-
 .side-confirm small {
     color: inherit;
 }
 
-.side-confirm .body > .body-overflow {
+.side-confirm .body-overflow {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    margin-top: 80px;
-    padding-right: 10px;
-
+    top: 5px;
+    left: 15px;
+    right: 15px;
+    bottom: 55px;
+    padding-left: 10px;
+    padding-right: 20px;
     overflow-y: auto;
 }
 
@@ -489,37 +483,6 @@ abbr.no-border {
     margin-bottom: 20px;
 }
 
-..btn-dismiss:hover {
-    opacity: 1;
-}
-
-.btn-dismiss:active {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-}
-
-.btn-dismiss>  .fa-close {
-    text-shadow:
-        -1px -1px 0 #FFFFFF,  
-        1px -1px 0 #FFFFFF,
-        -1px 1px 0 #FFFFFF,
-        1px 1px 0 #FFFFFF;
-}
-
-.btn-dismiss > .fa-close.fa-submit-close {
-    text-shadow:
-        -1px -1px 0 #8561B9,  
-        1px -1px 0 #8561B9,
-        -1px 1px 0 #8561B9,
-        1px 1px 0 #8561B9;
-}
-
-.btn-dismiss:active > .fa-close {
-    text-shadow: none;
-}
-
-
 .btn-confirm {
     position: absolute;
     bottom: 0px;
@@ -550,38 +513,56 @@ abbr.no-border {
     position: absolute;
     display: none;
     z-index: 800;
-    top: 37px;
-    right: 27px;
-    bottom: 37px;
-    height: auto;
-    width: 466px;
+    top: 30px;
+    right: 20px;
+    bottom: 30px;
+    width: 480px;
     border-radius: 10px;
-    background-color: #34AADE;
+    height: auto;
+    background-color: #FFFFFF;
 }
 
-.body-container.search .inner {
-    border: 3px solid #34AADE;
+.side-search .search-main {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    border: 3px solid #2186F3;
 }
 
-.side-search > .search-body {
-    margin-top: 80px;
+.side-search .side-header,
+.side-confirm .side-header {
+    padding-left: 20px;
+}
+
+.side-search .side-header h3,
+.side-confirm .side-header h3 {
+    margin-top: 14px;
+    font-weight: 700;
+}
+
+.side-search .inner {
+    position: absolute;
+    z-index: 800;
+    top: 50px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    height: auto;
+}
+
+.side-search .inner .search-body {
+    margin-top: 20px;
     margin-left: 15px;
     margin-right: 15px;
     height: 50px;
 }
 
+
 .search-body > .form-control {
     display: inline-block;
-    width: 340px;
+    width: 450px;
     font-size: 18px;
     height: 100%;
-}
-
-.search-body > .btn {
-    height: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    float: right !important;
 }
 
 .pac-container {
@@ -607,6 +588,35 @@ abbr.no-border {
     display: none;
 }
 
+/** bottom panel buttons **/
+.panel-btn-bottom {
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    z-index: 850;
+}
+
+.panel-btn-bottom .btn {
+    width: 45%;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.panel-btn-bottom .btn-positive {
+    background-color: #2196f3;
+}
+.panel-btn-bottom .btn-negative {
+    background-color: #f06292; 
+}
+
+
+
 /** form css **/
 .form-section {
     padding-bottom: 12px;
@@ -626,6 +636,13 @@ abbr.no-border {
     text-align: justify;
 }
 
+.form-section .blue,
+.section-reverse .blue {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2196F3;
+}
+
 .section-centered {
     text-align: center;
 }
@@ -640,59 +657,38 @@ abbr.no-border {
     margin-left: 5px;
     margin-right: 5px;
     border-width: 2px;
-    background-color: rgba(255,255,255,0.75);
+    border-color: #2196F3;
+    background-color: #FFFFFF;
     padding-top: 4px;
     padding-bottom: 4px;
     margin-bottom: 10px;
 }
 
-.btn-path > .fa {
-    margin-top: 3px;
-    visibility: hidden;
-    opacity: 0.5;
+.btn-path:hover {
+   background-color: #64b5f6; /** 300 **/
+}
+.btn-path:hover > .btn-path-label {
+    color: #FFFFFF;
 }
 
-.btn-path:hover > .fa {
-    visibility: visible !important;
-    opacity: 0.5 !important;
+.btn-path:active {
+    background-color: #64b5f6;
 }
 
-.btn-path.active > .fa {
-    visibility: visible !important;
-    opacity: 1 !important;
+.btn-path.active {
+    background-color: #64b5f6 !important;
 }
+
+.btn-path:active > .btn-path-label,
+.btn-path.active > .btn-path-label {
+    color: #FFFFFF;
+}
+
 
 .btn-path-label {
     display: block;
-    float: left;
     font-weight: 500;
-    text-transform: lowercase;
-}
-
-/** path type buttons **/
-.path-road {
-    border-color: #404040;
-    
-}
-
-.path-bike {
-    border-color: #8561b9; /** purple **/
-}
-
-.path-cycleway {
-    border-color: #33CC33;
-}
-
-.path-foot {
-    border-color: #99CCFF;
-}
-
-.path-shared-foot {
-    border-color: #3366FF;
-}
-
-.path-null {
-    border-color: #808080;
+    text-transform: uppercase;
 }
 
 /** slider css **/
@@ -738,7 +734,7 @@ abbr.no-border {
 
 /** slider info divs **/
 .noUi-connect {
-    background: #8561B9 !important;
+    background: #448aff !important;
 }
 
 .rate-info {
@@ -799,7 +795,7 @@ abbr.no-border {
 }
 
 .comments:focus {
-    border-color: #8561B9;
+    border-color: #64b5f6;
     box-shadow: 0 0 5px rgba(0,0,0,0.6);
     -moz-box-shadow: 0 0 5px rgba(0,0,0,0.6);
     -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.6);

@@ -1,10 +1,21 @@
 <div class="side-search">
-    <div class="btn-dismiss btn dismiss-search">
-        <i class="fa fa-close fa-3x fa-inverse"></i>
-    </div>
+    <div class="search-main">
+        <div class="side-header">
+            <h3>Search Location</h3>
+        </div>
 
-    <div class="search-body">
-        <input id="pac-input" type="text" class="form-control" placeholder="Enter a location"> 
-        <button id="search" class="btn btn-primary" type="button"><i class="fa fa-search fa-2x fa-fw"></i></button>
+        <div class="panel-btn-bottom">
+            <button class="btn btn-search-panel dismiss-search btn-negative">GO BACK</button>
+            <button id="search" class="btn btn-search-panel btn-place-marker btn-positive">PLACE MARKER</button>
+
+        </div>
+        <div class="inner">
+
+
+            <div class="search-body">
+                <input id="pac-input" type="text" class="form-control" placeholder="Enter a location (eg. Sydney Opera House)"> 
+            </div>
+
+        </div>
     </div>
 </div>

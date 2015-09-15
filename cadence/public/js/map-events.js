@@ -283,6 +283,7 @@ function activateFormEvents() {
 function dismissSubmitPane() {
     $(".side-confirm").fadeOut("slow");
     $(".map-overlay").fadeOut("slow");
+    $(".main-menu").removeClass("submit-active");
     $(".body-container").removeClass("submit-active");
 }
 
@@ -292,6 +293,11 @@ function dismissSearchPane() {
 }
 
 function resetMap() {
+    if ($(".body-container").hasClass("submit-active")) {
+        return;
+    }
+
+    dismissSearchPane();
     $(".body-container").addClass("info");
     $(".side-info").fadeIn("fast");
     $(".form-content").empty();
@@ -349,6 +355,7 @@ $(document).ready(function() {
         $(".side-confirm").fadeIn("fast");
         $(".map-overlay").fadeIn("fast");
         $(".body-container").addClass("submit-active");
+        $(".main-menu").addClass("submit-active");
         dismissSearchPane();
     });
 
@@ -409,6 +416,9 @@ $(document).ready(function() {
 
     //FIX
     $(".btn-search").click(function() {
+        if ($(".body-container").hasClass("submit-active")) {
+            return;
+        }
         $(".body-container").addClass("search");
         $(".side-search").fadeIn("fast");
         $("#pac-input").val('').select();

@@ -1,11 +1,10 @@
 <div class="side-confirm">
-    <div class="inputs">
-        <div class="btn-dismiss btn dismiss-submit">
-            <i class="fa fa-close fa-3x fa-submit-close"></i>
+    <div class="confirm-main">
+        <div class="side-header">
+            <h3>You're Almost Done!</h3>
         </div>
 
-        <div class="body">
-            <h1>You're almost done!</h1>
+        <div class="inner inputs">
             <div class="body-overflow">
                 <div class="route-name spacer">
                     <h3>Route name<sup>*</sup></h3>
@@ -22,8 +21,9 @@
             </div>
         </div>
 
-        <div class="btn-confirm">
-            <button type="submit" class="btn btn-default">Confirm</button>
+        <div class="panel-btn-bottom">
+            <div class="btn btn-submit-panel dismiss-submit btn-negative">GO BACK</div>
+            <button type="submit" id="search" class="btn btn-submit-panel btn-place-marker btn-positive">SUBMIT YOUR JOURNEY</button>
         </div>
     </div>
 
