@@ -4,14 +4,14 @@ var formEntity;
 var dragIndex = -1;
 
 var mactive = {
-    url: '/map/img/markers/marker-measle.png',
+    url: '/map/img/markers/marker-blue.png',
     size: new google.maps.Size(24, 46),
     origin: new google.maps.Point(0,0),
     anchor: new google.maps.Point(12,40)
 };
 
 var mpip = {
-    url: '/map/img/markers/measle.png',
+    url: '/map/img/markers/measle-blue.png',
     size: new google.maps.Size(12,12),
     origin: new google.maps.Point(0,0),
     anchor: new google.maps.Point(6,6)
@@ -281,6 +281,9 @@ function activateFormEvents() {
 }
 
 function dismissSubmitPane() {
+    if ($(".body-container").hasClass("submit-complete")) {
+        return;
+    }
     $(".side-confirm").fadeOut("slow");
     $(".map-overlay").fadeOut("slow");
     $(".main-menu").removeClass("submit-active");
@@ -310,6 +313,9 @@ function resetMap() {
 }
 
 function showHelp() {
+    if ($(".body-container").hasClass("submit-complete")) {
+        return;
+    }
     $(".help").fadeIn("fast");
     $(".side-menu").hide();
 }
@@ -317,6 +323,13 @@ function showHelp() {
 function hideHelp() {
     $(".help").fadeOut("fast");
     $(".side-menu").show();
+}
+
+function submitComplete() {
+    $(".body-container").addClass("submit-complete");
+    $(".thanks").fadeIn("fast");
+    $(".inputs").hide();
+
 }
 
 /* init */
@@ -346,12 +359,15 @@ $(document).ready(function() {
             url:    url,
             data:   data,
             success: function() {
-                alert('success');
+                submitComplete();
             }
         });
     });
 
     $(".btn-submit").click(function() {
+        if ($(".body-container").hasClass("submit-complete")) {
+            return;
+        }
         $(".side-confirm").fadeIn("fast");
         $(".map-overlay").fadeIn("fast");
         $(".body-container").addClass("submit-active");

@@ -255,7 +255,7 @@ body {
 }
 
 .body-container.search > .side-search > .search-main > .side-header,
-.body-container.submit-active .side-confirm > .confirm-main > .side-header {
+.body-container.submit-active .side-confirm > .confirm-main .side-header {
     visibility: visible !important;
 }
 
@@ -410,12 +410,14 @@ abbr.no-border {
     height: auto;
 }
 
-.side-confirm > .inputs {
+.side-confirm .inputs {
     display: block;
 }
 
-.side-confirm > .thanks {
+.side-confirm .thanks {
+    color: #2979ff;
     display: none;
+    text-align: center;
 }
 
 .map-overlay {
@@ -440,10 +442,6 @@ abbr.no-border {
     padding-left: 10px;
     padding-right: 20px;
     overflow-y: auto;
-}
-
-.side-confirm .body > .body-overflow.top-padding {
-    margin-top: 120px;
 }
 
 .side-confirm .body-overflow h3 {
@@ -483,29 +481,11 @@ abbr.no-border {
     margin-bottom: 20px;
 }
 
-.btn-confirm {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    margin-left: 30px;
-    margin-bottom: 10px;
-}
-
-.btn-confirm .btn {
-    border: 2px solid transparent;
-    background-color: transparent;
-    color: #8561b9;
-    font-size: 36px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-radius: 10px;
-}
-
-.btn-confirm .btn:hover, .btn-confirm .btn:focus {
-    border: 2px solid #8561b9;
-
+.side-confirm .thanks .btn-thanks {
+    width: 80%;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    margin-top: 20px;
 }
 
 /** search css **/
@@ -608,11 +588,13 @@ abbr.no-border {
     font-weight: 700;
 }
 
-.panel-btn-bottom .btn-positive {
+.btn-positive {
     background-color: #2196f3;
+    text-transform: uppercase;
 }
-.panel-btn-bottom .btn-negative {
+.btn-negative {
     background-color: #f06292; 
+    text-transform: uppercase;
 }
 
 
@@ -657,7 +639,7 @@ abbr.no-border {
     margin-left: 5px;
     margin-right: 5px;
     border-width: 2px;
-    border-color: #2196F3;
+    border-color: #2196f3;
     background-color: #FFFFFF;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -665,18 +647,21 @@ abbr.no-border {
 }
 
 .btn-path:hover {
-   background-color: #64b5f6; /** 300 **/
+    border-color: #f06292 !important;
+    background-color: #f06292; /** 300 **/
 }
 .btn-path:hover > .btn-path-label {
     color: #FFFFFF;
 }
 
 .btn-path:active {
-    background-color: #64b5f6;
+    background-color: #f06292;
+    border-color: #f06292 !important;
 }
 
 .btn-path.active {
-    background-color: #64b5f6 !important;
+    background-color: #f06292 !important;
+    border-color: #f06292 !important;
 }
 
 .btn-path:active > .btn-path-label,
@@ -734,7 +719,7 @@ abbr.no-border {
 
 /** slider info divs **/
 .noUi-connect {
-    background: #448aff !important;
+    background: #f06292 !important;
 }
 
 .rate-info {
