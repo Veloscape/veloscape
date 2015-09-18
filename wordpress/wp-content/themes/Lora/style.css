@@ -1080,11 +1080,18 @@ ul.recent-posts li {
 
 .fullscreen .post .title {
 	position: absolute;
-	left: 0;
-	bottom: 0;
 	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
 	padding: 2em;
 	z-index: 100;
+}
+
+.fullscreen .post .title .title2 {
+    position: absolute;
+    bottom: 0px;
+    margin-bottom: 2em;
 }
 
 .fullscreen article.fullwidth .title {

@@ -223,14 +223,16 @@ if( $blog_param == 'masonry' || $blog_param == 'masonry_fullscreen' || $blog_par
 </article>
 
 <?php } else { ?>
-
-	<div class="overlay"></div>
-	
-	<div class="title">
-		<a href="<?php the_permalink(); ?>"><h2 class="entry-title"><?php the_title(); ?></h2></a>
-		<?php if( $subtitle != '' ) echo '<p class="subtitle">' . $subtitle . '</p>'; ?>
-		<div class="underline"></div>
-		<?php lora_post_meta( 'default' ); ?>
-	</div>
+    <div class="overlay"></div>
+    <a href="<?php the_permalink(); ?>">
+        <div class="title">
+            <div class="title2">
+                <h2 class="entry-title"><?php the_title(); ?></h2>
+                <?php if( $subtitle != '' ) echo '<p class="subtitle">' . $subtitle . '</p>'; ?>
+                <div class="underline"></div>
+            </div>
+            <!--  -->
+        </div>
+    </a>
 
 <?php } ?>
