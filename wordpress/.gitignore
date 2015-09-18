@@ -1,0 +1,10 @@
+index.php
+license.txt
+wp-admin/
+wp-*.php
+wp-content/plugins/
+wp-content/themes/
+!wp-content/themes/Lora
+wp-includes/
+xmlrpc.php
+readme.html
