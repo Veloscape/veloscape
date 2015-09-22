@@ -50,6 +50,24 @@ body {
     overflow-y: hidden;
 }
 
+
+/** base styles **/
+.panel-border {
+    border: 3px solid rgba(33,135,243,1);   /** #2187F3 **/
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+
+}
+
+.side-dimen {
+    position: absolute;
+    width: 480px;
+    top: 30px;
+    bottom: 30px;
+    right: 20px;
+}
+
 /** gear icon **/
 .gear {
     background: transparent url('../img/veloscape-gear-white-border.png') center no-repeat;
@@ -262,11 +280,6 @@ body {
 
 /* map side menu */
 .side-menu {
-    position: absolute;
-    width: 480px;
-    top: 30px;
-    bottom: 30px;
-    right: 20px;
     z-index: 600;
     background: transparent;
     font-weight: 600;
@@ -376,12 +389,7 @@ abbr.no-border {
 
 /** confirm css **/
 .side-confirm {
-    position: absolute;
     z-index: 650;
-    top: 30px;
-    bottom: 30px;
-    right: 20px;
-    width: 480px;
     background-color: transparent;
     font-weight: 500;
     overflow: hidden;
@@ -486,17 +494,13 @@ abbr.no-border {
     color: #FFFFFF !important;
     font-weight: 700;
     margin-top: 20px;
+    text-transform: lowercase;
 }
 
 /** search css **/
 .side-search {
-    position: absolute;
     display: none;
     z-index: 800;
-    top: 30px;
-    right: 20px;
-    bottom: 30px;
-    width: 480px;
     border-radius: 10px;
     height: auto;
     background-color: #FFFFFF;
@@ -586,6 +590,7 @@ abbr.no-border {
     margin-top: 5px;
     color: #FFFFFF;
     font-weight: 700;
+    text-transform: lowercase;
 }
 
 .btn-positive {
@@ -622,8 +627,8 @@ abbr.no-border {
 .section-reverse .blue {
     font-size: 20px;
     font-weight: 600;
-    color: #2196F3;
 }
+
 
 .section-centered {
     text-align: center;
@@ -639,7 +644,7 @@ abbr.no-border {
     margin-left: 5px;
     margin-right: 5px;
     border-width: 2px;
-    border-color: #2196f3;
+    border-color: #2187f3;
     background-color: #FFFFFF;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -672,8 +677,8 @@ abbr.no-border {
 
 .btn-path-label {
     display: block;
-    font-weight: 500;
-    text-transform: uppercase;
+    font-weight: 700;
+    text-transform: lowercase;
 }
 
 /** slider css **/
@@ -747,7 +752,7 @@ abbr.no-border {
 .rate-value {
     display: inline-block;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1.12;
     margin-left: 60px;
     max-width: 40%;
@@ -821,9 +826,17 @@ abbr.no-border {
     overflow-y: auto;
 }
 
+.help .inner h3 {
+    color: #F06292;
+}
+
 .help .img-container {
     width: 600px;
     margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    margin-bottom: 20px;
 }
 
 .help .img-container.center {
@@ -838,4 +851,12 @@ abbr.no-border {
     right: 0px;
     text-align: center;
     font-size: 20px;
+}
+
+.blue {
+    color: #2187F3;
+}
+
+.pink {
+    color: #F06292;
 }

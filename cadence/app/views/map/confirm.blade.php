@@ -1,4 +1,4 @@
-<div class="side-confirm">
+<div class="side-confirm side-dimen">
     <div class="confirm-main">
         <div class="inputs">
             <div class="side-header">

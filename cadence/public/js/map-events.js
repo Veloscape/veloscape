@@ -317,12 +317,12 @@ function showHelp() {
         return;
     }
     $(".help").fadeIn("fast");
-    $(".side-menu").hide();
+    $(".side-dimen").addClass("hidden");
 }
 
 function hideHelp() {
     $(".help").fadeOut("fast");
-    $(".side-menu").show();
+    $(".side-dimen").removeClass("hidden");
 }
 
 function submitComplete() {
@@ -430,7 +430,6 @@ $(document).ready(function() {
         dismissSearchPane();
     });
 
-    //FIX
     $(".btn-search").click(function() {
         if ($(".body-container").hasClass("submit-active")) {
             return;
@@ -440,7 +439,6 @@ $(document).ready(function() {
         $("#pac-input").val('').select();
     });
 
-    //FIX
     $("#search").click(function() {
         var address = $("#pac-input").val();
         searchAddress(address);

@@ -36,6 +36,9 @@
             <button type="button" class="btn btn-path path-shared-foot" data-type="sharedfootpath">
                 <span class="btn-path-label">Shared Footpath</span>
             </button>
+            <button type="button" class="btn btn-path path-offroad" data-type="offroad">
+                <span class="btn-path-label">Off-Road</span>
+            </button>
             <div class="form-hidden">
             {{ Form::label($type, 'type') }}
             {{ Form::text($type, 'none', ['class' => 'type']) }}
@@ -96,6 +99,6 @@
         <div class="section-reverse">
             <span class="h4"><span class="blue">3.</span> Any additional thoughts or comments?</span>
         </div>
-            <textarea id="{{$comments}}" name="{{$comments}}" class="form-control comments" placeholder="(Max 250 characters)"></textarea>
+            <textarea id="{{$comments}}" name="{{$comments}}" class="form-control comments" placeholder="(Max 1000 characters)"></textarea>
     </div>
 </div>

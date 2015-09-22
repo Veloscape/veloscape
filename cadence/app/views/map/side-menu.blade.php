@@ -1,4 +1,4 @@
-<div class="side-menu">
+<div class="side-menu side-dimen">
     <div class="side-main">
         <div class="inner">
             @include('map.info')

@@ -40,8 +40,8 @@
                         @foreach ($routes as $route)
                             <tr>
                                 <th>{{$route->id}}</th>
-                                <th>{{$route->title}}</th>
-                                <th>{{$route->desc}}</th>
+                                <th class="break">{{$route->title}}</th>
+                                <th class="break">{{$route->desc}}</th>
                                 <th>{{$route->markers->first()->rev_geo }}</th>
                                 <th>{{$route->markers->last()->rev_geo }}</th>
                                 <th>{{$route->updated_at}}</th>

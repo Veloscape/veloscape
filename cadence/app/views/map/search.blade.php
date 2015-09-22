@@ -1,4 +1,4 @@
-<div class="side-search">
+<div class="side-search side-dimen">
     <div class="search-main">
         <div class="side-header">
             <h3>Search Location</h3>

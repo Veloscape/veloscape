@@ -123,3 +123,11 @@ a:hover {
     top: 100%;
     margin-top: 20px;
 }
+
+.table {
+    table-layout: fixed !important;
+}
+
+.table .break {
+    word-break: break-all;
+}
