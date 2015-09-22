@@ -452,7 +452,7 @@ $(document).ready(function() {
         showHelp();
     });
 
-    $(".dismiss-help").click(function() {
+    $(".btn-dismiss-help").click(function() {
         hideHelp();
     });
 

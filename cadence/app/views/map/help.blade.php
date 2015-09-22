@@ -19,17 +19,9 @@
         </p>
 
         <h3>The Marker Controls</h3>
-        <p>Once you've placed a marker, the side panel will change to show the marker controls (shown below) and Feedback questions.
-        </p>
         <div class="img-container center">
             <img src="/map/img/map-help-6.png" class="img-responsive">
         </div>
-        <p><b>1. Marker Location</b> - Our 'best guess' of the currently selected Marker's street 
-            address. Dont worry if the address is a bit off!
-        </p>
-        <p><b>2. Previous Marker</b> - Selects the previous Marker in your journey. </p>
-        <p><b>3. Next Marker</b> - Selects the next Marker in your journey. </p>
-        <p><b>4. Delete Marker</b> - Removes the currently selected Marker from your journey. </p>
             
         <h3>Share Your Riding Experiences</h3>
         <p>
@@ -48,8 +40,8 @@
         <p><b>Want more help or want to provide feedback? Write to us at <span class="blue"><a href="mailto:veloscape@unsw.edu.au">veloscape@unsw.edu.au</a></span></b></p>
     </div>
 
-    <div class="btn dismiss-help">
-        Dismiss Help
+    <div class="dismiss-help">
+        <button class="btn btn-dismiss-help btn-negative">dismiss help</button>
     </div>
 
 </div>

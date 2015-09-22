@@ -817,7 +817,7 @@ abbr.no-border {
 .help .inner {
     position: absolute;
     top: 0px;
-    bottom: 50px;
+    bottom: 58px;
     left: 0px;
     right: 0px;
     padding-left: 20px;
@@ -827,8 +827,9 @@ abbr.no-border {
 }
 
 .help .inner h3 {
-    color: #F06292;
+    text-align: center;
 }
+
 
 .help .img-container {
     width: 600px;
@@ -841,7 +842,7 @@ abbr.no-border {
 
 .help .img-container.center {
     text-align: center;
-    width: 400px;
+    width: 500px;
 }
 
 .help .dismiss-help {
@@ -851,6 +852,14 @@ abbr.no-border {
     right: 0px;
     text-align: center;
     font-size: 20px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.dismiss-help .btn-dismiss-help {
+    font-weight: 700;
+    color: #FFF;
+    text-transform: lowercase;
 }
 
 .blue {
