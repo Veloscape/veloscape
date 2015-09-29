@@ -99,6 +99,6 @@
         <div class="section-reverse">
             <span class="h4"><span class="blue">3.</span> Any additional thoughts or comments?</span>
         </div>
-            <textarea id="{{$comments}}" name="{{$comments}}" class="form-control comments" placeholder="(Max 1000 characters)"></textarea>
+            <textarea id="{{$comments}}" name="{{$comments}}" class="form-control comments" placeholder="(Max 1000 characters)" maxlength="1000"></textarea>
     </div>
 </div>

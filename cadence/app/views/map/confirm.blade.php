@@ -16,7 +16,7 @@
 
                     <div class="route-desc spacer">
                         <h3>Description for this route</h3>
-                        <textarea id="desc" class="form-control" rows="7" name="map[desc]" maxlength="500"></textarea>
+                        <textarea id="desc" class="form-control" rows="7" name="map[desc]" maxlength="1000"></textarea>
                         <span class="warning">Character limit reached.</span>
                     </div>
                 </div>
