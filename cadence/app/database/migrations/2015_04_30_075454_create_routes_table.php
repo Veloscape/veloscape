@@ -17,7 +17,7 @@ class CreateRoutesTable extends Migration {
 			$table->increments('id');
 
             $table->string('title');
-            $table->string('desc')->nullable();
+            $table->string('desc', 1000)->nullable();
 
 			$table->timestamps();
 		});

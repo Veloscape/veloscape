@@ -17,7 +17,7 @@ class CreateMarkerValuesTable extends Migration {
 			$table->increments('id');
             $table->integer('marker_id');
             $table->string('key');
-            $table->string('value');
+            $table->string('value', 1000);
 			$table->timestamps();
 		});
 	}
