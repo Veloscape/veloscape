@@ -213,6 +213,7 @@ function changeMarkerGeo(id, location) {
 function changeFormFocus(id) {
     $(".map-form-entity").hide();
     $("#"+id.toString()).show();
+    $("#"+id.toString()).parent().animate({scrollTop: 0}, "fast");
     modifyAddress($("#"+id.toString()).find(".revgeo").val());
 }
 
@@ -278,6 +279,16 @@ function activateFormEvents() {
         }
     });
 
+    $(".map-form-entity").first().find(".section-comment").find("textarea").keyup(function() {
+        if($(this).val().length >= 1000) {
+            $(this).parent().addClass('warning-show');
+        }
+        else {
+            $(this).parent().removeClass('warning-show');
+        }
+    });
+
+
 }
 
 function dismissSubmitPane() {
@@ -317,6 +328,7 @@ function showHelp() {
         return;
     }
     $(".help").fadeIn("fast");
+    $(".help-container").find(".inner").animate({scrollTop: 0}, "fast");
     $(".side-dimen").addClass("hidden");
 }
 
@@ -401,7 +413,7 @@ $(document).ready(function() {
     
     /** submit boundry functions **/
     $("#name").keyup(function() {
-        if($(this).val().length == 50) {
+        if($(this).val().length >= 50) {
             $(".route-name").first().addClass('warning-show');
         }
         else {
@@ -411,7 +423,7 @@ $(document).ready(function() {
     });
 
     $("#desc").keyup(function() {
-        if($(this).val().length == 500) {
+        if($(this).val().length >= 1000) {
             $(".route-desc").first().addClass('warning-show');
         }
         else {

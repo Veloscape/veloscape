@@ -374,6 +374,23 @@ abbr.no-border {
     width: 60px;
 }
 
+.form-content .warning {
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 6px;
+    color: #DD4B39;
+    display: none;
+}
+
+.form-content .warning-show .warning {
+    display: block;
+}
+
+.form-content .warning-show textarea {
+    border-color: #DD4B39;
+    box-shadow: 0px 0px 8px rgba(220, 75, 60, 0.6);
+}
+
 
 /** side inner **/
 .side-main .inner {
