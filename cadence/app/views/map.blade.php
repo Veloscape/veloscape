@@ -13,7 +13,12 @@
 @stop
 
 @section('body')
+    <div class="mobile-notice">
+        @include('map.notice')
+    </div>
+
     <div class="body-container info">
+
 
         <div class="map-container"> 
         @include('map.map-container')
